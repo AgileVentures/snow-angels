@@ -5,7 +5,7 @@ class CreateClients < ActiveRecord::Migration
       t.string :last_name
       t.text :address
       t.string :postcode
-      t.integer :phone
+      t.string :phone
 
       t.timestamps null: false
     end
