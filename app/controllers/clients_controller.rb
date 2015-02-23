@@ -6,6 +6,7 @@ class ClientsController < ApplicationController
 
   def create
     Client.create(client_params)
+    flash[:notice] = "Client successfully added"
     redirect_to '/pages'
   end
 
