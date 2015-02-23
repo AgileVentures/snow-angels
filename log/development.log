@@ -1,7 +1,0 @@
-  [1m[36m (385.0ms)[0m  [1mCREATE DATABASE "snow_angels_development" ENCODING = 'unicode'[0m
-
-
-Started GET "/" for ::1 at 2015-02-23 14:19:37 +0000
-Processing by Rails::WelcomeController#index as HTML
-  Rendered /Users/Bibs/.rvm/gems/ruby-2.1.1/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
-Completed 200 OK in 22ms (Views: 11.5ms | ActiveRecord: 0.0ms)
