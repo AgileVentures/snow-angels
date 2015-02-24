@@ -39,7 +39,7 @@ feature "client" do
 
   end
 
-  context 'view client' do
+  context "view client" do
 
     before do
       admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
@@ -69,11 +69,34 @@ feature "client" do
       expect(page).not_to have_content('Bob')
     end
 
-    it 'should show clients by ascending last name order' do
+    it "should show clients by ascending last name order" do
       add_second_client
       visit '/'
       click_link 'View client'
       expect(page.body) =~ /Bob.*Tom/
+    end
+
+  end
+
+  context 'edit client' do
+    before do
+      admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
+      admin.save
+      visit '/'
+      click_link 'Sign in'
+      fill_in 'Email', with: 'test@example.com'
+      fill_in 'Password', with: 'testtest'
+      click_button 'Log in'
+      add_client
+    end
+
+    it 'should be able to change the details' do
+      click_link 'View client'
+      click_link 'Edit'
+      fill_in 'Name', with: 'Thomas'
+      click_button 'Update Client'
+      click_link 'View client'
+      expect(page).to have_content 'Thomas'
     end
 
   end
