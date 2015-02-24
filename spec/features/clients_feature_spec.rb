@@ -101,4 +101,26 @@ feature "client" do
 
   end
 
+  context 'delete client' do
+
+    before do
+      admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
+      admin.save
+      visit '/'
+      click_link 'Sign in'
+      fill_in 'Email', with: 'test@example.com'
+      fill_in 'Password', with: 'testtest'
+      click_button 'Log in'
+      add_client
+    end
+
+    it 'should be able to delete client' do
+      click_link 'View client'
+      click_link 'Delete'
+      expect(page).not_to have_content 'Tom'
+      expect(current_path).to eq '/pages'
+    end
+
+  end
+
 end
