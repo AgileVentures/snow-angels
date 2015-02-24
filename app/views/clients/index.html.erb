@@ -1,0 +1,11 @@
+<% if @clients.any? %>
+
+  <% @clients.each do |client| %>
+    <%= client.name %>
+    <%= client.last_name %>
+    <%= client.address %>
+    <%= client.postcode %>
+    <%= client.phone %>
+  <% end %>
+
+<% end %>

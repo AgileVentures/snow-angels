@@ -26,7 +26,7 @@ context "admin signed in on the homepage" do
   end
 
   it "should see 'sign out' link" do
-    visit '/'
+    visit '/pages'
     expect(page).to have_link 'Sign out'
   end
 

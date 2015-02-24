@@ -1,5 +1,9 @@
 class ClientsController < ApplicationController
 
+  def index
+    @clients = Client.all
+  end
+
   def new
     @client = Client.new
   end
@@ -8,6 +12,10 @@ class ClientsController < ApplicationController
     Client.create(client_params)
     flash[:notice] = "Client successfully added"
     redirect_to '/pages'
+  end
+
+  def show
+    @client = Client.find(params[:id])
   end
 
   private

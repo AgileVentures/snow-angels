@@ -39,4 +39,26 @@ feature "client" do
 
   end
 
+  context 'view client' do
+
+    before do
+      admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
+      admin.save
+      visit '/'
+      click_link 'Sign in'
+      fill_in 'Email', with: 'test@example.com'
+      fill_in 'Password', with: 'testtest'
+      click_button 'Log in'
+      add_client
+    end
+
+    it "admin should be able to see client details" do
+      visit '/pages'
+      click_link 'View client'
+      expect(page).to have_content 'Tom'
+      expect(current_path).to eq '/clients'
+    end
+
+  end
+
 end

@@ -12,11 +12,11 @@ feature 'pages' do
       click_button 'Log in'
     end
 
-    scenario "should display the 'sign up', 'add client', and 'search' links" do
+    scenario "should display the 'sign up', 'add client', and 'View client' links" do
       visit '/pages'
       expect(page).to have_link 'Sign up'
       expect(page).to have_link 'Add client'
-      expect(page).to have_link 'Search'
+      expect(page).to have_link 'View client'
     end
 
   end
