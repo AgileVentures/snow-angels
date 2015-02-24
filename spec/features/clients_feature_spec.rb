@@ -69,6 +69,13 @@ feature "client" do
       expect(page).not_to have_content('Bob')
     end
 
+    it 'should show clients by ascending last name order' do
+      add_second_client
+      visit '/'
+      click_link 'View client'
+      expect(page.body) =~ /Bob.*Tom/
+    end
+
   end
 
 end
