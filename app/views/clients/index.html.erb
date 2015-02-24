@@ -1,0 +1,18 @@
+<%= form_tag(clients_path, :method => 'get', id: 'search-form') do %>
+  <%= text_field_tag :search, params[:search], placeholder: 'Search clients' %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+
+<% if @clients.any? %>
+
+  <% @clients.each do |client| %>
+    <%= client.name %>
+    <%= client.last_name %>
+    <%= client.address %>
+    <%= client.postcode %>
+    <%= client.phone %>
+    <%= link_to 'Edit', edit_client_path(client) %>
+    <%= link_to 'Delete', client_path(client), method: :delete %>
+  <% end %>
+
+<% end %>

@@ -7,9 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= notice %>
 
-<%= yield %>
+  <% if admin_signed_in? %>
+    <%= link_to "Sign out", destroy_admin_session_path, method: :delete %>
+    <%= link_to "Sign up", new_admin_registration_path %>
+    <%= link_to "Add client", new_client_path %>
+    <%= link_to "View client", clients_path %>
+    <%= link_to "Home", pages_path %>
+  <% else %>
+    <%= link_to "Sign in", new_admin_session_path %>
+  <% end %>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
 
 </body>
 </html>

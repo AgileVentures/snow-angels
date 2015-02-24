@@ -48,4 +48,26 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  def add_client
+    visit '/pages'
+    click_link 'Add client'
+    fill_in 'Name', with: 'Tom'
+    fill_in 'Last name', with: 'Smith'
+    fill_in 'Address', with: 'Makers'
+    fill_in 'Postcode', with: 'E1 2SF'
+    fill_in 'Phone', with: '07450991234'
+    click_button 'Create Client'
+  end
+
+  def add_second_client
+    visit '/pages'
+    click_link 'Add client'
+    fill_in 'Name', with: 'Bob'
+    fill_in 'Last name', with: 'Jones'
+    fill_in 'Address', with: 'Makers'
+    fill_in 'Postcode', with: 'E1 3RT'
+    fill_in 'Phone', with: '0777777888'
+    click_button 'Create Client'
+  end
 end
