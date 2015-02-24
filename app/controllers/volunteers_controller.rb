@@ -10,7 +10,7 @@ class VolunteersController < ApplicationController
   def create
     @volunteer = Volunteer.new(volunteer_params)
     if @volunteer.save
-      redirect_to volunteers_path
+      redirect_to volunteer_path(@volunteer)
       flash[:notice] = "Thank you for your registration"
     else
       render 'new'
@@ -18,10 +18,11 @@ class VolunteersController < ApplicationController
   end
 
   def show
+    @volunteer = Volunteer.find(params[:id])
   end
 
   def volunteer_params
-    params.require(:volunteer).permit(:name)
+    params.require(:volunteer).permit(:name, :address, :mobile_number)
   end
 
 end

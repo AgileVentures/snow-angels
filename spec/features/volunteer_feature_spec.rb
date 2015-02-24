@@ -33,5 +33,8 @@ feature 'volunteer' do
     end
   end
 
+  context "a volunteer's personal details"   do
+  end
+
 
 end
