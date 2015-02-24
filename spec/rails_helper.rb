@@ -59,4 +59,15 @@ RSpec.configure do |config|
     fill_in 'Phone', with: '07450991234'
     click_button 'Create Client'
   end
+
+  def add_second_client
+    visit '/pages'
+    click_link 'Add client'
+    fill_in 'Name', with: 'Bob'
+    fill_in 'Last name', with: 'Jones'
+    fill_in 'Address', with: 'Makers'
+    fill_in 'Postcode', with: 'E1 3RT'
+    fill_in 'Phone', with: '0777777888'
+    click_button 'Create Client'
+  end
 end

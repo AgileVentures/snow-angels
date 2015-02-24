@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "client" do
-  
+
   context "Add client" do
 
     before do
@@ -15,7 +15,7 @@ feature "client" do
     end
 
     it "should be able display a form to add a client" do
-      visit '/pages'
+      visit '/'
       click_link 'Add client'
       expect(page).to have_content 'Name'
       expect(page).to have_content 'Last name'
@@ -25,7 +25,7 @@ feature "client" do
     end
 
     it "should be able to create a client" do
-      visit '/pages'
+      visit '/'
       click_link 'Add client'
       fill_in 'Name', with: 'Tom'
       fill_in 'Last name', with: 'Smith'
@@ -53,10 +53,20 @@ feature "client" do
     end
 
     it "admin should be able to see client details" do
-      visit '/pages'
+      visit '/'
       click_link 'View client'
       expect(page).to have_content 'Tom'
       expect(current_path).to eq '/clients'
+    end
+
+    it "should be able to search" do
+      add_second_client
+      visit '/'
+      click_link 'View client'
+      fill_in 'search', with: 'Tom'
+      click_button 'Search'
+      expect(page).to have_content('Tom')
+      expect(page).not_to have_content('Bob')
     end
 
   end
