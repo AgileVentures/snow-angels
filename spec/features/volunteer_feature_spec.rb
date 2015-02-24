@@ -21,7 +21,7 @@ feature 'volunteer' do
     end
   end
 
-  context 'a volunteer personal details is listing' do
+  context 'a volunteer personal details to be shown in the listing' do
     scenario 'a volunteer can be shown in a list page' do
       visit '/volunteers'
       click_link 'Register'
@@ -30,10 +30,45 @@ feature 'volunteer' do
       fill_in 'Mobile number', with: '123456'
       click_button 'Create Volunteer'
       expect(page).to have_content 'Richard'
+      expect(page).to have_content 'Address123'
+      expect(page).to have_content '123456'
     end
   end
 
-  context "a volunteer's personal details"   do
+  context "a volunteer's personal details can be edited" do
+    scenario 'a volunteers details can be edited in the show page' do
+      visit '/volunteers'
+      click_link 'Register'
+      fill_in 'Name', with: 'Richard'
+      fill_in 'Address', with: 'Address123'
+      fill_in 'Mobile number', with: '123456'
+      click_button 'Create Volunteer'
+      click_link 'Edit1'
+
+      fill_in 'Name', with: 'Richard_2'
+      fill_in 'Address', with: 'Address123_2'
+      fill_in 'Mobile number', with: '123456_2'
+      click_button 'Update Volunteer'
+      expect(page).to have_content 'Richard_2'
+      expect(page).to have_content 'Address123_2'
+      expect(page).to have_content '123456_2'
+    end
+  end
+
+  context "a volunteer's personal details can be deleted" do
+    scenario 'a volunteers details can be deleted in the show page' do
+      visit '/volunteers'
+      click_link 'Register'
+      fill_in 'Name', with: 'Richard'
+      fill_in 'Address', with: 'Address123'
+      fill_in 'Mobile number', with: '123456'
+      click_button 'Create Volunteer'
+      click_link 'Delete'
+
+      expect(page).not_to have_content 'Richard'
+      expect(page).not_to have_content 'Address123'
+      expect(page).not_to have_content '123456'
+    end
   end
 
 

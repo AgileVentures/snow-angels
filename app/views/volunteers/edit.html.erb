@@ -1,0 +1,21 @@
+<% if @volunteer.errors.any? %>
+<section id="errors" >
+  <h2> <%= pluralize(@volunteer.errors.count, "error") %> prohibited this volunteer from being saved: </h2>
+  <ul>
+    <% @volunteer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %>
+
+<%= form_for @volunteer do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :mobile_number %>
+  <%= f.text_field :mobile_number %>
+  <%= f.submit %>
+<% end %>
