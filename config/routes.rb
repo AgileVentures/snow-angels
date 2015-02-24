@@ -54,7 +54,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :volunteers
+  resources :volunteers #index page
+  resources :volunteer  #show page
 
 
 end

@@ -11,9 +11,13 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(volunteer_params)
     if @volunteer.save
       redirect_to volunteers_path
+      flash[:notice] = "Thank you for your registration"
     else
       render 'new'
     end
+  end
+
+  def show
   end
 
   def volunteer_params

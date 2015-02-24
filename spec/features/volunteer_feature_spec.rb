@@ -15,10 +15,21 @@ feature 'volunteer' do
       visit '/volunteers'
       click_link 'Register'
       fill_in 'Name', with: 'Richard'
+      fill_in 'Address', with: 'Address123'
+      fill_in 'Mobile number', with: '123456'
       click_button 'Create Volunteer'
-      # fill_in 'Address' with: 'Address123'
-      # fill_in 'Mobile number' with: '123456'
-      # check ('A Checkbox')
+    end
+  end
+
+  context 'a volunteer personal details is listing' do
+    scenario 'a volunteer can be shown in a list page' do
+      visit '/volunteers'
+      click_link 'Register'
+      fill_in 'Name', with: 'Richard'
+      fill_in 'Address', with: 'Address123'
+      fill_in 'Mobile number', with: '123456'
+      click_button 'Create Volunteer'
+      expect(page).to have_content 'Richard'
     end
   end
 
