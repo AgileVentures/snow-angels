@@ -1,5 +1,5 @@
 <ul>
   <% @sms.each do |sms| %>
-    <li><%= sms.body %> | <%= sms.number %></li>
+    <li><%= sms.volunteer.name %> | <%= sms.body %> | <%= sms.number %></li>
   <% end %>
 </ul>
