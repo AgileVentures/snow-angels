@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 feature 'volunteer' do
 
   context 'volunteer is on the homepage' do
