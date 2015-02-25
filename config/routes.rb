@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :volunteers do
     member do
       get 'available'
+      get 'unavailable'
     end
   end
   resources :sms

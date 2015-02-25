@@ -27,6 +27,12 @@ class VolunteersController < ApplicationController
     redirect_to sms_path
   end
 
+  def unavailable
+    @volunteer = Volunteer.find(params[:id])
+    @volunteer.update(availability: false)
+    redirect_to sms_path
+  end
+
   def volunteer_params
     params.require(:volunteer).permit(:name, :address, :mobile_number)
   end
