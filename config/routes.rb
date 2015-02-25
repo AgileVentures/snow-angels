@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
   resources :texts
+  get 'snow' => 'texts#snow_text'
 
   root to: "pages#index"
   # The priority is based upon order of creation: first created -> highest priority.

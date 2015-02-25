@@ -1,6 +1,13 @@
 class TextsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  def index
+    @texts = Text.all
+    @available = Volunteer.where(availability: true)
+    @unavailable = Volunteer.where(availability: false)
+    @pending = Volunteer.where(availability: nil)
+  end
+
   def create
     @text = Text.new
 
@@ -15,11 +22,9 @@ class TextsController < ApplicationController
 
   end
 
-  def index
-    @texts = Text.all
-    @available = Volunteer.where(availability: true)
-    @unavailable = Volunteer.where(availability: false)
-    @pending = Volunteer.where(availability: nil)
+  def snow_text
+    Text.send_text
+    redirect_to pages_path
   end
 
 end

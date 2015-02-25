@@ -1,7 +1,7 @@
 class Text < ActiveRecord::Base
   belongs_to :volunteer
 
-  def send_text
+  def self.send_text
     volunteers = Volunteer.all
 
     client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
