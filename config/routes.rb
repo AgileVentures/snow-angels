@@ -3,6 +3,15 @@ Rails.application.routes.draw do
 
   resources :pages
   resources :clients
+  resources :volunteers do
+    member do
+      get 'available'
+      get 'unavailable'
+    end
+  end
+  resources :texts
+  get 'snow' => 'texts#snow_text'
+
   root to: "pages#index"
   resources :volunteers
 
@@ -60,4 +69,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end

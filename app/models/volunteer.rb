@@ -9,8 +9,10 @@ class Volunteer < ActiveRecord::Base
 
   has_many :tasks
   has_many :clients, :through => :tasks
+  has_many :texts
 
   def self.search(query)
     where('name like ?', "%#{query}%")
   end
+
 end

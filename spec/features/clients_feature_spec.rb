@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 feature "client" do
 
   context "Add client" do

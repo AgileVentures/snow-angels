@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 20150225180118) do
   add_index "tasks", ["client_id"], name: "index_tasks_on_client_id", using: :btree
   add_index "tasks", ["volunteer_id"], name: "index_tasks_on_volunteer_id", using: :btree
 
+  create_table "texts", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "number"
+    t.text     "body"
+    t.integer  "volunteer_id"
+  end
+
+  add_index "texts", ["volunteer_id"], name: "index_texts_on_volunteer_id", using: :btree
+
   create_table "volunteers", force: :cascade do |t|
     t.string   "name"
     t.text     "address"
@@ -70,8 +80,11 @@ ActiveRecord::Schema.define(version: 20150225180118) do
     t.datetime "updated_at",    null: false
     t.text     "post_code"
     t.text     "last_name"
+    t.boolean  "availability"
   end
 
+  add_foreign_key "texts", "volunteers"
   add_foreign_key "tasks", "clients"
   add_foreign_key "tasks", "volunteers"
+
 end

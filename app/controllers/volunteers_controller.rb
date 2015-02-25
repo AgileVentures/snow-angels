@@ -6,7 +6,7 @@ class VolunteersController < ApplicationController
     else
       @volunteer = Volunteer.all.order('last_name ASC')
     end
-end
+  end
 
   def new
     @volunteer = Volunteer.new
@@ -45,6 +45,18 @@ end
     @volunteer.destroy
     flash[:notice] = "The volunteer has been deleted"
     redirect_to '/volunteers'
+  end
+
+  def available
+    @volunteer = Volunteer.find(params[:id])
+    @volunteer.update(availability: true)
+    redirect_to texts_path
+  end
+
+  def unavailable
+    @volunteer = Volunteer.find(params[:id])
+    @volunteer.update(availability: false)
+    redirect_to texts_path
   end
 
   private
