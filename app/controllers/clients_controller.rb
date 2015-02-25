@@ -13,9 +13,14 @@ class ClientsController < ApplicationController
   end
 
   def create
-    Client.create(client_params)
-    flash[:notice] = "Client successfully added"
-    redirect_to '/pages'
+    @client = Client.new(client_params)
+    if @client.save
+      redirect_to '/pages'
+      flash[:notice] = "Client successfully added"
+    else
+      render 'new'
+    end
+    # redirect_to '/pages'
   end
 
   def show

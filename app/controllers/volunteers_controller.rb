@@ -1,7 +1,12 @@
 class VolunteersController < ApplicationController
-  def index
 
-  end
+  def index
+    if params[:search]
+      @volunteer = Volunteer.search(params[:search]).order('last_name ASC')
+    else
+      @volunteer = Volunteer.all.order('last_name ASC')
+    end
+end
 
   def new
     @volunteer = Volunteer.new
@@ -19,10 +24,6 @@ class VolunteersController < ApplicationController
 
   def show
     @volunteer = Volunteer.find(params[:id])
-  end
-
-  def volunteer_params
-    params.require(:volunteer).permit(:name, :address, :mobile_number)
   end
 
   def edit
@@ -44,6 +45,12 @@ class VolunteersController < ApplicationController
     @volunteer.destroy
     flash[:notice] = "The volunteer has been deleted"
     redirect_to '/volunteers'
+  end
+
+  private
+
+  def volunteer_params
+    params.require(:volunteer).permit(:name, :last_name, :address, :post_code, :mobile_number)
   end
 
 end

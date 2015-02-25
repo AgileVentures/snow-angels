@@ -1,2 +1,20 @@
 <h1> Welcome to Snow Angels <h1>
-<h2><%= link_to "Register", new_volunteer_path %> </h2>
+
+  <%= form_tag(volunteers_path, :method => 'get', id: 'search-form') do %>
+    <%= text_field_tag :search, params[:search], placeholder: 'Search volunteers' %>
+    <%= submit_tag 'Search', :name => nil %>
+  <% end %>
+
+  <% if @volunteer.any? %>
+
+    <% @volunteer.each do |volunteer| %>
+      <%= volunteer.name %>
+      <%= volunteer.last_name %>
+      <%= volunteer.address %>
+      <%= volunteer.post_code %>
+      <%= volunteer.mobile_number %>
+      <%= link_to 'Edit', edit_volunteer_path(volunteer) %>
+      <%= link_to 'Delete', volunteer_path(volunteer), method: :delete %>
+    <% end %>
+
+  <% end %>

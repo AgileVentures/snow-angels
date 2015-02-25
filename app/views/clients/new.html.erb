@@ -1,3 +1,14 @@
+<% if @client.errors.any? %>
+<section id="errors" >
+  <h2> <%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved: </h2>
+  <ul>
+    <% @client.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %>
+
 <%= form_for @client do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>

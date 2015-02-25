@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :pages
   resources :clients
   root to: "pages#index"
+  resources :volunteers
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -58,8 +60,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # resources :volunteers #index page
-  resources :volunteers
-  # resources :volunteer
 end
