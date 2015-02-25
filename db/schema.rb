@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225111112) do
+ActiveRecord::Schema.define(version: 20150225144958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20150225111112) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sms", force: :cascade do |t|
+  create_table "texts", force: :cascade do |t|
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "number"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150225111112) do
     t.integer  "volunteer_id"
   end
 
-  add_index "sms", ["volunteer_id"], name: "index_sms_on_volunteer_id", using: :btree
+  add_index "texts", ["volunteer_id"], name: "index_texts_on_volunteer_id", using: :btree
 
   create_table "volunteers", force: :cascade do |t|
     t.string   "name"
@@ -63,5 +63,5 @@ ActiveRecord::Schema.define(version: 20150225111112) do
     t.boolean  "availability"
   end
 
-  add_foreign_key "sms", "volunteers"
+  add_foreign_key "texts", "volunteers"
 end

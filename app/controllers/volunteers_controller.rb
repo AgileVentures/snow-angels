@@ -24,13 +24,13 @@ class VolunteersController < ApplicationController
   def available
     @volunteer = Volunteer.find(params[:id])
     @volunteer.update(availability: true)
-    redirect_to sms_path
+    redirect_to texts_path
   end
 
   def unavailable
     @volunteer = Volunteer.find(params[:id])
     @volunteer.update(availability: false)
-    redirect_to sms_path
+    redirect_to texts_path
   end
 
   def volunteer_params

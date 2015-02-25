@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get 'unavailable'
     end
   end
-  resources :sms
+  resources :texts
 
   root to: "pages#index"
   # The priority is based upon order of creation: first created -> highest priority.

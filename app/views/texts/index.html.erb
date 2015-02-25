@@ -1,0 +1,15 @@
+<ul>
+  <% @texts.each do |text| %>
+    <li><%= text.volunteer.name %> | <%= text.body %> | <%= text.number %> | <%= link_to "Available", available_volunteer_path(text.volunteer) %> <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %></li>
+  <% end %>
+</ul>
+
+  <% @available.each do |vol| %>
+    <p><%= vol.name %></p>
+    <% vol.texts.each do |text| %>
+      <p><%= text.body %></p>
+      <p><%= text.number %></p>
+      <p><%= text.volunteer.name %></p>
+    <% end %>
+  <% end %>
+
