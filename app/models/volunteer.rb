@@ -7,9 +7,8 @@ class Volunteer < ActiveRecord::Base
   validates :mobile_number, length: { is: 11 }
   validates :mobile_number, numericality: { only_integer: true }
 
-
-
-
+  has_many :tasks
+  has_many :clients, :through => :tasks
 
   def self.search(query)
     where('name like ?', "%#{query}%")

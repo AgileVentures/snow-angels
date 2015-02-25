@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225151158) do
+ActiveRecord::Schema.define(version: 20150225180118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 20150225151158) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "mobile"
+    t.text     "address"
+    t.text     "post_code"
+    t.text     "first_name"
+    t.text     "last_name"
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
@@ -45,6 +49,19 @@ ActiveRecord::Schema.define(version: 20150225151158) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.boolean  "volunteer_text_confirmed"
+    t.boolean  "called_client"
+    t.boolean  "task_done"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "volunteer_id"
+    t.integer  "client_id"
+  end
+
+  add_index "tasks", ["client_id"], name: "index_tasks_on_client_id", using: :btree
+  add_index "tasks", ["volunteer_id"], name: "index_tasks_on_volunteer_id", using: :btree
+
   create_table "volunteers", force: :cascade do |t|
     t.string   "name"
     t.text     "address"
@@ -55,4 +72,6 @@ ActiveRecord::Schema.define(version: 20150225151158) do
     t.text     "last_name"
   end
 
+  add_foreign_key "tasks", "clients"
+  add_foreign_key "tasks", "volunteers"
 end
