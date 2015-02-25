@@ -9,13 +9,15 @@
 <body>
 
   <% if admin_signed_in? %>
+    <%= link_to "Home", pages_path %>
     <%= link_to "Sign out", destroy_admin_session_path, method: :delete %>
     <%= link_to "Sign up", new_admin_registration_path %>
     <%= link_to "Add client", new_client_path %>
     <%= link_to "View client", clients_path %>
-    <%= link_to "Add volunteer", new_volunteer_path %>    
+    <%= link_to "Add volunteer", new_volunteer_path %>
     <%= link_to "View volunteer", volunteers_path %>
-    <%= link_to "Home", pages_path %>
+    <%= link_to "Edit admin", edit_admin_registration_path %>    
+
   <% else %>
     <%= link_to "Sign in", new_admin_session_path %>
     <%= link_to "Register", new_volunteer_path %>
