@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 context "admin not signed in and on the homepage" do
   it "should see a 'sign in' link" do
     visit '/'

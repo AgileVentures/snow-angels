@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 feature 'pages' do
   context 'admin has signed in' do
     before do
