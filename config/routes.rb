@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   resources :pages
   resources :clients
-  resources :volunteers
+  resources :volunteers do
+    member do
+      get 'available'
+    end
+  end
   resources :sms
 
   root to: "pages#index"
