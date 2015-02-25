@@ -1,9 +1,15 @@
 <ul>
-  <% if !@available && !@unavailable %>
-    <% @texts.each do |text| %>
-      <li><%= text.volunteer.name %> | <%= text.body %> | <%= text.number %> | <%= link_to "Available", available_volunteer_path(text.volunteer) %> <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %></li>
+
+    <% @pending.each do |vol| %>
+      <% vol.texts.each do |text| %>
+        <p>
+          <%= text.volunteer.name %> | <%= text.number %> | <%= text.body %>
+        <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
+        <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
+        </p>
+      <% end %>
     <% end %>
-  <% end %>
+
 </ul>
 
   <h4> Available </h4>

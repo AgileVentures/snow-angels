@@ -19,6 +19,7 @@ class TextsController < ApplicationController
     @texts = Text.all
     @available = Volunteer.where(availability: true)
     @unavailable = Volunteer.where(availability: false)
+    @pending = Volunteer.where(availability: nil)
   end
 
 end
