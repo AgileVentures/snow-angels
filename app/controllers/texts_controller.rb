@@ -18,6 +18,7 @@ class TextsController < ApplicationController
   def index
     @texts = Text.all
     @available = Volunteer.where(availability: true)
+    @unavailable = Volunteer.where(availability: false)
   end
 
 end
