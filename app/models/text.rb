@@ -2,15 +2,13 @@ class Text < ActiveRecord::Base
   belongs_to :volunteer
 
   def send_text
-    volunteers = {
-      "+44" => "Bibiana",
-      "+44" => "Steph"
-    }
+    volunteers = Volunteer.all
+
     client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
     account = client.account
-    volunteers.each do |key, value|
-      message = account.messages.create({:body => "It's snowing! #{value} are you available to help today?",
-            :to => key,
+    volunteers.each do |volunteer|
+      message = account.messages.create({:body => "It's awful weather! #{volunteer.name} are you available to help today? Snow Angels",
+            :to => volunteer.mobile_number,
             :from => ENV['TWILIO_NO']})
       puts message
     end
