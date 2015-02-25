@@ -9,5 +9,9 @@ class SmsController < ApplicationController
       render xml: "<Response/>"
     end
   end
-  
+
+  def index
+    @sms = Sms.all
+  end
+
 end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :pages
   resources :clients
-  post 'sms' => 'sms#create'
+  resources :sms
 
   root to: "pages#index"
   # The priority is based upon order of creation: first created -> highest priority.
