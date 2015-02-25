@@ -3,6 +3,8 @@ class TextsController < ApplicationController
 
   def create
     @text = Text.new
+
+    puts params.inspect
     
     @text.number = params['From']
     @text.body = params['Body']
