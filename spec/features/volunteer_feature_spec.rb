@@ -43,7 +43,7 @@ feature 'volunteer' do
       uncheck 'Shopping'
       click_button 'Update Volunteer'
       expect(page).to have_content 'Richard_2'
-      expect(page).not_to have_content 'Shopping'
+      expect(page).to have_content 'false'
     end
   end
 

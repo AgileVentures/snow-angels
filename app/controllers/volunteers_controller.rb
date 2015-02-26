@@ -31,13 +31,9 @@ class VolunteersController < ApplicationController
   end
 
   def update
-    @volunteer = Volunteer.new(volunteer_params)
-    if @volunteer.save
-      redirect_to volunteers_path
-      flash[:notice] = "Thank you for updated registration"
-    else
-      render 'new'
-    end
+    @volunteer = Volunteer.find(params[:id])
+    @volunteer.update(volunteer_params)
+    redirect_to volunteers_path
   end
 
   def destroy

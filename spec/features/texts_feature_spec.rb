@@ -11,7 +11,7 @@ feature 'Text Management' do
   end
 
   def build_volunteer
-    Volunteer.create(name: 'Josh', mobile_number: '+447791234567', address: 'XYZ', availability: nil)
+    Volunteer.create(name: 'Josh', last_name: 'Bebb', post_code: 'EC1 2DR', mobile_number: '+447791234567', address: 'XYZ', availability: nil)
   end
 
   def build_text(volunteer, body)
