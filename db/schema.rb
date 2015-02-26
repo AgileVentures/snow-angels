@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226131110) do
+ActiveRecord::Schema.define(version: 20150226173706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,14 +80,15 @@ ActiveRecord::Schema.define(version: 20150226131110) do
     t.string   "mobile_number"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.boolean  "availability"
     t.text     "post_code"
     t.text     "last_name"
+    t.boolean  "availability"
     t.boolean  "shopping"
     t.boolean  "prescription_collection"
     t.boolean  "snow_clearance"
     t.boolean  "grit_spreading"
     t.boolean  "dog_walking"
+    t.string   "email"
   end
 
   add_foreign_key "tasks", "clients"

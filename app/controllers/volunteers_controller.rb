@@ -58,7 +58,7 @@ class VolunteersController < ApplicationController
   private
 
   def volunteer_params
-    params.require(:volunteer).permit(:name, :last_name, :address, :post_code, :mobile_number, :shopping, :prescription_collection, :snow_clearance, :grit_spreading, :dog_walking)
+    params.require(:volunteer).permit(:name, :last_name, :address, :post_code, :mobile_number, :email, :shopping, :prescription_collection, :snow_clearance, :grit_spreading, :dog_walking)
   end
 
 end
