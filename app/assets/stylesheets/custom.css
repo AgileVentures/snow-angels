@@ -17,13 +17,12 @@ header {
 #logo {
   font-size: 3em;
   color: white;
-  display: block;
   text-align: center;
 }
 
 .login-btn {
   float: right;
-  display: inline;
+  display: block;
   background-color: blue;
   padding: 1em;
 }
