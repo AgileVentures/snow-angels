@@ -20,9 +20,27 @@ header {
   text-align: center;
 }
 
-.login-btn {
+#logo a {
+    text-decoration: none;
+    color: white;
+}
+
+.login_logout_btn {
   float: right;
   display: block;
-  background-color: blue;
+  background-color: #2980b9;
   padding: 1em;
+  border-radius: 10px;
+}
+
+.snow_day_button {
+  float: left;
+  color: white;
+  background-color: #c0392b;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.container {
+  display: block;
 }
