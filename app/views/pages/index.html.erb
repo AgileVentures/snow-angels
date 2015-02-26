@@ -14,7 +14,7 @@
 <h4> Available Volunteers </h4>
 <% @available.each do |volunteer| %>
   <p>
-    <%= volunteer.name %> | <%= volunteer.mobile_number %> | <%= volunteer.address %> | <%= volunteer.post_code %> |
+    <%= volunteer.name %> | <%= volunteer.mobile_number %> | <%= volunteer.address %> | <%= volunteer.post_code %>
     <% if volunteer.shopping %> <%= "Shopping |" %><% end %>
     <% if volunteer.prescription_collection %> <%= "Prescription |" %><% end %>
     <% if volunteer.dog_walking %> <%= "Dog walking |" %><% end %>
@@ -22,3 +22,14 @@
     <% if volunteer.snow_clearance %> <%= "Snow clearance |" %><% end %>
   </p>
 <% end %>
+
+<h4> Available Volunteers </h4>
+<% @available.each do |volunteer| %>
+  <% volunteer.texts.each do |text| %>
+  <p>
+    <%= text.volunteer.name %> | <%= text.volunteer.mobile_number %> | <%= text.volunteer.address %> | <%= text.volunteer.post_code %>
+  </p>
+<% end %>
+<% end %>
+
+
