@@ -11,9 +11,13 @@ Rails.application.routes.draw do
       get 'unavailable'
     end
   end
-  resources :texts
+  resources :texts do
+    member do
+      get 'volunteer'
+    end
+  end
   get 'snow' => 'texts#snow_text'
-  get 'volunteer_text' => 'texts#volunteer_text'
+  # get 'volunteer_text' => 'texts#volunteer_text'
 
   root to: "pages#index"
 
