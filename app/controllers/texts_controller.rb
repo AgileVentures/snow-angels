@@ -23,7 +23,7 @@ class TextsController < ApplicationController
   end
 
   def snow_text
-    Text.send_text
+    Text.text_all_volunteers
     redirect_to pages_path
   end
 
