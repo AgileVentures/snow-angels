@@ -1,25 +1,83 @@
 * {
   box-sizing: border-box;
-}
-
-body {
-  font-style: sans-serif;
   margin: 0;
 }
 
+body {
+  font-family: sans-serif;
+}
+
 header {
+  background-color: #27ae60;
   width: 100%;
   padding: 1em;
-  background-color: #27ae60;
   border-bottom: 4px solid #2ecc71;
 }
 
 #logo {
+  font-size: 3em;
   color: white;
-  font-family: sans-serif;
-  font-size: 2em;
+  text-align: center;
 }
 
-button.nav-button {
-  
+#logo a {
+    text-decoration: none;
+    color: white;
 }
+
+.login_logout_btn {
+  float: right;
+  display: block;
+  background-color: #2980b9;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.menu_bar {
+  background-color: gray;
+}
+
+.menu_bar a {
+    text-decoration: none;
+    color: white;
+    padding: 0.7em;
+}
+
+.menu_bar a:hover {
+    font-weight: bold;
+} 
+
+.snow_day_button {
+/*  float: left;*/
+  color: white;
+  background-color: #c0392b;
+  padding: 1em;
+  border-radius: 10px;
+  display: block;
+  width: 8em;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.snow_day_button:hover {
+  font-weight: bold;
+}
+
+.container {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.left-container {
+  float: left;
+  width: 50%;
+
+}
+
+.right-container {
+  float: right;
+  width: 50%;
+} 
+

@@ -1,28 +1,32 @@
 <% if admin_signed_in? %>
-  <%= link_to "SMS to all Volunteers", snow_path %>
-<% end %>
 
-<h4> Clients </h4>
-<% @tasks.each do |task| %>
-<p>
-  <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %> | <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %>
-</p>
-<% end %>
+  <%= link_to "SMS to all Volunteers", snow_path, class: 'snow_day_button' %>
 
-
-<h4> Available Volunteers </h4>
-<% @available.each do |volunteer| %>
-  <% volunteer.texts.each do |text| %>
+  <section class='left-container'>
+      <h4> Clients </h4>
+    <% @tasks.each do |task| %>
     <p>
-      <%= text.volunteer.name %> | <%= text.body %> | <%= text.volunteer.mobile_number %> | <%= text.volunteer.address %> | <%= text.volunteer.post_code %> |
-      <% if text.volunteer.shopping %> <%= "Shopping |" %><% end %>
-      <% if text.volunteer.prescription_collection %> <%= "Prescription |" %><% end %>
-      <% if text.volunteer.dog_walking %> <%= "Dog walking |" %><% end %>
-      <% if text.volunteer.grit_spreading %> <%= "Grit spreading |" %><% end %>
-      <% if text.volunteer.snow_clearance %> <%= "Snow clearance |" %><% end %>
-      <%= link_to "SMS", volunteer_text_path(text.volunteer) %>
+      <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %>
     </p>
-  <% end %>
+    <% end %>
+  </section>
+
+  <section class='right-container'>
+      <h4> Available Volunteers </h4>
+    <% @available.each do |volunteer| %>
+      <% volunteer.texts.each do |text| %>
+        <p>
+          <%= text.volunteer.name %> | <%= text.body %> | <%= text.volunteer.mobile_number %> | <%= text.volunteer.address %> | <%= text.volunteer.post_code %> |
+          <% if text.volunteer.shopping %> <%= "Shopping |" %><% end %>
+          <% if text.volunteer.prescription_collection %> <%= "Prescription |" %><% end %>
+          <% if text.volunteer.dog_walking %> <%= "Dog walking |" %><% end %>
+          <% if text.volunteer.grit_spreading %> <%= "Grit spreading |" %><% end %>
+          <% if text.volunteer.snow_clearance %> <%= "Snow clearance |" %><% end %>
+          <%= link_to "SMS", volunteer_text_path(text.volunteer) %>
+        </p>
+      <% end %>
+    <% end %>
+  </section>
 <% end %>
 
 

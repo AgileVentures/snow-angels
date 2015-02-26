@@ -8,26 +8,33 @@
 </head>
 <body>
 
-  <% if admin_signed_in? %>
-    <%= link_to "Home", pages_path %>
-    <%= link_to "Sign out", destroy_admin_session_path, method: :delete %>
-    <%= link_to "Sign up", new_admin_registration_path %>
-    <%= link_to "Add client", new_client_path %>
-    <%= link_to "View client", clients_path %>
-    <%= link_to "Add volunteer", new_volunteer_path %>
-    <%= link_to "View volunteer", volunteers_path %>
-    <%= link_to "Edit admin", edit_admin_registration_path %>
-    <%= link_to "View texts", texts_path %>
+  <header>
+    <span id='logo'> <%= link_to "Horsell Snow Angels", pages_path %> </span>
+    <% if !admin_signed_in? %> 
+      <%= link_to "Sign in", new_admin_session_path, class: 'login_logout_btn' %>
+    <% else %> 
+      <%= link_to "Sign out", destroy_admin_session_path, method: :delete, class: "login_logout_btn" %>
+     <% end %>
+  </header>
 
-  <% else %>
-    <%= link_to "Sign in", new_admin_session_path %>
-    <%= link_to "Register", new_volunteer_path %>
+  <% if admin_signed_in? %>
+
+    <section class='menu_bar'>
+      <%= link_to "Add client", new_client_path %>
+      <%= link_to "View client", clients_path %>
+      <%= link_to "Add volunteer", new_volunteer_path %>
+      <%= link_to "View volunteer", volunteers_path %>
+      <%= link_to "Edit admin", edit_admin_registration_path %>
+      <%= link_to "View texts", texts_path %>
+    </section>
 
   <% end %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
+  <section class='container'>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </section>
 
 </body>
 </html>
