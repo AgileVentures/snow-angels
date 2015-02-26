@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :admins
 
   resources :pages
-  resources :clients
+  resources :clients do
+    resources :tasks
+  end
   resources :volunteers do
     member do
       get 'available'

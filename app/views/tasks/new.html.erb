@@ -1,0 +1,6 @@
+<%= form_for [@client, @task] do |f| %>
+
+  <%= f.label :shopping %>
+  <%= f.check_box :shopping, "Shopping" %>
+  <%= f.submit %>
+<% end %>

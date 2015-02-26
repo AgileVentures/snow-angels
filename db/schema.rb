@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 20150226113214) do
     t.boolean  "availability"
     t.text     "post_code"
     t.text     "last_name"
-    t.boolean  "availability"
     t.boolean  "shopping"
   end
 
