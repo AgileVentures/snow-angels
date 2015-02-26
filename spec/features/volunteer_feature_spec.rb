@@ -55,6 +55,7 @@ feature 'volunteer' do
       fill_in 'Address', with: 'Address123'
       fill_in 'Post code', with: 'E1 6TD'
       fill_in 'Mobile number', with: '12345678910'
+      check 'Dog walking'
       click_button 'Create Volunteer'
       click_link 'Edit1'
 
@@ -63,10 +64,12 @@ feature 'volunteer' do
       fill_in 'Address', with: 'Address123_2'
       fill_in 'Post code', with: 'E1 6TD_2'
       fill_in 'Mobile number', with: '12345678910'
+      uncheck 'Dog walking'
       click_button 'Update Volunteer'
       expect(page).to have_content 'Richard_2'
       expect(page).to have_content 'Address123_2'
       expect(page).to have_content '12345678910'
+      expect(page).not_to have_content 'Dog walking'
     end
   end
 
