@@ -7,11 +7,20 @@
 
 <h2>Preferences</h2>
 <% if @volunteer.shopping %>
-
-<h3>Shopping</h3>
-
+  <h3>Shopping</h3>
 <% end %>
-
+<% if @volunteer.prescription_collection %>
+  <h3>Prescription collection</h3>
+<% end %>
+<% if @volunteer.snow_clearance %>
+  <h3>Snow clearance</h3>
+<% end %>
+<% if @volunteer.grit_spreading %>
+  <h3>Grit spreading</h3>
+<% end %>
+<% if @volunteer.dog_walking %>
+  <h3>Dog walking</h3>
+<% end %>
 
 <%= link_to 'Edit1', edit_volunteer_path(@volunteer) %>
 <%= link_to 'Delete', volunteer_path(@volunteer), method: :delete %>
