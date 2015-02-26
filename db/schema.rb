@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150226131110) do
     t.string   "mobile_number"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+
     t.text     "post_code"
     t.text     "last_name"
     t.boolean  "availability"
