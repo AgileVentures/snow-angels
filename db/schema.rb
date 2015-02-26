@@ -78,13 +78,12 @@ ActiveRecord::Schema.define(version: 20150225180118) do
     t.string   "mobile_number"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.boolean  "availability"
     t.text     "post_code"
     t.text     "last_name"
-    t.boolean  "availability"
   end
 
-  add_foreign_key "texts", "volunteers"
   add_foreign_key "tasks", "clients"
   add_foreign_key "tasks", "volunteers"
-
+  add_foreign_key "texts", "volunteers"
 end
