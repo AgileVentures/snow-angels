@@ -70,4 +70,12 @@ RSpec.configure do |config|
     fill_in 'Phone', with: '0777777888'
     click_button 'Create Client'
   end
+
+  def admin_sign_in
+    visit '/'
+    click_link 'Sign in'
+    fill_in 'Email', with: 'test@example.com'
+    fill_in 'Password', with: 'testtest'
+    click_button 'Log in'
+  end
 end
