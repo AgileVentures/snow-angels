@@ -82,4 +82,12 @@ RSpec.configure do |config|
     check 'Shopping'
     click_button 'Create Volunteer'
   end
+
+  def admin_sign_in
+    visit '/'
+    click_link 'Sign in'
+    fill_in 'Email', with: 'test@example.com'
+    fill_in 'Password', with: 'testtest'
+    click_button 'Log in'
+  end
 end

@@ -20,7 +20,6 @@ class ClientsController < ApplicationController
     else
       render 'new'
     end
-    # redirect_to '/pages'
   end
 
   def show

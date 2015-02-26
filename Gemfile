@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'twilio-ruby'
 
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -51,3 +52,6 @@ group :test do
   gem 'capybara'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
