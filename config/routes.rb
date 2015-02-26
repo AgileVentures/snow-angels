@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :texts
   get 'snow' => 'texts#snow_text'
+  get 'volunteer_text' => 'texts#volunteer_text'
 
   root to: "pages#index"
 
