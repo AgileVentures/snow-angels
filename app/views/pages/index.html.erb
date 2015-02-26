@@ -2,15 +2,23 @@
   <%= link_to "SMS to all Volunteers", snow_path %>
 <% end %>
 
+<h4> Clients </h4>
+<% @tasks.each do |task| %>
+<p>
+  <%= task.task_type %>
+</p>
+<% end %>
+
+
+
 <h4> Available Volunteers </h4>
 <% @available.each do |volunteer| %>
   <p>
     <%= volunteer.name %> | <%= volunteer.mobile_number %> | <%= volunteer.address %> | <%= volunteer.post_code %> |
-    <% if volunteer.shopping %> <%= "Shopping |" %><% end %> 
-    <% if volunteer.prescription_collection %> <%= "Prescription |" %><% end %> 
-    <% if volunteer.dog_walking %> <%= "Dog walking |" %><% end %> 
-    <% if volunteer.grit_spreading %> <%= "Grit spreading |" %><% end %> 
-    <% if volunteer.snow_clearance %> <%= "Snow clearance |" %><% end %> 
+    <% if volunteer.shopping %> <%= "Shopping |" %><% end %>
+    <% if volunteer.prescription_collection %> <%= "Prescription |" %><% end %>
+    <% if volunteer.dog_walking %> <%= "Dog walking |" %><% end %>
+    <% if volunteer.grit_spreading %> <%= "Grit spreading |" %><% end %>
+    <% if volunteer.snow_clearance %> <%= "Snow clearance |" %><% end %>
   </p>
 <% end %>
-
