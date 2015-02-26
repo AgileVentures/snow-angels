@@ -8,6 +8,11 @@
 </head>
 <body>
 
+  <header>
+    <span id='logo'>Horsell Snow Angels</span>
+    <%= link_to "Sign in", new_admin_session_path, class: 'login-btn' %>
+  </header>
+
   <% if admin_signed_in? %>
     <%= link_to "Home", pages_path %>
     <%= link_to "Sign out", destroy_admin_session_path, method: :delete %>

@@ -1,25 +1,29 @@
 * {
   box-sizing: border-box;
-}
-
-body {
-  font-style: sans-serif;
   margin: 0;
 }
 
+body {
+  font-family: sans-serif;
+}
+
 header {
+  background-color: #27ae60;
   width: 100%;
   padding: 1em;
-  background-color: #27ae60;
   border-bottom: 4px solid #2ecc71;
 }
 
 #logo {
+  font-size: 3em;
   color: white;
-  font-family: sans-serif;
-  font-size: 2em;
+  display: block;
+  text-align: center;
 }
 
-button.nav-button {
-  
+.login-btn {
+  float: right;
+  display: inline;
+  background-color: blue;
+  padding: 1em;
 }
