@@ -24,6 +24,7 @@ class TextsController < ApplicationController
 
   def snow_text
     Text.text_all_volunteers
+    flash[:notice] = "Angels have been notified"
     redirect_to pages_path
   end
 
