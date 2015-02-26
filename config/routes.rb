@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get 'snow' => 'texts#snow_text'
 
   root to: "pages#index"
-  resources :volunteers
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

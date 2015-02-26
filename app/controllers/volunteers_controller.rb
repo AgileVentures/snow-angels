@@ -33,7 +33,7 @@ class VolunteersController < ApplicationController
   def update
     @volunteer = Volunteer.new(volunteer_params)
     if @volunteer.save
-      redirect_to volunteer_path(@volunteer)
+      redirect_to volunteers_path
       flash[:notice] = "Thank you for updated registration"
     else
       render 'new'
