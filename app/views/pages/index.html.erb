@@ -5,31 +5,23 @@
 <h4> Clients </h4>
 <% @tasks.each do |task| %>
 <p>
-  <%= task.task_type %>
+  <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %>
 </p>
 <% end %>
 
 
-
-<h4> Available Volunteers </h4>
-<% @available.each do |volunteer| %>
-  <p>
-    <%= volunteer.name %> | <%= volunteer.mobile_number %> | <%= volunteer.address %> | <%= volunteer.post_code %>
-    <% if volunteer.shopping %> <%= "Shopping |" %><% end %>
-    <% if volunteer.prescription_collection %> <%= "Prescription |" %><% end %>
-    <% if volunteer.dog_walking %> <%= "Dog walking |" %><% end %>
-    <% if volunteer.grit_spreading %> <%= "Grit spreading |" %><% end %>
-    <% if volunteer.snow_clearance %> <%= "Snow clearance |" %><% end %>
-  </p>
-<% end %>
-
 <h4> Available Volunteers </h4>
 <% @available.each do |volunteer| %>
   <% volunteer.texts.each do |text| %>
-  <p>
-    <%= text.volunteer.name %> | <%= text.volunteer.mobile_number %> | <%= text.volunteer.address %> | <%= text.volunteer.post_code %>
-  </p>
-<% end %>
+    <p>
+      <%= text.volunteer.name %> | <%= text.body %> | <%= text.volunteer.mobile_number %> | <%= text.volunteer.address %> | <%= text.volunteer.post_code %> |
+      <% if text.volunteer.shopping %> <%= "Shopping |" %><% end %>
+      <% if text.volunteer.prescription_collection %> <%= "Prescription |" %><% end %>
+      <% if text.volunteer.dog_walking %> <%= "Dog walking |" %><% end %>
+      <% if text.volunteer.grit_spreading %> <%= "Grit spreading |" %><% end %>
+      <% if text.volunteer.snow_clearance %> <%= "Snow clearance |" %><% end %>
+    </p>
+  <% end %>
 <% end %>
 
 
