@@ -78,11 +78,11 @@ ActiveRecord::Schema.define(version: 20150226131110) do
     t.string   "name"
     t.text     "address"
     t.string   "mobile_number"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.boolean  "availability"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.text     "post_code"
     t.text     "last_name"
+    t.boolean  "availability"
     t.boolean  "shopping"
     t.boolean  "prescription_collection"
     t.boolean  "snow_clearance"
