@@ -59,4 +59,32 @@ feature 'volunteer' do
       expect(page).not_to have_content 'Shopping'
     end
   end
+
+  context 'an admin member can view the volunteers details' do
+    before do
+      volunteer = Volunteer.new(name: 'Steph',
+                                last_name: 'Test',
+                                address: '123ABC',
+                                mobile_number: '12345678900',
+                                post_code: 'E1 4RT',
+                                shopping: true,
+                                prescription_collection: false,
+                                snow_clearance: false,
+                                grit_spreading: false,
+                                dog_walking: false)
+        volunteer.save
+        admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
+        admin.save
+        visit '/'
+        click_link 'Sign in'
+        fill_in 'Email', with: 'test@example.com'
+        fill_in 'Password', with: 'testtest'
+        click_button 'Log in'
+    end
+    scenario 'the volunteer details are shown on the view volunteers page' do
+      click_link 'View volunteer'
+      expect(page).to have_content 'Steph'
+      expect(page).to have_content 'true'
+    end
+  end
 end
