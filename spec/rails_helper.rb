@@ -70,4 +70,16 @@ RSpec.configure do |config|
     fill_in 'Phone', with: '0777777888'
     click_button 'Create Client'
   end
+
+  def add_volunteer
+    visit '/'
+    click_link 'Register'
+    fill_in 'Name', with: 'Richard'
+    fill_in 'Last name', with: 'Smith'
+    fill_in 'Address', with: 'Address123'
+    fill_in 'Post code', with: 'E1 6TD'
+    fill_in 'Mobile number', with: '12345678910'
+    check 'Shopping'
+    click_button 'Create Volunteer'
+  end
 end
