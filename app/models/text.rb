@@ -8,9 +8,8 @@ class Text < ActiveRecord::Base
     account = client.account
     volunteers.each do |volunteer|
       message = account.messages.create({:body => "It's awful weather! #{volunteer.name} are you available to help today? Snow Angels",
-            :to => volunteer.mobile_number,
-            :from => ENV['TWILIO_NO']})
-      puts message
+        :to => volunteer.mobile_number,
+        :from => ENV['TWILIO_NO']})
     end
   end
 end
