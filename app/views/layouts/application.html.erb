@@ -18,12 +18,15 @@
   </header>
 
   <% if admin_signed_in? %>
-    <%= link_to "Add client", new_client_path %>
-    <%= link_to "View client", clients_path %>
-    <%= link_to "Add volunteer", new_volunteer_path %>
-    <%= link_to "View volunteer", volunteers_path %>
-    <%= link_to "Edit admin", edit_admin_registration_path %>
-    <%= link_to "View texts", texts_path %>
+
+    <section class='menu_bar'>
+      <%= link_to "Add client", new_client_path %>
+      <%= link_to "View client", clients_path %>
+      <%= link_to "Add volunteer", new_volunteer_path %>
+      <%= link_to "View volunteer", volunteers_path %>
+      <%= link_to "Edit admin", edit_admin_registration_path %>
+      <%= link_to "View texts", texts_path %>
+    </section>
 
   <% end %>
 

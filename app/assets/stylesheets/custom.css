@@ -33,14 +33,51 @@ header {
   border-radius: 10px;
 }
 
+.menu_bar {
+  background-color: gray;
+}
+
+.menu_bar a {
+    text-decoration: none;
+    color: white;
+    padding: 0.7em;
+}
+
+.menu_bar a:hover {
+    font-weight: bold;
+} 
+
 .snow_day_button {
-  float: left;
+/*  float: left;*/
   color: white;
   background-color: #c0392b;
   padding: 1em;
   border-radius: 10px;
+  display: block;
+  width: 8em;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.snow_day_button:hover {
+  font-weight: bold;
 }
 
 .container {
   display: block;
+  width: 90%;
+  margin: 0 auto;
 }
+
+.left-container {
+  float: left;
+  width: 50%;
+
+}
+
+.right-container {
+  float: right;
+  width: 50%;
+} 
+
