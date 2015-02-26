@@ -13,12 +13,9 @@ feature 'tasks' do
       visit '/'
       click_link 'View client'
       click_link 'Add a task'
-      check 'Shopping'
-      fill_in 'Shopping', with: 'Bread'
-      click_button 'Submit'
-      expect(page).to have_content 'Bread'
-      expect(page).to have_content 'Shopping'
-      expect(current_path).to eq '/pages'
+      select 'Shopping', from: 'Task type'
+      click_button 'Create Task'
+      expect(page).to have_content 'Task successfully added'
     end
 
   end
