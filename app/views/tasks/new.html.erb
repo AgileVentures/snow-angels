@@ -1,7 +1,9 @@
 <%= form_for [@client, @task] do |f| %>
 
   <%= f.label :task_type %>
-  <%= f.select(:task_type, options_for_select([['Dog walking', 'dog'],['Shopping', 'shopping'], ['Prescription', 'prescription'], ['Snow Clearance','snow']])) %>
-  
+  <%= f.select(:task_type, options_for_select([['Dog walking', 'Dog walking'],['Shopping', 'Shopping'], ['Prescription collection', 'Prescription collection'], ['Snow clearance','Snow clearance'], ['Grit spreading', 'Grit spreading']])) %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
   <%= f.submit %>
 <% end %>

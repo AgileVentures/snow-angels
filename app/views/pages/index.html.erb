@@ -5,7 +5,7 @@
 <h4> Clients </h4>
 <% @tasks.each do |task| %>
 <p>
-  <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %>
+  <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %> | <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %>
 </p>
 <% end %>
 
