@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227144301) do
+ActiveRecord::Schema.define(version: 20150227172329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20150227144301) do
     t.boolean  "grit_spreading"
     t.boolean  "dog_walking"
     t.string   "email"
+    t.boolean  "dbs"
   end
 
   add_foreign_key "tasks", "clients"
