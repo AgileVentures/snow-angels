@@ -3,7 +3,13 @@ Rails.application.routes.draw do
 
   resources :pages
   resources :clients do
-    resources :tasks
+    member do
+      resources :tasks do
+        member do
+          get 'match'
+        end
+      end
+    end
   end
   resources :volunteers do
     member do

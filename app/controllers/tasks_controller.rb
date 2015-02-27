@@ -21,6 +21,13 @@ class TasksController < ApplicationController
     end
   end
 
+  def match
+    @client = Client.find(params[:id])
+    @task = Task.all
+    @available = Volunteer.where(availability: true)
+    redirect_to pages_path
+  end
+
   def task_params
     params.require(:task).permit(:volunteer_text_confirmed, :called_client, :task_done,
                                  :task_type, :description)
