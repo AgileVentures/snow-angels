@@ -22,10 +22,13 @@ Rails.application.routes.draw do
       post 'volunteer'
     end
   end
-  get 'snow' => 'texts#snow_text'
-  # get 'volunteer_text' => 'texts#volunteer_text'
 
+  get 'snow' => 'texts#snow_text'
+  get 'settings' => 'settings#index'
+  get 'settings/emails/list' => 'settings#email', as: 'email_list_settings'
   root to: "pages#index"
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
