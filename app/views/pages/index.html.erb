@@ -8,12 +8,15 @@
       <% @tasks.each do |task| %>
       <li class='client box'>
         <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_task_path(task, task.client_id) %>
+          <% if task.volunteer_id %>
+            <%= task.volunteer.name %>
+          <% end %>
       </li>
       <% end %>
     </ul>
   </section>
 
-  <section class='right-container'>
+<!--   <section class='right-container'>
       <h4> Available Volunteers </h4>
     <% @available.each do |volunteer| %>
       <% volunteer.texts.each do |text| %>
@@ -31,7 +34,7 @@
         </p>
       <% end %>
     <% end %>
-  </section>
+  </section> -->
 
 <% else %>
 

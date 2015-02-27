@@ -13,7 +13,7 @@
     <%= client.phone %>
     <%= link_to 'Edit', edit_client_path(client) %>
     <%= link_to 'Delete', client_path(client), method: :delete %>
-    <%= link_to 'Add a task', new_client_task_path(client) %>
+    <%= link_to 'Add a task', new_task_path(client) %>
   <% end %>
 
 <% end %>

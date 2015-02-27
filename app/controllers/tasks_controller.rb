@@ -5,12 +5,12 @@ class TasksController < ApplicationController
   end
 
   def new
-    @client = Client.find(params[:client_id])
+    @client = Client.find(params[:id])
     @task = Task.new
   end
 
   def create
-    client = Client.find(params[:client_id])
+    client = Client.find(params[:id])
     @task = Task.new(task_params)
     @task.client = client
     if @task.save
@@ -23,8 +23,9 @@ class TasksController < ApplicationController
 
   def match
     @client = Client.find(params[:id])
-    @task = Task.all
     @available = Volunteer.where(availability: true)
+    @task = Task.find(params[:id])
+    @task.update(volunteer_id: @available.first.id )
     redirect_to pages_path
   end
 
@@ -34,3 +35,4 @@ class TasksController < ApplicationController
   end
 
 end
+
