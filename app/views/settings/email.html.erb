@@ -1,0 +1,8 @@
+<h2>Emails</h2>
+<% if @emails.any? %>
+<pre>
+  <% @emails.each do |email_address| %>
+    <%= email_address %>
+  <% end %>
+</pre>
+<% end %>
