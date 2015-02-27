@@ -38,9 +38,9 @@ header {
 }
 
 .menu_bar a {
-    text-decoration: none;
-    color: white;
-    padding: 0.7em;
+  text-decoration: none;
+  color: white;
+  padding: 0.7em;
 }
 
 .menu_bar a:hover {
@@ -48,7 +48,6 @@ header {
 } 
 
 .snow_day_button {
-/*  float: left;*/
   color: white;
   background-color: #c0392b;
   padding: 1em;
@@ -73,7 +72,6 @@ header {
 .left-container {
   float: left;
   width: 50%;
-
 }
 
 .right-container {
@@ -81,3 +79,31 @@ header {
   width: 50%;
 } 
 
+.volunteer-self-register {
+  color: white;
+  background-color: #c0392b;
+  padding: 1em;
+  border-radius: 10px;
+  display: block;
+  width: 8em;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.volunteer-self-register:hover {
+  font-weight: bold;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+
+}
+
+.box {
+  background-color: #ecf0f1;
+  list-style-type: none;
+  padding: 1em;
+  margin: 1em;
+}
