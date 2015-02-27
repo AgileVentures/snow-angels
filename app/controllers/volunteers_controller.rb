@@ -1,4 +1,6 @@
 class VolunteersController < ApplicationController
+  
+  before_action :authenticate_admin!, except: [:new, :create]
 
   def index
     if params[:search]
