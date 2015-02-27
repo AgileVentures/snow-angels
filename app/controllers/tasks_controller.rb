@@ -25,8 +25,16 @@ class TasksController < ApplicationController
     @client = Client.find(params[:id])
     @available = Volunteer.where(availability: true)
     @task = Task.find(params[:id])
-    @task.update(volunteer_id: @available.first.id ) if @available.first
-    @available.first.update(availability: false)
+    @available_dbs = Volunteer.where(availability: true, dbs: true)
+    if @available_dbs.any?
+      @task.update(volunteer_id: @available_dbs.first.id )
+      @available_dbs.first.update(availability: false)
+    elsif @available.any?
+      @task.update(volunteer_id: @available.first.id )
+      @available.first.update(availability: false)
+    else
+      flash[:notice] = "There are no more unmatched volunteers"
+    end
     redirect_to pages_path
   end
 
