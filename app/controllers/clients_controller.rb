@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
 
+  before_action :authenticate_admin!
   def index
     if params[:search]
       @clients = Client.search(params[:search]).order('last_name ASC')
