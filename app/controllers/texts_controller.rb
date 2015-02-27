@@ -28,4 +28,11 @@ class TextsController < ApplicationController
     redirect_to pages_path
   end
 
+  def volunteer
+    volunteer = Volunteer.find(params[:id])
+    Text.send_text(volunteer, (params[:custom_body]))
+    flash[:notice] = "Text sent"
+    redirect_to pages_path
+  end
+
 end
