@@ -14,11 +14,11 @@ class Text < ActiveRecord::Base
     end
   end
 
-  def self.send_text(volunteer, body)
+  def self.send_text(volunteer, custom_body)
     client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
     account = client.account
     message = account.messages.create({
-      :body => body,
+      :body => custom_body,
       :to => volunteer.mobile_number,
       :from => ENV['TWILIO_NO']
     })

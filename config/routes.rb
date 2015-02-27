@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   resources :texts do
     member do
-      get 'volunteer'
+      post 'volunteer'
     end
   end
   get 'snow' => 'texts#snow_text'
