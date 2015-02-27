@@ -25,7 +25,7 @@ class TasksController < ApplicationController
     @client = Client.find(params[:id])
     @available = Volunteer.where(availability: true)
     @task = Task.find(params[:id])
-    @task.update(volunteer_id: @available.first.id )
+    @task.update(volunteer_id: @available.first.id ) if @available.first
     redirect_to pages_path
   end
 

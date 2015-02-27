@@ -5,6 +5,7 @@
   <section class='left-container'>
     <h4> Tasks </h4>
     <ul>
+      <% if @tasks %>
       <% @tasks.each do |task| %>
       <li class='client box'>
         <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_task_path(task, task.client_id) %>
@@ -15,26 +16,7 @@
       <% end %>
     </ul>
   </section>
-
-<!--   <section class='right-container'>
-      <h4> Available Volunteers </h4>
-    <% @available.each do |volunteer| %>
-      <% volunteer.texts.each do |text| %>
-        <p>
-          <%= text.volunteer.name %> | <%= text.body %> | <%= text.volunteer.mobile_number %> | <%= text.volunteer.address %> | <%= text.volunteer.post_code %> |
-          <% if text.volunteer.shopping %> <%= "Shopping |" %><% end %>
-          <% if text.volunteer.prescription_collection %> <%= "Prescription |" %><% end %>
-          <% if text.volunteer.dog_walking %> <%= "Dog walking |" %><% end %>
-          <% if text.volunteer.grit_spreading %> <%= "Grit spreading |" %><% end %>
-          <% if text.volunteer.snow_clearance %> <%= "Snow clearance |" %><% end %>
-          <%= form_tag volunteer_text_path(text.volunteer) do %>
-            <%= text_field_tag :custom_body %>
-            <%= submit_tag "Send SMS" %>
-          <% end %>
-        </p>
-      <% end %>
-    <% end %>
-  </section> -->
+  <% end %>
 
 <% else %>
 
