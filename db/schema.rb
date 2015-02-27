@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227111200) do
+ActiveRecord::Schema.define(version: 20150227172329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,10 +70,14 @@ ActiveRecord::Schema.define(version: 20150227111200) do
     t.integer  "client_id"
     t.string   "task_type"
     t.text     "description"
+    t.integer  "volunteer_two_id"
+    t.integer  "volunteer_three_id"
   end
 
   add_index "tasks", ["client_id"], name: "index_tasks_on_client_id", using: :btree
   add_index "tasks", ["volunteer_id"], name: "index_tasks_on_volunteer_id", using: :btree
+  add_index "tasks", ["volunteer_three_id"], name: "index_tasks_on_volunteer_three_id", using: :btree
+  add_index "tasks", ["volunteer_two_id"], name: "index_tasks_on_volunteer_two_id", using: :btree
 
   create_table "texts", force: :cascade do |t|
     t.datetime "created_at",   null: false
@@ -100,6 +104,7 @@ ActiveRecord::Schema.define(version: 20150227111200) do
     t.boolean  "grit_spreading"
     t.boolean  "dog_walking"
     t.string   "email"
+    t.boolean  "dbs"
   end
 
   add_foreign_key "tasks", "clients"

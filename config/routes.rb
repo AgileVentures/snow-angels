@@ -3,7 +3,13 @@ Rails.application.routes.draw do
 
   resources :pages
   resources :clients do
-    resources :tasks
+    member do
+      resources :tasks do
+        member do
+          get 'match'
+        end
+      end
+    end
   end
   resources :volunteers do
     member do
@@ -16,9 +22,10 @@ Rails.application.routes.draw do
       post 'volunteer'
     end
   end
-  get 'snow' => 'texts#snow_text'
-  # get 'volunteer_text' => 'texts#volunteer_text'
 
+  get 'snow' => 'texts#snow_text'
+  get 'settings' => 'settings#index'
+  get 'settings/emails/list' => 'settings#email', as: 'email_list_settings'
   root to: "pages#index"
 
 
