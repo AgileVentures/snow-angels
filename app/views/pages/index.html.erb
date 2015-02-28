@@ -7,30 +7,40 @@
     <ul>
       <% if @tasks %>
       <% @tasks.each do |task| %>
-      <li class='client box'>
-        <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_task_path(task, task.client_id) %>
-          <% if task.volunteer_id %>
-            <%= task.volunteer.name %>
-            <% task.volunteer.texts.each do |text| %>
-              <%= form_tag volunteer_text_path(text.volunteer) do %>
-                <%= text_field_tag :custom_body %>
-                <%= submit_tag "Send SMS" %>
-              <% end %>
-            <% end %>
+        <% unless task.task_done %>
+          <li class='client-box'>
+            <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_task_path(task, task.client_id) %>
 
-            <%= form_for task do |f| %>
-              <%= f.label :volunteer_text_confirmed %>
-              <%= f.check_box :volunteer_text_confirmed %>
-              <%= f.label :called_client %>
-              <%= f.check_box :called_client %>
-              <%= f.label :task_done %>
-              <%= f.check_box :task_done %>
-              <%= f.submit "Submit"%>
-            <% end %>
+              <% if task.volunteer_id %>
+                <%= task.volunteer.name %>
+                <% task.volunteer.texts.each do |text| %>
+                  <%= form_tag volunteer_text_path(text.volunteer) do %>
+                    <%= text_field_tag :custom_body %>
+                    <%= submit_tag "Send SMS" %>
+                  <% end %>
+                <% end %>
 
+                <%= form_for task do |f| %>
+                  <%= f.label :volunteer_text_confirmed %>
+                  <%= f.check_box :volunteer_text_confirmed %>
+                  <%= f.label :called_client %>
+                  <%= f.check_box :called_client %>
+                  <%= f.label :task_done %>
+                  <%= f.check_box :task_done %>
+                  <%= f.submit "Complete"%>
+                <% end %>
+
+            <% end %>
+          </li>
+          <% else %>
+            <li class='client-box-complete'>
+            <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>
+            <% if task.volunteer_id %>
+                <%= task.volunteer.name %>
+            <% end %>
+            </li>
           <% end %>
-      </li>
-      <% end %>
+        <% end %>
     </ul>
   </section>
   <% end %>
