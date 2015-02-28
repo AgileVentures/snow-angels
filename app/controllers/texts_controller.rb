@@ -11,7 +11,6 @@ class TextsController < ApplicationController
 
   def create
     @text = Text.new
-
     @text.number = params['From']
     @text.body = params['Body']
 
