@@ -1,22 +1,11 @@
-def add_client
+def add_client(first_name, last_name, address, postcode, phone)
   visit '/pages'
   click_link 'Add client'
-  fill_in 'Name', with: 'Tom'
-  fill_in 'Last name', with: 'Smith'
-  fill_in 'Address', with: 'Makers'
-  fill_in 'Postcode', with: 'E1 2SF'
-  fill_in 'Phone', with: '07450991234'
-  click_button 'Create Client'
-end
-
-def add_second_client
-  visit '/pages'
-  click_link 'Add client'
-  fill_in 'Name', with: 'Bob'
-  fill_in 'Last name', with: 'Jones'
-  fill_in 'Address', with: 'Makers'
-  fill_in 'Postcode', with: 'E1 3RT'
-  fill_in 'Phone', with: '0777777888'
+  fill_in 'Name', with: first_name
+  fill_in 'Last name', with: last_name
+  fill_in 'Address', with: address
+  fill_in 'Postcode', with: postcode
+  fill_in 'Phone', with: phone
   click_button 'Create Client'
 end
 
@@ -33,11 +22,6 @@ def add_volunteer
   click_button 'Create Volunteer'
 end
 
-def admin_sign_up
-  admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
-  admin.save
-end
-
 def admin_sign_in
   admin_sign_up
   visit '/'
@@ -45,4 +29,9 @@ def admin_sign_in
   fill_in 'Email', with: 'test@example.com'
   fill_in 'Password', with: 'testtest'
   click_button 'Log in'
+end
+
+def admin_sign_up
+  admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
+  admin.save
 end
