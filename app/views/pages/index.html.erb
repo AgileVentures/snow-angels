@@ -11,8 +11,8 @@
         <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_task_path(task, task.client_id) %>
           <% if task.volunteer_id %>
             <%= task.volunteer.name %>
-            <% task.volunteer.texts.each do |text| %>
-              <%= form_tag volunteer_text_path(text.volunteer) do %>
+            <% if task.volunteer.texts.any? %>
+              <%= form_tag volunteer_text_path(task.volunteer) do %>
                 <%= text_field_tag :custom_body %>
                 <%= submit_tag "Send SMS" %>
               <% end %>
