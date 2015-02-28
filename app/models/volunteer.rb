@@ -17,8 +17,7 @@ class Volunteer < ActiveRecord::Base
 
   def self.internationalize_phone_number(mobile_number)
     mobile_number = Phony.normalize(mobile_number)
-    mobile_number = "#{+44}#{mobile_number}"
-    mobile_number = Phony.normalize(mobile_number)
+    mobile_number = "+#{+44}#{mobile_number}"
     mobile_number
   end
 
