@@ -21,6 +21,10 @@
             <%= form_for task do |f| %>
               <%= f.label :volunteer_text_confirmed %>
               <%= f.check_box :volunteer_text_confirmed %>
+              <%= f.label :called_client %>
+              <%= f.check_box :called_client %>
+              <%= f.label :task_done %>
+              <%= f.check_box :task_done %>
               <%= f.submit "Submit"%>
             <% end %>
 
