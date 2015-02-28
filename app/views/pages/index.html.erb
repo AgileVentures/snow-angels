@@ -5,37 +5,28 @@
   <section class='left-container'>
     <h4> Tasks </h4>
     <ul>
+      <% if @tasks %>
       <% @tasks.each do |task| %>
       <li class='client box'>
-        <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %>
+        <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_task_path(task, task.client_id) %>
+          <% if task.volunteer_id %>
+            <%= task.volunteer.name %>
+            <% task.volunteer.texts.each do |text| %>
+              <%= form_tag volunteer_text_path(text.volunteer) do %>
+                <%= text_field_tag :custom_body %>
+                <%= submit_tag "Send SMS" %>
+              <% end %>
+            <% end %>
+          <% end %>
       </li>
       <% end %>
     </ul>
   </section>
-
-  <section class='right-container'>
-      <h4> Available Volunteers </h4>
-    <% @available.each do |volunteer| %>
-      <% volunteer.texts.each do |text| %>
-        <p>
-          <%= text.volunteer.name %> | <%= text.body %> | <%= text.volunteer.mobile_number %> | <%= text.volunteer.address %> | <%= text.volunteer.post_code %> |
-          <% if text.volunteer.shopping %> <%= "Shopping |" %><% end %>
-          <% if text.volunteer.prescription_collection %> <%= "Prescription |" %><% end %>
-          <% if text.volunteer.dog_walking %> <%= "Dog walking |" %><% end %>
-          <% if text.volunteer.grit_spreading %> <%= "Grit spreading |" %><% end %>
-          <% if text.volunteer.snow_clearance %> <%= "Snow clearance |" %><% end %>
-          <%= form_tag volunteer_text_path(text.volunteer) do %>
-            <%= text_field_tag :custom_body %>
-            <%= submit_tag "Send SMS" %>
-          <% end %>
-        </p>
-      <% end %>
-    <% end %>
-  </section>
+  <% end %>
 
 <% else %>
 
-<section class='left-container'> 
+<section class='left-container'>
   <h1>  Welcome to Horsell Snow Angels.... </h1>
   </br>
   <h3> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</h3>
@@ -45,7 +36,7 @@
 <%= link_to "Register as a volunteer", new_volunteer_path, class: 'volunteer-self-register' %>
 </section>
 
-<section class='right-container'> 
+<section class='right-container'>
   <img src='http://dstele.com/wordpress/wp-content/uploads/2014/05/old_people_group.png'>
 </section>
 
