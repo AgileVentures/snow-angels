@@ -15,4 +15,10 @@ class Volunteer < ActiveRecord::Base
     where('name like ?', "%#{query}%")
   end
 
+  def self.internationalize_phone_number(mobile_number)
+    mobile_number = Phony.normalize(mobile_number)
+    mobile_number = "+#{+44}#{mobile_number}"
+    mobile_number
+  end
+
 end

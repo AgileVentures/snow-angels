@@ -15,11 +15,17 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.client = client
     if @task.save
-      redirect_to '/pages'
+      redirect_to pages_path
       flash[:notice] = 'Task successfully added'
     else
       render 'new'
     end
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update(task_params)
+    redirect_to pages_path
   end
 
   def match
