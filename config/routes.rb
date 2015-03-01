@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   get 'snow' => 'texts#snow_text'
   get 'settings' => 'settings#index'
   get 'settings/emails/list' => 'settings#email', as: 'email_list_settings'
-  get 'match' => 'match_task_volunteers#match'
-  
+  get 'match/:id' => 'match_task_volunteers#match', as: 'match'
+
 
   root to: "pages#index"
 
