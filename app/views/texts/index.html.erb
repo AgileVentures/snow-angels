@@ -2,7 +2,7 @@
 <% @today_texts.each do |text| %>
   <% if text.volunteer.availability.nil? %>
     <p>
-      <%= text.volunteer.name %> | <%= text.number %> | <%= text.body %>
+      <%= text.volunteer.name %> <%= text.volunteer.last_name %> |<%= text.number %> | <%= text.body %>
       <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
       <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
     </p>
@@ -12,7 +12,7 @@
 <h4> Available </h4>
 <% @available.each do |vol| %>
   <% vol.texts.each do |text| %>
-    <p><%= text.volunteer.name %> | <%= text.number %> | <%= text.body %></p>
+    <p><%= text.volunteer.name %> <%= text.volunteer.last_name %> | <%= text.number %> | <%= text.body %></p>
     <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
   <% end %>
 <% end %>
@@ -20,7 +20,7 @@
 <h4> Unavailable </h4>
 <% @unavailable.each do |vol| %>
   <% vol.texts.each do |text| %>
-    <p><%= text.volunteer.name %> | <%= text.number %> | <%= text.body %></p>
+    <p><%= text.volunteer.name %> <%= text.volunteer.last_name %> | <%= text.number %> | <%= text.body %></p>
     <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
   <% end %>
 <% end %>
@@ -30,7 +30,7 @@
   <% if text.volunteer.nil? %>
     <p><%= text.number %> | <%= text.body %></p> 
   <% else %>
-    <p><%= text.volunteer.name %> | <%= text.number %> | <%= text.body %></p>
+    <p><%= text.volunteer.name %> <%= text.volunteer.last_name %> | <%= text.number %> | <%= text.body %></p>
   <% end %>
 <% end %>
 
