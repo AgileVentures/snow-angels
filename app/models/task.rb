@@ -1,6 +1,4 @@
 class Task < ActiveRecord::Base
-  belongs_to :volunteer
+  has_many :volunteers, through: :match_task_volunteer
   belongs_to :client
-  has_and_belongs_to_many :match_task_volunteers
-
 end
