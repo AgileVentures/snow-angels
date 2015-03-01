@@ -1,5 +1,5 @@
 class VolunteersController < ApplicationController
-  
+
   before_action :authenticate_admin!, except: [:new, :create]
 
   def index
@@ -16,6 +16,7 @@ class VolunteersController < ApplicationController
 
   def create
     @volunteer = Volunteer.new(volunteer_params)
+    @volunteer.mobile_number = Volunteer.internationalize_phone_number(@volunteer.mobile_number)
     if @volunteer.save
       redirect_to volunteer_path(@volunteer)
       flash[:notice] = "Thank you for your registration"

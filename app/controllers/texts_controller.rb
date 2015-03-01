@@ -1,18 +1,18 @@
 class TextsController < ApplicationController
-  
+
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_admin!
-  
+
   def index
     @texts = Text.all
     @available = Volunteer.where(availability: true)
     @unavailable = Volunteer.where(availability: false)
-    @pending = Volunteer.where(availability: nil)
+    time_now = Time.now
+    @old_texts = Text.where("created_at < ?", time_now.beginning_of_day())
+    @today_texts = Text.where("created_at >= ?", time_now.beginning_of_day())
   end
 
   def create
     @text = Text.new
-
     @text.number = params['From']
     @text.body = params['Body']
 

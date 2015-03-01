@@ -5,7 +5,7 @@ class Text < ActiveRecord::Base
     volunteers = Volunteer.all
     client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
     account = client.account
-    volunteers.each do |volunteer| 
+    volunteers.each do |volunteer|
       account.messages.create({
       :body => "It's awful weather! #{volunteer.name} are you available to help today? Snow Angels",
       :to => volunteer.mobile_number,
@@ -23,4 +23,5 @@ class Text < ActiveRecord::Base
       :from => ENV['TWILIO_NO']
     })
   end
+
 end
