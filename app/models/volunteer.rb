@@ -10,6 +10,7 @@ class Volunteer < ActiveRecord::Base
   has_many :tasks
   has_many :clients, :through => :tasks
   has_many :texts, dependent: :destroy
+  has_and_belongs_to_many :match_task_volunteer
 
   def self.search(query)
     where('name like ?', "%#{query}%")
