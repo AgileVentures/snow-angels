@@ -1,14 +1,6 @@
 feature 'pages' do
   context 'admin has signed in' do
-    before do
-      admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
-      admin.save
-      visit '/'
-      click_link 'Sign in'
-      fill_in 'Email', with: 'test@example.com'
-      fill_in 'Password', with: 'testtest'
-      click_button 'Log in'
-    end
+    before { admin_sign_in }
 
     scenario "should display the 'sign up', 'add client', and 'View client' links" do
       visit '/'

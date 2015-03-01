@@ -35,3 +35,11 @@ def admin_sign_up
   admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
   admin.save
 end
+
+def build_volunteer
+  Volunteer.create(name: 'Josh', last_name: 'Bebb', post_code: 'EC1 2DR', mobile_number: '+447791234567', address: 'XYZ', availability: nil)
+end
+
+def build_text(volunteer, body)
+  Text.create(number: '+447791234567', body: body, volunteer_id: volunteer.id)
+end
