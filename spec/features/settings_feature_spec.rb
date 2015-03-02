@@ -1,35 +1,32 @@
 feature 'Settings' do
 
-  before { admin_sign_in }
+  before do
+    admin_sign_in
+    click_link 'Settings'
+  end
 
-  context 'settings link is on the dashboard page' do
-
-    scenario ' should display a link called settings' do
-      expect(page).to have_link 'Settings'
-    end
-
-    scenario 'should display a link called Generate email list' do
-      click_link 'Settings'
+  context 'Has options for' do
+    scenario 'Generating a mailing list' do
       expect(page).to have_link 'Generate email list'
     end
 
-    scenario 'should display a link called Admin Invitation' do
-      click_link 'Settings'
+    scenario 'Inviting a new admin' do
       expect(page).to have_link 'Admin Invitation'
     end
+  end
 
+  context 'Inviting a new admin' do
     scenario 'should display the send inviatation page' do
-      click_link 'Settings'
       click_link 'Admin Invitation'
       expect(page).to have_content 'Send invitation'
     end
   end
 
-  context 'Sending a mass email' do
+  context 'Generating a mailing list' do
 
     scenario 'Admin should be able to see a list of volunteer emails' do
-      Volunteer.create(name: 'Josh', last_name: 'Test', email: 'one@test.com', post_code: 'EC1 2DR', mobile_number: '+447791234567', address: 'XYZ', availability: nil)
-      Volunteer.create(name: 'Test', last_name: 'Test', email: 'two@test.com', post_code: 'EC1 2DR', mobile_number: '+447791234567', address: 'XYZ', availability: nil)
+      add_volunteer('Josh', 'Test', 'one@test.com', 'XYZ', 'EC1 2DR', '+447791234567', nil)
+      add_volunteer('Test', 'Test', 'two@test.com', 'XYZ', 'EC1 2DR', '+447791234567', nil)
 
       click_link 'Settings'
       click_link 'Generate email list'
