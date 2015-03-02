@@ -16,7 +16,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     if @client.save
-      redirect_to '/pages'
+      redirect_to pages_path
       flash[:notice] = "Client successfully added"
     else
       render 'new'
@@ -34,14 +34,14 @@ class ClientsController < ApplicationController
   def update
     @client = Client.find(params[:id])
     @client.update(client_params)
-    redirect_to '/pages'
+    redirect_to pages_path
   end
 
   def destroy
     @client = Client.find(params[:id])
     @client.destroy
     flash[:notice] = 'Client deleted successfully'
-    redirect_to '/pages'
+    redirect_to pages_path
   end
 
   private
