@@ -18,7 +18,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(volunteer_params)
     @volunteer.mobile_number = Volunteer.internationalize_phone_number(@volunteer.mobile_number)
     if @volunteer.save
-      redirect_to volunteer_path(@volunteer)
+      redirect_to pages_path
       flash[:notice] = "Thank you for your registration"
     else
       render 'new'
@@ -43,7 +43,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.find(params[:id])
     @volunteer.destroy
     flash[:notice] = "The volunteer has been deleted"
-    redirect_to '/volunteers'
+    redirect_to volunteers_path
   end
 
   def available
