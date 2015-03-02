@@ -9,7 +9,7 @@
         <% @tasks.each do |task| %>
           <% unless task.task_done %>
             <li class='client-box'>
-              <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_path(task) %>
+              <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= link_to task.description, task_path(task) %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_path(task) %>
 
               <% if @matches %>
                 <% @matches.each do |match| %>
