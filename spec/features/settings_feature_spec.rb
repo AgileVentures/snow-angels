@@ -13,6 +13,10 @@ feature 'Settings' do
     scenario 'Inviting a new admin' do
       expect(page).to have_link 'Admin Invitation'
     end
+
+    scenario 'Edit profile' do
+      expect(page).to have_link 'Edit admin'
+    end
   end
 
   context 'Inviting a new admin' do
@@ -33,6 +37,16 @@ feature 'Settings' do
       expect(page).to have_content 'one@test.com'
       expect(page).to have_content 'two@test.com'
     end
+  end
 
+  context 'Edit profile' do
+    scenario 'Admin should be able to edit his profile' do
+      click_link 'Edit admin'
+      fill_in 'Email', with: 'test2@example.com'
+      fill_in 'Current password', with: 'testtest'
+      click_button 'Update'
+      expect(page).to have_content 'Your account has been updated successfully'
+      expect(current_path). to eq '/'
+    end
   end
 end
