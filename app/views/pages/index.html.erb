@@ -21,28 +21,24 @@
                         <%= text_field_tag :custom_body %>
                         <%= submit_tag "Send SMS" %>
                       <% end %>
+                      <%= button_to "Volunteer choosen", match_one_volunteer_path(task, v) %>  
                     <% end %>
                   <% end %>
                 <% end %>
               <% end %>
 
             <%= form_for task do |f| %>
-              <%= f.label :volunteer_text_confirmed %>
-              <%= f.check_box :volunteer_text_confirmed %>
               <%= f.label :called_client %>
               <%= f.check_box :called_client %>
               <%= f.label :task_done %>
               <%= f.check_box :task_done %>
-              <%= f.submit "Complete"%>
+              <%= f.submit "Update"%>
             <% end %>
             </li>
 
           <% else %>
             <li class='client-box-complete'>
               <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>
-              <% if task.volunteer_id %>
-                  <%= task.volunteer.name %>
-              <% end %>
             </li>
           <% end %>
         <% end %>
