@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   before_action :authenticate_admin!
   def index
     @tasks = Task.all
+    @matches = MatchTaskVolunteers.all
   end
 
   def new

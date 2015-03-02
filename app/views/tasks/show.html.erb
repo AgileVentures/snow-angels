@@ -6,12 +6,14 @@
     <p>Description: <%= @task.description %></p>
     <p>Task Type: <%= @task.task_type%></p>
     <p id='client_post_code'> <%= @task.client.postcode%></p>
-    <p id='volunteer_post_code'> <%= @task.volunteer.postcode%></p>
 
-
-      <% if @task.volunteer_id %>
+    <% if @task.volunteer_id %>
         <%= @task.volunteer.name %>
     <% end %>
+
+    <input type="hidden" id="lat" value=<%= @task.geocoder_lat(@task.client.postcode) %>>
+    <input type="hidden" id="long" value=<%= @task.geocoder_long(@task.client.postcode) %>>
+
   </div>
   </br>
   <h1>Map Summary</h1>
@@ -20,12 +22,13 @@
     <div id="multi_markers" style='width: 800px; height: 400px;'></div>
   </div>
   <script>
-  var client = document.getElementById('client_post_code').innerText;
+  var client_lat = document.getElementById('lat').value;
+  var client_long = document.getElementById('long').value;
 
     var handler = Gmaps.build('Google');
     handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
     var markers = handler.addMarkers([
-    { lat: 51, lng: -0.1},
+    { lat: client_lat, lng: client_long },
     { lat: 57, lng: -0.1},
     { lat: 47, lng: -0.1}
     ]);
