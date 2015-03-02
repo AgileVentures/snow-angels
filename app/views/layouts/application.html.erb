@@ -5,15 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
- 
+
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
+  <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
+  <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
+
 </head>
 <body>
 
   <header>
     <span id='logo'> <%= link_to "Horsell Snow Angels", pages_path %> </span>
-    <% if !admin_signed_in? %> 
+    <% if !admin_signed_in? %>
       <%= link_to "Sign in", new_admin_session_path, class: 'login_logout_btn' %>
-    <% else %> 
+    <% else %>
       <%= link_to "Sign out", destroy_admin_session_path, method: :delete, class: "login_logout_btn" %>
      <% end %>
   </header>

@@ -45,10 +45,13 @@ class TasksController < ApplicationController
   #   redirect_to pages_path
   # end
 
+  def show
+    @task = Task.find(params[:id])
+  end
+
   def task_params
     params.require(:task).permit(:volunteer_text_confirmed, :called_client, :task_done,
                                  :task_type, :description)
   end
 
 end
-

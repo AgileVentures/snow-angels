@@ -27,6 +27,8 @@ gem 'devise'
 gem 'twilio-ruby'
 gem 'devise_invitable'
 gem 'phony'
+gem 'gmaps4rails', '~> 2.1.2'
+gem 'underscore-rails', '~> 1.7.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
