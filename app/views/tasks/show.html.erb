@@ -1,19 +1,19 @@
 <h1>Task Summary</h1>
 
 <section>
-  <p>Client name: <div id="client-name"><%= @task.client.name %> <%= @task.client.last_name %></div></p>
+  <p>Client name: <span id="client-name"><%= @task.client.name %></span> <%= @task.client.last_name %></p>
   <p>Client phone number: <%= @task.client.phone %></p>
   <p>Task type: <%= @task.task_type %></p>
   <p>Description: <%= @task.description %></p>
 
   <input type="hidden" id="lat" value=<%= @task.geocoder_lat(@task.client.postcode) %>>
   <input type="hidden" id="long" value=<%= @task.geocoder_long(@task.client.postcode) %>>
-  <input type="hidden" id="v-lat" value=<%= @task.geocoder_lat(@match_one.post_code) %>>
-  <input type="hidden" id="v-long" value=<%= @task.geocoder_long(@match_one.post_code) %>>
-  <input type="hidden" id="v-name" value=<%= @match_one.name %>>
-  <input type="hidden" id="v-lat-2" value=<%= @task.geocoder_lat(@match_two.post_code) %>>
-  <input type="hidden" id="v-long-2" value=<%= @task.geocoder_long(@match_two.post_code) %>>
-  <input type="hidden" id="v-name-2" value=<%= @match_two.name %>>
+  <input type="hidden" id="v-lat-one" value=<%= @task.geocoder_lat(@match_one.post_code) %>>
+  <input type="hidden" id="v-long-one" value=<%= @task.geocoder_long(@match_one.post_code) %>>
+  <input type="hidden" id="v-name-one" value=<%= @match_one.name %>>
+  <input type="hidden" id="v-lat-two" value=<%= @task.geocoder_lat(@match_two.post_code) %>>
+  <input type="hidden" id="v-long-two" value=<%= @task.geocoder_long(@match_two.post_code) %>>
+  <input type="hidden" id="v-name-two" value=<%= @match_two.name %>>
 
 </section>
 
@@ -23,12 +23,12 @@
 var client_lat = document.getElementById('lat').value;
 var client_long = document.getElementById('long').value;
 var client_name = document.getElementById('client-name').innerText;
-var v_lat = document.getElementById('v-lat').value;
-var v_long = document.getElementById('v-long').value;
-var v_name = document.getElementById('v-name').value;
-var v_lat_2 = document.getElementById('v-lat-2').value;
-var v_long_2 = document.getElementById('v-long-2').value;
-var v_name_2 = document.getElementById('v-name-2').value;
+var v_lat_one = document.getElementById('v-lat-one').value;
+var v_long_one = document.getElementById('v-long-one').value;
+var v_name_one = document.getElementById('v-name-one').value;
+var v_lat_two = document.getElementById('v-lat-two').value;
+var v_long_two = document.getElementById('v-long-two').value;
+var v_name_two = document.getElementById('v-name-two').value;
 
 var handler = Gmaps.build('Google');
 handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
@@ -36,10 +36,10 @@ var markers = handler.addMarkers([
 { lat: client_lat, lng: client_long, picture: {
           "url": "http://maps.google.com/mapfiles/kml/pal4/icon43.png",
           "width":  36,
-          "height": 36
-        }, infowindow: client_name },
-{ lat: v_lat, lng: v_long, infowindow: v_name },
-{ lat: v_lat_2, lng: v_long_2, infowindow: v_name_2 }
+          "height": 36 },
+  infowindow: client_name },
+{ lat: v_lat_one, lng: v_long_one, infowindow: v_name_one },
+{ lat: v_lat_two, lng: v_long_two, infowindow: v_name_two }
 ]);
 handler.bounds.extendWith(markers);
 handler.fitMapToBounds();
