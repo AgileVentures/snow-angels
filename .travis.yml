@@ -3,3 +3,6 @@ rvm:
   - 2.0.0
 before_script:
   - psql -c 'create database snow_angels_test;' -U postgres
+addons:
+  code_climate:
+    repo_token: b5cca5d167eb28ed609217e5eaf3b7ef04e75ee64b6b6570a4d79b98736d9cdd
