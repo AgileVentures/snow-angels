@@ -1,7 +1,7 @@
 <h1>Task Summary</h1>
 
 <section>
-  <p>Client name: <%= @task.client.name %> <%= @task.client.last_name %></p>
+  <p>Client name: <div id="client-name"><%= @task.client.name %> <%= @task.client.last_name %></div></p>
   <p>Client phone number: <%= @task.client.phone %></p>
   <p>Task type: <%= @task.task_type %></p>
   <p>Description: <%= @task.description %></p>
@@ -10,8 +10,10 @@
   <input type="hidden" id="long" value=<%= @task.geocoder_long(@task.client.postcode) %>>
   <input type="hidden" id="v-lat" value=<%= @task.geocoder_lat(@match_one.post_code) %>>
   <input type="hidden" id="v-long" value=<%= @task.geocoder_long(@match_one.post_code) %>>
+  <input type="hidden" id="v-name" value=<%= @match_one.name %>>
   <input type="hidden" id="v-lat-2" value=<%= @task.geocoder_lat(@match_two.post_code) %>>
   <input type="hidden" id="v-long-2" value=<%= @task.geocoder_long(@match_two.post_code) %>>
+  <input type="hidden" id="v-name-2" value=<%= @match_two.name %>>
 
 </section>
 
@@ -20,10 +22,13 @@
 <script>
 var client_lat = document.getElementById('lat').value;
 var client_long = document.getElementById('long').value;
+var client_name = document.getElementById('client-name').innerText;
 var v_lat = document.getElementById('v-lat').value;
 var v_long = document.getElementById('v-long').value;
+var v_name = document.getElementById('v-name').value;
 var v_lat_2 = document.getElementById('v-lat-2').value;
 var v_long_2 = document.getElementById('v-long-2').value;
+var v_name_2 = document.getElementById('v-name-2').value;
 
 var handler = Gmaps.build('Google');
 handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
@@ -32,9 +37,9 @@ var markers = handler.addMarkers([
           "url": "http://maps.google.com/mapfiles/kml/pal4/icon43.png",
           "width":  36,
           "height": 36
-        }, infowindow: "hello!" },
-{ lat: v_lat, lng: v_long},
-{ lat: v_lat_2, lng: v_long_2}
+        }, infowindow: client_name },
+{ lat: v_lat, lng: v_long, infowindow: v_name },
+{ lat: v_lat_2, lng: v_long_2, infowindow: v_name_2 }
 ]);
 handler.bounds.extendWith(markers);
 handler.fitMapToBounds();
