@@ -1,13 +1,1 @@
-<%= form_for @client do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :postcode %>
-  <%= f.text_field :postcode %>
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-  <%= f.submit %>
-<% end %>
+<%= render "form" %>
