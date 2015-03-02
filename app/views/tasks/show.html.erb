@@ -13,6 +13,8 @@
 
     <input type="hidden" id="lat" value=<%= @task.geocoder_lat(@task.client.postcode) %>>
     <input type="hidden" id="long" value=<%= @task.geocoder_long(@task.client.postcode) %>>
+    <input type="hidden" id="v-lat" value=<%= @task.geocoder_lat(@match_one.post_code) %>>
+    <input type="hidden" id="v-long" value=<%= @task.geocoder_long(@match_one.post_code) %>>
 
   </div>
   </br>
@@ -24,12 +26,14 @@
   <script>
   var client_lat = document.getElementById('lat').value;
   var client_long = document.getElementById('long').value;
+  var v_lat = document.getElementById('v-lat').value;
+  var v_long = document.getElementById('v-long').value;
 
     var handler = Gmaps.build('Google');
     handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
     var markers = handler.addMarkers([
     { lat: client_lat, lng: client_long },
-    { lat: 57, lng: -0.1},
+    { lat: v_lat, lng: v_long},
     { lat: 47, lng: -0.1}
     ]);
     handler.bounds.extendWith(markers);

@@ -3,7 +3,6 @@ class TasksController < ApplicationController
   before_action :authenticate_admin!
   def index
     @tasks = Task.all
-    @matches = MatchTaskVolunteers.all
   end
 
   def new
@@ -38,6 +37,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @match_one = Volunteer.find(MatchTaskVolunteer.first.volunteer_id)
   end
 
   def task_params
