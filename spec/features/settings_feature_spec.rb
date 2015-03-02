@@ -9,22 +9,16 @@ feature 'Settings' do
     end
 
     scenario 'should display a link called Generate email list' do
-      visit '/'
-      admin_sign_in
       click_link 'Settings'
       expect(page).to have_link 'Generate email list'
     end
 
     scenario 'should display a link called Admin Invitation' do
-      visit '/'
-      admin_sign_in
       click_link 'Settings'
       expect(page).to have_link 'Admin Invitation'
     end
 
     scenario 'should display the send inviatation page' do
-      visit '/'
-      admin_sign_in
       click_link 'Settings'
       click_link 'Admin Invitation'
       expect(page).to have_content 'Send invitation'

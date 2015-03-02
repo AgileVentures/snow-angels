@@ -32,8 +32,7 @@ def admin_sign_in
 end
 
 def admin_sign_up
-  admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
-  admin.save
+  Admin.create(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
 end
 
 def build_volunteer
