@@ -153,3 +153,30 @@ nav ul li a {
   margin: 0 auto;
   padding: 1em;
 }
+
+.task {
+  float: left;
+  width: 30%;
+}
+
+.volunteers {
+  float: right;
+  width: 70%;
+}
+
+.volunteer-box {
+  background-color: #bdc3c7;
+  margin-bottom: 1em;
+  padding: 1em;
+  height: 8em;
+}
+
+.volunteer-box-left {
+  float: left;
+  width: 70%;
+}
+
+.volunteer-box-right {
+  float: right;
+  width: 30%;
+}
