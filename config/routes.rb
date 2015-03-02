@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     member do
       resources :tasks do
         member do
-          get 'match'
+          post 'match'
         end
       end
     end
@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   get 'snow' => 'texts#snow_text'
   get 'settings' => 'settings#index'
   get 'settings/emails/list' => 'settings#email', as: 'email_list_settings'
+  get 'match/:id' => 'match_task_volunteers#match', as: 'match'
+  post 'match_one_volunteer/:id/:volunteer' => 'tasks#match_one_volunteer', as: 'match_one_volunteer'
+
   root to: "pages#index"
 
 

@@ -2,14 +2,10 @@ feature 'tasks' do
   
   context 'Add a task' do
 
-    before do
-      admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
-      admin.save
-      admin_sign_in
-    end
+    before { admin_sign_in }
 
     scenario 'Add a task to a client' do
-      add_client
+      add_client('Tom', 'Smith', 'Makers', 'E1 2SF', '07450991234')
       visit '/'
       click_link 'View client'
       click_link 'Add a task'

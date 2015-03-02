@@ -33,19 +33,7 @@ header {
   border-radius: 10px;
 }
 
-.menu_bar {
-  background-color: gray;
-}
 
-.menu_bar a {
-  text-decoration: none;
-  color: white;
-  padding: 0.7em;
-}
-
-.menu_bar a:hover {
-    font-weight: bold;
-} 
 
 .snow_day_button {
   color: white;
@@ -72,13 +60,13 @@ header {
 
 .left-container {
   float: left;
-  width: 50%;
+  width: 100%;
 }
 
 .right-container {
   float: right;
   width: 50%;
-} 
+}
 
 .volunteer-self-register {
   color: white;
@@ -99,11 +87,17 @@ header {
 ul {
   padding: 0;
   list-style-type: none;
-
 }
 
-.box {
+.client-box {
   background-color: #ecf0f1;
+  list-style-type: none;
+  padding: 1em;
+  margin: 1em;
+}
+
+.client-box-complete {
+  background-color: #8E9091;
   list-style-type: none;
   padding: 1em;
   margin: 1em;
@@ -131,4 +125,31 @@ ul {
 
 pre {
   margin-top: 1em;
+}
+
+nav {
+  background-color: #ecf0f1;
+}
+
+nav ul li {
+  display: inline;
+  padding: 0.6em;
+  background-color: #cad5d8;
+  border-radius: 4px;
+  border: 2px solid #cad5d8;
+}
+
+nav ul li:hover {
+  border: 2px solid #b0c0c4;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #74898b;
+}
+
+.navbar {
+  width: 50em;
+  margin: 0 auto;
+  padding: 1em;
 }

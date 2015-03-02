@@ -1,8 +1,7 @@
 class TextsController < ApplicationController
-  
+
   skip_before_action :verify_authenticity_token
-  # before_action :authenticate_admin!
-  
+
   def index
     @texts = Text.all
     @available = Volunteer.where(availability: true)
@@ -14,7 +13,6 @@ class TextsController < ApplicationController
 
   def create
     @text = Text.new
-
     @text.number = params['From']
     @text.body = params['Body']
 

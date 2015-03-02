@@ -1,16 +1,8 @@
 feature "client" do
 
-  context "Add client" do
+  before { admin_sign_in }
 
-    before do
-      admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
-      admin.save
-      visit '/'
-      click_link 'Sign in'
-      fill_in 'Email', with: 'test@example.com'
-      fill_in 'Password', with: 'testtest'
-      click_button 'Log in'
-    end
+  context "Add client" do
 
     it "should be able display a form to add a client" do
       visit '/'
@@ -23,14 +15,7 @@ feature "client" do
     end
 
     it "should be able to create a client" do
-      visit '/'
-      click_link 'Add client'
-      fill_in 'Name', with: 'Tom'
-      fill_in 'Last name', with: 'Smith'
-      fill_in 'Address', with: 'Makers'
-      fill_in 'Postcode', with: 'E1 2SF'
-      fill_in 'Phone', with: '07450991234'
-      click_button 'Create Client'
+      add_client('Tom', 'Smith', 'Makers', 'E1 2SF', '07450991234')
       expect(page).to have_content 'Client successfully added'
       expect(current_path).to eq '/pages'
     end
@@ -40,14 +25,7 @@ feature "client" do
   context "view client" do
 
     before do
-      admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
-      admin.save
-      visit '/'
-      click_link 'Sign in'
-      fill_in 'Email', with: 'test@example.com'
-      fill_in 'Password', with: 'testtest'
-      click_button 'Log in'
-      add_client
+      add_client('Tom', 'Smith', 'Makers', 'E1 2SF', '07450991234')
     end
 
     it "admin should be able to see client details" do
@@ -58,7 +36,7 @@ feature "client" do
     end
 
     it "should be able to search" do
-      add_second_client
+      add_client('Other', 'Client', 'Makers', 'E1 2SF', '01234567890')
       visit '/'
       click_link 'View client'
       fill_in 'search', with: 'Tom'
@@ -68,7 +46,7 @@ feature "client" do
     end
 
     it "should show clients by ascending last name order" do
-      add_second_client
+      add_client('Bob', 'Jones', 'Makers', 'E1 2SF', '07450991234')
       visit '/'
       click_link 'View client'
       expect(page.body) =~ /Bob.*Tom/
@@ -77,15 +55,9 @@ feature "client" do
   end
 
   context 'edit client' do
+    
     before do
-      admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
-      admin.save
-      visit '/'
-      click_link 'Sign in'
-      fill_in 'Email', with: 'test@example.com'
-      fill_in 'Password', with: 'testtest'
-      click_button 'Log in'
-      add_client
+      add_client('Tom', 'Smith', 'Makers', 'E1 2SF', '07450991234')
     end
 
     it 'should be able to change the details' do
@@ -102,14 +74,7 @@ feature "client" do
   context 'delete client' do
 
     before do
-      admin = Admin.new(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
-      admin.save
-      visit '/'
-      click_link 'Sign in'
-      fill_in 'Email', with: 'test@example.com'
-      fill_in 'Password', with: 'testtest'
-      click_button 'Log in'
-      add_client
+      add_client('Tom', 'Smith', 'Makers', 'E1 2SF', '07450991234')
     end
 
     it 'should be able to delete client' do

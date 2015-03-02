@@ -15,28 +15,28 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.client = client
     if @task.save
-      redirect_to '/pages'
+      redirect_to pages_path
       flash[:notice] = 'Task successfully added'
     else
       render 'new'
     end
   end
 
-  def match
-    @client = Client.find(params[:id])
-    @available = Volunteer.where(availability: true)
+  def update
     @task = Task.find(params[:id])
-    @available_dbs = Volunteer.where(availability: true, dbs: true)
-    if @available_dbs.any?
-      @task.update(volunteer_id: @available_dbs.first.id )
-      @available_dbs.first.update(availability: false)
-    elsif @available.any?
-      @task.update(volunteer_id: @available.first.id )
-      @available.first.update(availability: false)
-    else
-      flash[:notice] = "There are no more unmatched volunteers"
-    end
+    @task.update(task_params)
     redirect_to pages_path
+  end
+
+  def match_one_volunteer
+    @task = Task.find(params[:id])
+    @task.volunteer_id = Volunteer.find(params[:volunteer]).id
+    @task.save
+    redirect_to pages_path
+  end
+
+  def show
+    @task = Task.find(params[:id])
   end
 
   def task_params
@@ -45,4 +45,3 @@ class TasksController < ApplicationController
   end
 
 end
-
