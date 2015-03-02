@@ -7,7 +7,7 @@ class Volunteer < ActiveRecord::Base
   # validates :mobile_number, length: { is: 11 }
   # validates :mobile_number, numericality: { only_integer: true }
 
-  has_many :tasks
+  has_many :tasks, through: :match_task_volunteer
   has_many :clients, :through => :tasks
   has_many :texts, dependent: :destroy
 

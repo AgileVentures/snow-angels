@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227172329) do
+ActiveRecord::Schema.define(version: 20150301124931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 20150227172329) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "match_task_volunteers", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "task_id"
+    t.integer  "volunteer_id"
+  end
+
+  add_index "match_task_volunteers", ["task_id"], name: "index_match_task_volunteers_on_task_id", using: :btree
+  add_index "match_task_volunteers", ["volunteer_id"], name: "index_match_task_volunteers_on_volunteer_id", using: :btree
+
   create_table "tasks", force: :cascade do |t|
     t.boolean  "volunteer_text_confirmed"
     t.boolean  "called_client"
@@ -107,6 +117,8 @@ ActiveRecord::Schema.define(version: 20150227172329) do
     t.boolean  "dbs"
   end
 
+  add_foreign_key "match_task_volunteers", "tasks"
+  add_foreign_key "match_task_volunteers", "volunteers"
   add_foreign_key "tasks", "clients"
   add_foreign_key "tasks", "volunteers"
   add_foreign_key "texts", "volunteers"
