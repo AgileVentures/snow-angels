@@ -5,7 +5,11 @@
     <p>Client Name: <%= @task.client.name %> <%= @task.client.last_name %></p>
     <p>Description: <%= @task.description %></p>
     <p>Task Type: <%= @task.task_type%></p>
-    <% if @task.volunteer_id %>
+    <p id='client_post_code'> <%= @task.client.postcode%></p>
+    <p id='volunteer_post_code'> <%= @task.volunteer.postcode%></p>
+
+
+      <% if @task.volunteer_id %>
         <%= @task.volunteer.name %>
     <% end %>
   </div>
@@ -15,16 +19,17 @@
   <div style='width: 800px;'>
     <div id="multi_markers" style='width: 800px; height: 400px;'></div>
   </div>
-
   <script>
+  var client = document.getElementById('client_post_code').innerText;
+
     var handler = Gmaps.build('Google');
     handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
     var markers = handler.addMarkers([
     { lat: 51, lng: -0.1},
     { lat: 57, lng: -0.1},
     { lat: 47, lng: -0.1}
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    });
   </script>
