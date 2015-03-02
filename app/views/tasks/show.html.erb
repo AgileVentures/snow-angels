@@ -10,18 +10,34 @@
     <% end %>
   </div>
   </br>
+  <h1>Map Summary</h1>
+  <div style='width: 800px;'>
+    <div id="directions" style='width: 800px; height: 400px;'></div>
+  </div>
 
   <script>
-  function initialize() {
-    var mapProp = {
-      center:new google.maps.LatLng(51.508742,-0.120850),
-      zoom:5,
-      mapTypeId:google.maps.MapTypeId.ROADMAP
-    };
-    var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
-  </script>
+  var directionsDisplay = new google.maps.DirectionsRenderer();
+  var directionsService = new google.maps.DirectionsService();
 
-  <h1>Map Summary</h1>
-  <div id="googleMap" style="width:500px;height:380px;"></div>
+  function calcRoute() {
+    var origin      = new google.maps.LatLng(51.911216901965545, -0.510850608348853);
+    var destination = new google.maps.LatLng(51.889270948465416, -0.53606146574022);
+    var request = {
+        origin:      origin,
+        destination: destination,
+        travelMode:  google.maps.TravelMode.DRIVING
+    };
+    directionsService.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+      }
+    });
+  }
+
+  calcRoute();
+
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ internal: {id: 'directions'}}, function(){
+    directionsDisplay.setMap(handler.getMap());
+  });
+  </script>
