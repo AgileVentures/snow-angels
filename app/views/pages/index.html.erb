@@ -40,9 +40,6 @@
           <% else %>
             <li class='client-box-complete'>
               <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>
-              <% if task.volunteer_id %>
-                  <%= task.volunteer.name %>
-              <% end %>
             </li>
           <% end %>
         <% end %>
