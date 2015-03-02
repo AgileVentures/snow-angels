@@ -30,8 +30,6 @@ gem 'phony'
 gem 'gmaps4rails', '~> 2.1.2'
 gem 'underscore-rails', '~> 1.7.0'
 
-
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -55,6 +53,7 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'codeclimate-test-reporter', require: nil
 end
 
 group :production do
