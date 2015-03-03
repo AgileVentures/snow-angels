@@ -3,7 +3,7 @@
   <h2 class="pending-archive"> Pending </h2>
   <% @today_texts.each do |text| %>
     <% if text.volunteer.availability.nil? %>
-      <p>
+      <p class="pending-archive-item">
         <%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %>
         <%= link_to "Available", available_volunteer_path(text.volunteer) %>
         <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
@@ -47,9 +47,9 @@
   <h2 class="pending-archive"> Archive </h2>
   <% @old_texts.each do |text| %>
     <% if text.volunteer.nil? %>
-      <p><%= text.number %> | <%= text.body %></p>
+      <p class="pending-archive-item"><%= text.number %> | <%= text.body %></p>
     <% else %>
-      <p><%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %></p>
+      <p class="pending-archive-item"><%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %></p>
     <% end %>
   <% end %>
 <% end %>
