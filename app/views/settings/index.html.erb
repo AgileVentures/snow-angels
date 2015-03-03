@@ -1,7 +1,12 @@
-<h2>Email</h2>
+<h3>Email</h3>
 <%= link_to 'Generate email list', email_list_settings_path, class: 'btn' %> -
 <em>Generate a list of emails for your volunteers</em>
 <br>
-<h2>Admin Invitation</h2>
+
+<h3>Admin Invitation</h3>
 <%= link_to 'Admin Invitation', new_admin_invitation_path, class: 'btn' %> -
 <em>Invite a new admin to the system</em>
+
+<h3>Edit Profile</h3>
+<%= link_to "Edit admin", edit_admin_registration_path %>
+<em>Edit your data</em>

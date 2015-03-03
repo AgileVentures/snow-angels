@@ -17,7 +17,7 @@ feature "client" do
     it "should be able to create a client" do
       add_client('Tom', 'Smith', 'Makers', 'E1 2SF', '07450991234')
       expect(page).to have_content 'Client successfully added'
-      expect(current_path).to eq '/pages'
+      expect(current_path).to eq '/clients'
     end
 
   end

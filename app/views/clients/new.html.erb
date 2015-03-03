@@ -1,31 +1,18 @@
 <% if @client.errors.any? %>
-<section id="errors" >
-  <h2> <%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved: </h2>
-  <ul>
-    <% @client.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-</section>
+  <section id="errors" >
+    <h2> <%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved: </h2>
+    <ul>
+      <% @client.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </section>
 <% end %>
 
-<%= form_for @client do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :postcode %>
-  <%= f.text_field :postcode %>
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-  <%= f.submit %>
-<% end %>
-
-<%= form_tag(clients_path, :method => 'get', id: 'search-form') do %>
+<%= form_tag(clients_path, :method => 'get', id: 'search-form-client') do %>
   <%= text_field_tag :search, params[:search], placeholder: 'Search clients' %>
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
 
-
+<h2 class="form-title">Add a client</h2>
+<%= render "form" %>

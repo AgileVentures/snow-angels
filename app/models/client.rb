@@ -10,6 +10,7 @@ class Client < ActiveRecord::Base
   has_many :tasks
   has_many :volunteers, :through => :tasks
 
+  scope :ordered_by_last_name, -> { order('last_name ASC') }
 
   def self.search(query)
     where('name like ?', "%#{query}%")
