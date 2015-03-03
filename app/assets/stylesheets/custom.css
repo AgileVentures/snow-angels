@@ -64,7 +64,13 @@ header {
 
 .left-container {
   float: left;
-  width: 100%;
+  width: 70%;
+}
+
+.left-container p {
+  line-height: 30px;
+  font-size: 1.25em;
+  margin-bottom: 1rem;
 }
 
 .right-container {
@@ -78,10 +84,12 @@ header {
   padding: 1em;
   border-radius: 10px;
   display: block;
-  width: 8em;
+  width: 15em;
   text-align: center;
   margin-top: 1em;
   margin-bottom: 1em;
+  text-decoration: none;
+  font-size: 1.5em;
 }
 
 .volunteer-self-register:hover {
