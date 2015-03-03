@@ -182,3 +182,13 @@ nav ul li a {
   float: right;
   width: 30%;
 }
+
+.form {
+  margin-top: 1%;
+  margin-left: 40%;
+}
+
+.form-title {
+  margin-top: 2%;
+  text-align: center;
+}

@@ -8,30 +8,32 @@
   </ul>
 </section>
 <% end %>
+<h2 class="form-title">Register as a volunteer</h2>
+<section class="form">
+  <%= form_for @volunteer do |f| %>
 
-<%= form_for @volunteer do |f| %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :post_code %>
-  <%= f.text_field :post_code %>
-  <%= f.label :mobile_number %>
-  <%= f.text_field :mobile_number %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :shopping %>
-  <%= f.check_box :shopping%>
-  <%= f.label :prescription_collection %>
-  <%= f.check_box :prescription_collection %>
-  <%= f.label :snow_clearance %>
-  <%= f.check_box :snow_clearance %>
-  <%= f.label :grit_spreading %>
-  <%= f.check_box :grit_spreading %>
-  <%= f.label :dog_walking %>
-  <%= f.check_box :dog_walking %>
-  <%= f.submit %>
-<% end %>
+    <p><%= f.label :name %>
+    <%= f.text_field :name %></p>
+    <p><%= f.label :last_name %>
+    <%= f.text_field :last_name %></p>
+    <p><%= f.label :address %>
+    <%= f.text_field :address %></p>
+    <p><%= f.label :post_code %>
+    <%= f.text_field :post_code %></p>
+    <p><%= f.label :mobile_number %>
+    <%= f.text_field :mobile_number %></p>
+    <p><%= f.label :email %>
+    <%= f.text_field :email %></p>
+    <p><%= f.label :shopping %>
+    <%= f.check_box :shopping%></p>
+    <p><%= f.label :prescription_collection %>
+    <%= f.check_box :prescription_collection %></p>
+    <p><%= f.label :snow_clearance %>
+    <%= f.check_box :snow_clearance %></p>
+    <p><%= f.label :grit_spreading %>
+    <%= f.check_box :grit_spreading %></p>
+    <p><%= f.label :dog_walking %>
+    <%= f.check_box :dog_walking %></p>
+    <p><%= f.submit %></p>
+  <% end %>
+</section>
