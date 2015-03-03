@@ -3,9 +3,7 @@ class Volunteer < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :mobile_number
   validates_presence_of :last_name
-  validates :post_code, :postcode => true
-
-
+  validates_presence_of :post_code
 
   has_many :tasks, through: :match_task_volunteer
   has_many :clients, :through => :tasks
