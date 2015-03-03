@@ -185,6 +185,10 @@ nav ul li a {
   width: 30%;
 }
 
+/* ----------------
+      FORMS
+----------------*/
+
 .form {
   margin-top: 1%;
   margin-left: 35%;
@@ -208,4 +212,8 @@ nav ul li a {
 .form-title {
   margin-top: 2%;
   text-align: center;
+}
+
+#search-form-client #search {
+  width: 250px;
 }

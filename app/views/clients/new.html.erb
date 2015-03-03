@@ -9,7 +9,7 @@
   </section>
 <% end %>
 
-<%= form_tag(clients_path, :method => 'get', id: 'search-form') do %>
+<%= form_tag(clients_path, :method => 'get', id: 'search-form-client') do %>
   <%= text_field_tag :search, params[:search], placeholder: 'Search clients' %>
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
