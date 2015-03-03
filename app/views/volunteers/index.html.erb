@@ -1,4 +1,4 @@
-<h1> Welcome to Snow Angels </h1>
+<h1>Volunteers</h1>
 
   <%= form_tag(volunteers_path, :method => 'get', id: 'search-form') do %>
     <%= text_field_tag :search, params[:search], placeholder: 'Search volunteers' %>
@@ -22,8 +22,8 @@
           Snow Clearance: <%= volunteer.snow_clearance %> |
           Grit Spreading: <%= volunteer.grit_spreading %> |
           Dog Walking: <%= volunteer.dog_walking %> |
-          <%= link_to 'Edit', edit_volunteer_path(volunteer) %>
-          <%= link_to 'Delete', volunteer_path(volunteer), method: :delete %>
+          <%= link_to image_tag('Edit.png'), edit_volunteer_path(volunteer) %>
+          <%= link_to image_tag('Delete.png'), volunteer_path(volunteer), method: :delete %>
         </li>
       </ul>
     <% end %>
