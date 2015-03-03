@@ -36,7 +36,16 @@
            <%= text_field_tag :custom_body %>
           <p><%= submit_tag "Send text" %></p>
         <% end %>
+
+        <h4>Texts received:</h4>
+        <ul>
+          <% vol.texts.reverse.each do |text| %> 
+            <li><%= text.body %></li>
+          <% end %>
+        </ul>
         <p> <%= button_to "Volunteer choosen", match_one_volunteer_path(@task, vol) %>
+
+
       </section>
 
     </li>
