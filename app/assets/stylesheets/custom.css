@@ -33,19 +33,7 @@ header {
   border-radius: 10px;
 }
 
-.menu_bar {
-  background-color: gray;
-}
 
-.menu_bar a {
-  text-decoration: none;
-  color: white;
-  padding: 0.7em;
-}
-
-.menu_bar a:hover {
-    font-weight: bold;
-}
 
 .snow_day_button {
   color: white;
@@ -99,7 +87,6 @@ header {
 ul {
   padding: 0;
   list-style-type: none;
-
 }
 
 .client-box {
@@ -138,4 +125,58 @@ ul {
 
 pre {
   margin-top: 1em;
+}
+
+nav {
+  background-color: #ecf0f1;
+}
+
+nav ul li {
+  display: inline;
+  padding: 0.6em;
+  background-color: #cad5d8;
+  border-radius: 4px;
+  border: 2px solid #cad5d8;
+}
+
+nav ul li:hover {
+  border: 2px solid #b0c0c4;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #74898b;
+}
+
+.navbar {
+  width: 50em;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.task {
+  float: left;
+  width: 30%;
+}
+
+.volunteers {
+  float: right;
+  width: 70%;
+}
+
+.volunteer-box {
+  background-color: #bdc3c7;
+  margin-bottom: 1em;
+  padding: 1em;
+  height: 8em;
+}
+
+.volunteer-box-left {
+  float: left;
+  width: 70%;
+}
+
+.volunteer-box-right {
+  float: right;
+  width: 30%;
 }

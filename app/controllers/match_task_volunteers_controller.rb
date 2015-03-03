@@ -1,34 +1,28 @@
 class MatchTaskVolunteersController < ApplicationController
 
   def match
+    @text = Text.new
     @task = Task.find(params[:id])
-    @available = Volunteer.where(availability: true)
-    @available_dbs = Volunteer.where(availability: true, dbs: true)
-    if @available_dbs.any?
-      @match = MatchTaskVolunteer.create(volunteer_id: @available_dbs.first.id, task_id: @task.id)
-      @available_dbs.first.update(availability: false)
-      if @available_dbs.any?
-        @match_two = MatchTaskVolunteer.create(volunteer_id: @available_dbs.first.id, task_id: @task.id)
-        @available_dbs.first.update(availability: false)
-      elsif @available.any?
-        @match_two = MatchTaskVolunteer.create(volunteer_id: @available.first.id, task_id: @task.id)
-        @available.first.update(availability: false)
-      else
-        flash[:notice] = "There are no more unmatched volunteers"
-      end
-    elsif @available.any?
-      @match = MatchTaskVolunteer.create(volunteer_id: @available.first.id, task_id: @task.id)
-      @available.first.update(availability: false)
-      if @available.any?
-        @match_two = MatchTaskVolunteer.create(volunteer_id: @available.first.id, task_id: @task.id)
-        @available.first.update(availability: false)
-      else
-        flash[:notice] = "There are no more unmatched volunteers"
+    @volunteers = order_by_dbs(available_volunteers)
+
+    if @volunteers.any?
+      @volunteers.each do |volunteer|
+        MatchTaskVolunteer.create(volunteer_id: volunteer.id, task_id: @task.id)
       end
     else
-      flash[:notice] = "There are no more unmatched volunteers"
+      no_match
     end
-    redirect_to pages_path
   end
 
+  def available_volunteers
+    Volunteer.where(availability: true)
+  end
+
+  def order_by_dbs(volunteers)
+    volunteers.order(dbs: :desc).take(3)
+  end
+
+  def no_match
+    flash[:notice] = 'There are no more unmatched volunteers'
+  end
 end
