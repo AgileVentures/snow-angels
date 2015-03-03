@@ -37,7 +37,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    @match_one = Volunteer.find(MatchTaskVolunteer.first.volunteer_id)
+      @match_one = Volunteer.find(MatchTaskVolunteer.first.volunteer_id)
   end
 
   def task_params

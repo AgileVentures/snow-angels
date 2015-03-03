@@ -13,9 +13,10 @@
 
     <input type="hidden" id="lat" value=<%= @task.geocoder_lat(@task.client.postcode) %>>
     <input type="hidden" id="long" value=<%= @task.geocoder_long(@task.client.postcode) %>>
-    <input type="hidden" id="v-lat" value=<%= @task.geocoder_lat(@match_one.post_code) %>>
-    <input type="hidden" id="v-long" value=<%= @task.geocoder_long(@match_one.post_code) %>>
-
+      <input type="hidden" id="v-lat" value=<%= @task.geocoder_lat(@match_one.post_code) %>>
+      <input type="hidden" id="v-long" value=<%= @task.geocoder_long(@match_one.post_code) %>>
+      <input type="hidden" id="v-lat" value=<%= @task.geocoder_lat(@task.client.postcode) %>>
+      <input type="hidden" id="v-long" value=<%= @task.geocoder_long(@task.client.postcode) %>>
   </div>
   </br>
   <h1>Map Summary</h1>
@@ -34,7 +35,7 @@
     var markers = handler.addMarkers([
     { lat: client_lat, lng: client_long },
     { lat: v_lat, lng: v_long},
-    { lat: 47, lng: -0.1}
+    { lat: 47, lng: -0.1},
     ]);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();

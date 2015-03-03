@@ -33,8 +33,12 @@ class ClientsController < ApplicationController
 
   def update
     @client = Client.find(params[:id])
-    @client.update(client_params)
-    redirect_to '/pages'
+    if @client.update(client_params)
+      redirect_to '/pages'
+    else
+      flash[:notice] = "Invalid Post Code"
+      render 'edit'
+    end
   end
 
   def destroy

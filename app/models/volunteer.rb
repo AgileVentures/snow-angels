@@ -3,7 +3,7 @@ class Volunteer < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :mobile_number
   validates_presence_of :last_name
-  validates_presence_of :post_code
+  validates :post_code, :postcode => true
   # validates :mobile_number, length: { is: 11 }
   # validates :mobile_number, numericality: { only_integer: true }
 
