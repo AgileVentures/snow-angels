@@ -12,18 +12,12 @@
 <section class="form">
   <%= form_for @volunteer do |f| %>
 
-    <p><%= f.label :name %>
-    <%= f.text_field :name %></p>
-    <p><%= f.label :last_name %>
-    <%= f.text_field :last_name %></p>
-    <p><%= f.label :address %>
-    <%= f.text_field :address %></p>
-    <p><%= f.label :post_code %>
-    <%= f.text_field :post_code %></p>
-    <p><%= f.label :mobile_number %>
-    <%= f.text_field :mobile_number %></p>
-    <p><%= f.label :email %>
-    <%= f.text_field :email %></p>
+    <p><%= f.text_field :name, placeholder: 'First name' %></p>
+    <p><%= f.text_field :last_name, placeholder: 'Last name' %></p>
+    <p><%= f.text_field :address, placeholder: 'Address' %></p>
+    <p><%= f.text_field :post_code, placeholder: 'Postcode' %></p>
+    <p><%= f.text_field :mobile_number, placeholder: 'Mobile number' %></p>
+    <p><%= f.text_field :email, placeholder: 'Email' %></p>
     <p><%= f.label :shopping %>
     <%= f.check_box :shopping%></p>
     <p><%= f.label :prescription_collection %>
