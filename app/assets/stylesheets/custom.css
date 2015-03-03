@@ -185,7 +185,17 @@ nav ul li a {
 
 .form {
   margin-top: 1%;
-  margin-left: 40%;
+  margin-left: 35%;
+}
+
+.form p {
+  margin-bottom: 2%;
+}
+
+.form input {
+  width: 500px; 
+  padding-top: 1%;
+
 }
 
 .form-title {
