@@ -4,9 +4,9 @@ class VolunteersController < ApplicationController
 
   def index
     if params[:search]
-      @volunteer = Volunteer.search(params[:search]).order('last_name ASC')
+      @volunteer = Volunteer.search(params[:search]).ordered_by_last_name
     else
-      @volunteer = Volunteer.all.order('last_name ASC')
+      @volunteer = Volunteer.all.ordered_by_last_name
     end
   end
 

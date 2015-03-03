@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :admins
 
-  resources :pages
+  root to: "pages#index"
+  get 'pages' => 'pages#index'
+
   resources :clients do
     member do
       resources :tasks do
@@ -29,7 +31,6 @@ Rails.application.routes.draw do
   get 'match/:id' => 'match_task_volunteers#match', as: 'match'
   post 'match_one_volunteer/:id/:volunteer' => 'tasks#match_one_volunteer', as: 'match_one_volunteer'
 
-  root to: "pages#index"
 
 
 
