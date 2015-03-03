@@ -55,7 +55,7 @@ feature "client" do
   end
 
   context 'edit client' do
-    
+
     before do
       add_client('Tom', 'Smith', 'Makers', 'E1 2SF', '07450991234')
     end

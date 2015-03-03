@@ -35,8 +35,11 @@ class VolunteersController < ApplicationController
 
   def update
     @volunteer = Volunteer.find(params[:id])
-    @volunteer.update(volunteer_params)
-    redirect_to volunteers_path
+    if @volunteer.update(volunteer_params)
+      redirect_to volunteers_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
