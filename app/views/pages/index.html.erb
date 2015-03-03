@@ -8,7 +8,7 @@
 
         <% @tasks_to_be_assigned.each do |task| %>
             <li class='client-box'>
-              <%= link_to task.client.name, task_path(task) %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_path(task) %>
+              <%= link_to task.client.name, task_path(task) %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %>
 
             <%= form_for task do |f| %>
               <%= f.label :called_client %>
@@ -23,7 +23,7 @@
     <h4>Assigned Tasks</h4>
       <% @assigned_tasks.each do |task| %>
          <li class='client-box'>
-              <%= link_to task.client.name, task_path(task) %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_path(task) %>
+              <%= link_to task.client.name, task_path(task) %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %>
 
       <%= form_for task do |f| %>
         <%= f.label :called_client %>

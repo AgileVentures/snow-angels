@@ -165,7 +165,7 @@ nav ul li a {
 
 .volunteers {
   float: right;
-  width: 70%;
+  width: 40%;
 }
 
 .volunteer-box {
@@ -177,12 +177,16 @@ nav ul li a {
 
 .volunteer-box-left {
   float: left;
-  width: 70%;
+  width: 30%;
 }
 
 .volunteer-box-right {
   float: right;
   width: 30%;
+}
+
+#multi-markers {
+  width: 50%;
 }
 
 /* ----------------
