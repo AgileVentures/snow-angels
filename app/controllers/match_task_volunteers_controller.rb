@@ -1,5 +1,7 @@
 class MatchTaskVolunteersController < ApplicationController
 
+before_action :authenticate_admin!
+
   def match
     @text = Text.new
     @task = Task.find(params[:id])

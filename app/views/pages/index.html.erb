@@ -3,11 +3,10 @@
   <%= link_to "SMS to all Volunteers", snow_path, class: 'snow_day_button' %>
 
   <section class='left-container'>
-    <h4> Tasks </h4>
+    <h4>Tasks To Be Assigned</h4>
     <ul>
-      <% if @tasks %>
-        <% @tasks.each do |task| %>
-          <% unless task.task_done %>
+
+        <% @tasks_to_be_assigned.each do |task| %>
             <li class='client-box'>
               <%= link_to task.client.name, task_path(task) %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_path(task) %>
 
@@ -19,15 +18,30 @@
               <%= f.submit "Update"%>
             <% end %>
             </li>
-
-          <% else %>
-            <li class='client-box-complete'>
-              <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>
-            </li>
-          <% end %>
         <% end %>
-      <% end %>
     </ul>
+    <h4>Assigned Tasks</h4>
+      <% @assigned_tasks.each do |task| %>
+         <li class='client-box'>
+              <%= link_to task.client.name, task_path(task) %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_path(task) %>
+
+      <%= form_for task do |f| %>
+        <%= f.label :called_client %>
+        <%= f.check_box :called_client %>
+        <%= f.label :task_done %>
+        <%= f.check_box :task_done %>
+        <%= f.submit "Update"%>
+      <% end %>
+      </li>
+  <% end %>
+    </ul>
+
+    <h4>Completed Tasks</h4>
+    <% @completed_tasks.each do |task| %>
+      <li class='client-box-complete'>
+        <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>
+      </li>
+    <% end %>
   </section>
 
 
