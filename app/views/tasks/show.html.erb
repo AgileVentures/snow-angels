@@ -1,43 +1,49 @@
+<h1>Task Summary</h1>
 
-  <h1>Task Summary</h1>
-  </br>
-  <div>
-    <p>Client Name: <%= @task.client.name %> <%= @task.client.last_name %></p>
-    <p>Description: <%= @task.description %></p>
-    <p>Task Type: <%= @task.task_type%></p>
-    <% if @task.volunteer_id %>
-        <%= @task.volunteer.name %>
-    <% end %>
-  </div>
-  </br>
-  <h1>Map Summary</h1>
-  <div style='width: 800px;'>
-    <div id="directions" style='width: 800px; height: 400px;'></div>
-  </div>
+<section>
+  <p>Client name: <span id="client-name"><%= @task.client.name %></span> <%= @task.client.last_name %></p>
+  <p>Client phone number: <%= @task.client.phone %></p>
+  <p>Task type: <%= @task.task_type %></p>
+  <p>Description: <%= @task.description %></p>
 
-  <script>
-  var directionsDisplay = new google.maps.DirectionsRenderer();
-  var directionsService = new google.maps.DirectionsService();
+  <input type="hidden" id="lat" value=<%= @task.geocoder_lat(@task.client.postcode) %>>
+  <input type="hidden" id="long" value=<%= @task.geocoder_long(@task.client.postcode) %>>
+  <input type="hidden" id="v-lat-one" value=<%= @task.geocoder_lat(@match_one.post_code) %>>
+  <input type="hidden" id="v-long-one" value=<%= @task.geocoder_long(@match_one.post_code) %>>
+  <input type="hidden" id="v-name-one" value=<%= @match_one.name %>>
+  <input type="hidden" id="v-lat-two" value=<%= @task.geocoder_lat(@match_two.post_code) %>>
+  <input type="hidden" id="v-long-two" value=<%= @task.geocoder_long(@match_two.post_code) %>>
+  <input type="hidden" id="v-name-two" value=<%= @match_two.name %>>
 
-  function calcRoute() {
-    var origin      = new google.maps.LatLng(51.911216901965545, -0.510850608348853);
-    var destination = new google.maps.LatLng(51.889270948465416, -0.53606146574022);
-    var request = {
-        origin:      origin,
-        destination: destination,
-        travelMode:  google.maps.TravelMode.DRIVING
-    };
-    directionsService.route(request, function(response, status) {
-      if (status == google.maps.DirectionsStatus.OK) {
-        directionsDisplay.setDirections(response);
-      }
-    });
-  }
+</section>
 
-  calcRoute();
+<div id="multi_markers" style='width: 800px; height: 400px;'></div>
 
-  var handler = Gmaps.build('Google');
-  handler.buildMap({ internal: {id: 'directions'}}, function(){
-    directionsDisplay.setMap(handler.getMap());
-  });
-  </script>
+<script>
+var client_lat = document.getElementById('lat').value;
+var client_long = document.getElementById('long').value;
+var client_name = document.getElementById('client-name').innerText;
+var v_lat_one = document.getElementById('v-lat-one').value;
+var v_long_one = document.getElementById('v-long-one').value;
+var v_name_one = document.getElementById('v-name-one').value;
+var v_lat_two = document.getElementById('v-lat-two').value;
+var v_long_two = document.getElementById('v-long-two').value;
+var v_name_two = document.getElementById('v-name-two').value;
+
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
+var markers = handler.addMarkers([
+{ lat: client_lat, lng: client_long, picture: {
+          "url": "http://maps.google.com/mapfiles/kml/pal4/icon43.png",
+          "width":  36,
+          "height": 36 },
+  infowindow: client_name },
+{ lat: v_lat_one, lng: v_long_one, infowindow: v_name_one },
+{ lat: v_lat_two, lng: v_long_two, infowindow: v_name_two }
+]);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+});
+</script>
+
+
