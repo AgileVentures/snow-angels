@@ -3,9 +3,8 @@ class MatchTaskVolunteersController < ApplicationController
 before_action :authenticate_admin!
 
   def match
-    @text = Text.new
     @task = Task.find(params[:id])
-    @volunteers = order_by_dbs(available_volunteers)
+    @volunteers = Volunteer.available.order_by_dbs
 
     if @volunteers.any?
       @volunteers.each do |volunteer|
@@ -14,14 +13,6 @@ before_action :authenticate_admin!
     else
       no_match
     end
-  end
-
-  def available_volunteers
-    Volunteer.where(availability: true)
-  end
-
-  def order_by_dbs(volunteers)
-    volunteers.order(dbs: :desc).take(3)
   end
 
   def no_match
