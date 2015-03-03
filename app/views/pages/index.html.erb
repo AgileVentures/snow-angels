@@ -11,22 +11,6 @@
             <li class='client-box'>
               <%= link_to task.client.name, task_path(task) %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_path(task) %>
 
-              <% if @matches %>
-                <% @matches.each do |match| %>
-                  <% if match.task_id == task.id %>
-                    <% v = Volunteer.find(match.volunteer_id) %>
-                    <% if !v.nil? %>
-                      <%= v.name %>
-                      <%= form_tag volunteer_text_path(v) do %>
-                        <%= text_field_tag :custom_body %>
-                        <%= submit_tag "Send SMS" %>
-                      <% end %>
-                      <%= button_to "Volunteer choosen", match_one_volunteer_path(task, v) %>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              <% end %>
-
             <%= form_for task do |f| %>
               <%= f.label :called_client %>
               <%= f.check_box :called_client %>
