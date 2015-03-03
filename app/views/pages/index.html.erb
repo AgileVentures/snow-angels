@@ -90,7 +90,7 @@
 
 
   </br>
-    <h4>Completed Tasks</h4>
+    <h4>Complete Tasks</h4>
       <section class='client-box'>
         <table>
           <tr>
@@ -101,23 +101,29 @@
             <th>Address </th>
             <th>Post code</th>
             <th> Phone number </th>
+            <th> sadf </th>
+            <th> 1</th>
           </tr>
 
-      <% @completed_tasks.each do |task| %>
-        <tr>
-          <td><%= link_to task.client.name, task_path(task) %></td>
-          <td><%= task.client.last_name %></td>
-          <td><%= task.task_type %></td>
-          <td><%= task.description %></td>
-          <td><%= task.client.phone %></td>
-          <td><%= task.client.address %></td>
-          <td><%= task.client.postcode %></td>
-
-        </tr>
-      <% end %>
-    </table>
-  </section>
-
+        <% @tasks_to_be_assigned.each do |task| %>
+          <tr>
+            <%= form_for task do |f| %>
+              <td><%= link_to task.client.name, task_path(task) %></td>
+              <td><%= task.client.last_name %></td>
+              <td><%= task.task_type %></td>
+              <td><%= task.description %></td>
+              <td><%= task.client.phone %></td>
+              <td><%= task.client.address %></td>
+              <td><%= task.client.postcode %></td>
+              
+              <td><%= f.label :task_done %></td>
+              <td><%= f.check_box :task_done %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </section>
+  </br>
 
 <% else %>
   <%= render 'partials/splash' %>
