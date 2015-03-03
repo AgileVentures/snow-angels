@@ -12,6 +12,7 @@ class Volunteer < ActiveRecord::Base
   scope :order_by_dbs, -> { order(dbs: :desc) }
   scope :ordered_by_last_name, -> { order(:last_name) }
   scope :first_three_dbs, -> { order_by_dbs.take 3 }
+  scope :todays_texts, ->(id) {Volunteer.find(id).texts.where('created_at >= ?', Time.now.beginning_of_day())}
 
   def self.search(query)
     where('name like ?', "%#{query}%")

@@ -39,7 +39,7 @@
 
         <h4>Texts received:</h4>
         <ul>
-          <% vol.texts.reverse.each do |text| %> 
+          <% Volunteer.todays_texts(vol.id).reverse.each do |text| %> 
             <li><%= text.body %></li>
           <% end %>
         </ul>
