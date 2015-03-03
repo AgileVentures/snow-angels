@@ -6,25 +6,40 @@
   <% end %>
 
   <% if @volunteer.any? %>
-
+    <table>
+      <tr>
+        <th>Last name</th>
+        <th>First name</th>
+        <th>DBS Checked</th>
+        <th>Address</th>
+        <th>Postcode</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Shopping</th>
+        <th>Prescription collection</th>
+        <th>Snow clearance</th>
+        <th>Grit spreading</th>
+        <th>Dog walking</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
     <% @volunteer.each do |volunteer| %>
-      <ul>
-        <li>
-          <%= volunteer.last_name %>
-          <%= volunteer.name %>
-          DBS Checked: <%= volunteer.dbs %>
-          <%= volunteer.address %>
-          <%= volunteer.post_code %>
-          <%= volunteer.mobile_number %>
-          <%= volunteer.email %>
-          Shopping:<%= volunteer.shopping %> |
-          Prescription Collection: <%= volunteer.prescription_collection %> |
-          Snow Clearance: <%= volunteer.snow_clearance %> |
-          Grit Spreading: <%= volunteer.grit_spreading %> |
-          Dog Walking: <%= volunteer.dog_walking %> |
-          <%= link_to image_tag('Edit.png'), edit_volunteer_path(volunteer) %>
-          <%= link_to image_tag('Delete.png'), volunteer_path(volunteer), method: :delete %>
-        </li>
-      </ul>
+      <tr>
+          <td><%= volunteer.last_name %></td>
+          <td><%= volunteer.name %></td>
+          <td><%= volunteer.dbs %></td>
+          <td><%= volunteer.address %></td>
+          <td><%= volunteer.post_code %></td>
+          <td><%= volunteer.mobile_number %></td>
+          <td><%= volunteer.email %></td>
+          <td><%= volunteer.shopping %></td>
+          <td><%= volunteer.prescription_collection %></td>
+          <td><%= volunteer.snow_clearance %></td>
+          <td><%= volunteer.grit_spreading %></td>
+          <td><%= volunteer.dog_walking %></td>
+          <td><%= link_to image_tag('Edit.png'), edit_volunteer_path(volunteer) %></td>
+          <td><%= link_to image_tag('Delete.png'), volunteer_path(volunteer), method: :delete %></td>
+        </tr>
     <% end %>
+    </table>
   <% end %>
