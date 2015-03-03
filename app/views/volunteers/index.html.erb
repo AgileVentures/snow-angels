@@ -1,6 +1,6 @@
 <h1>Volunteers</h1>
 
-  <%= form_tag(volunteers_path, :method => 'get', id: 'search-form') do %>
+  <%= form_tag(volunteers_path, :method => 'get', id: 'search-form-view') do %>
     <%= text_field_tag :search, params[:search], placeholder: 'Search volunteers' %>
     <%= submit_tag 'Search', :name => nil %>
   <% end %>
@@ -25,21 +25,21 @@
       </tr>
     <% @volunteer.each do |volunteer| %>
       <tr>
-          <td><%= volunteer.last_name %></td>
-          <td><%= volunteer.name %></td>
-          <td><%= volunteer.dbs %></td>
-          <td><%= volunteer.address %></td>
-          <td><%= volunteer.post_code %></td>
-          <td><%= volunteer.mobile_number %></td>
-          <td><%= volunteer.email %></td>
-          <td><%= volunteer.shopping %></td>
-          <td><%= volunteer.prescription_collection %></td>
-          <td><%= volunteer.snow_clearance %></td>
-          <td><%= volunteer.grit_spreading %></td>
-          <td><%= volunteer.dog_walking %></td>
-          <td><%= link_to image_tag('Edit.png'), edit_volunteer_path(volunteer) %></td>
-          <td><%= link_to image_tag('Delete.png'), volunteer_path(volunteer), method: :delete %></td>
-        </tr>
+        <td><%= volunteer.last_name %></td>
+        <td><%= volunteer.name %></td>
+        <td><%= volunteer.dbs %></td>
+        <td class="address"><%= volunteer.address %></td>
+        <td><%= volunteer.post_code %></td>
+        <td><%= volunteer.mobile_number %></td>
+        <td><%= volunteer.email %></td>
+        <td><%= volunteer.shopping %></td>
+        <td><%= volunteer.prescription_collection %></td>
+        <td><%= volunteer.snow_clearance %></td>
+        <td><%= volunteer.grit_spreading %></td>
+        <td><%= volunteer.dog_walking %></td>
+        <td class="icon"><%= link_to image_tag('Edit.png'), edit_volunteer_path(volunteer) %></td>
+        <td class="icon"><%= link_to image_tag('Delete.png'), volunteer_path(volunteer), method: :delete %></td>
+      </tr>
     <% end %>
     </table>
   <% end %>
