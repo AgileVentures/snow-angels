@@ -4,22 +4,48 @@
 
   <section class='left-container'>
     <h4>Tasks To Be Assigned</h4>
-    <ul>
+      <section class='client-box'>
+        <table>
+          <tr>
+            <th>name </th>
+            <th>Last name </th>
+            <th> Task category </th>
+            <th>Task Description </th>
+            <th>Address </th>
+            <th>Post code</th>
+            <th> Phone number </th>
+            <th> sadf </th>
+            <th> 1</th>
+            <th> 2</th>
+            <th> 3</th>
+            <th> 4</th>
+            <th> 5</th>
+
+          </tr>
 
         <% @tasks_to_be_assigned.each do |task| %>
-            <li class='client-box'>
-              <%= link_to task.client.name, task_path(task) %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_path(task) %>
-
+          <tr>
             <%= form_for task do |f| %>
-              <%= f.label :called_client %>
-              <%= f.check_box :called_client %>
-              <%= f.label :task_done %>
-              <%= f.check_box :task_done %>
-              <%= f.submit "Update"%>
+              <td><%= link_to task.client.name, task_path(task) %></td>
+              <td><%= task.client.last_name %></td>
+              <td><%= task.task_type %></td>
+              <td><%= task.description %></td>
+              <td><%= task.client.phone %></td>
+              <td><%= task.client.address %></td>
+              <td><%= task.client.postcode %></td>
+              <td><%= link_to "Match", match_path(task) %></td>
+              
+              <td><%= f.label :called_client %></td>
+              <td><%= f.check_box :called_client %></td>
+              <td><%= f.label :task_done %></td>
+              <td><%= f.check_box :task_done %></td>
+              <td><%= f.submit "Update"%></td>
             <% end %>
-            </li>
+          </tr>
         <% end %>
-    </ul>
+      </table>
+
+  </br>
     <h4>Assigned Tasks</h4>
       <% @assigned_tasks.each do |task| %>
          <li class='client-box'>
@@ -33,9 +59,10 @@
         <%= f.submit "Update"%>
       <% end %>
       </li>
-  <% end %>
+    <% end %>
     </ul>
 
+  </br>
     <h4>Completed Tasks</h4>
     <% @completed_tasks.each do |task| %>
       <li class='client-box-complete'>
