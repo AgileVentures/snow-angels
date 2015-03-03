@@ -217,3 +217,30 @@ nav ul li a {
 #search-form-client #search {
   width: 250px;
 }
+
+/* ----------------
+      TABLE
+----------------*/
+
+#search-form-view {
+  margin-bottom: 40px;
+}
+
+td {
+  border: 1px solid #ecf0f1;
+  padding: 4px;
+  line-height: 14px;
+  text-align: center;
+  width: 300px;
+}
+
+.icon {
+  width: 100px;
+}
+
+.address {
+  width: 500px;
+}
+
+
+

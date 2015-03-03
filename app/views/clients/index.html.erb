@@ -1,13 +1,13 @@
 <h1>Clients</h1>
 
-<%= form_tag(clients_path, :method => 'get', id: 'search-form') do %>
+<%= form_tag(clients_path, :method => 'get', id: 'search-form-view') do %>
   <%= text_field_tag :search, params[:search], placeholder: 'Search clients' %>
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
 
 <% if @clients.any? %>
   <table>
-    <tr>
+    <tr class="table_heading">
       <th>Last name</th>
       <th>First name</th>
       <th>Address</th>
@@ -17,18 +17,18 @@
       <th>Delete</th>
       <th>Add task</th>
     </tr>
-    <% @clients.each do |client| %>
-      <tr>
-        <td><%= client.last_name %></td>
-        <td><%= client.name %></td>
-        <td><%= client.address %></td>
-        <td><%= client.postcode %></td>
-        <td><%= client.phone %></td>
-        <td><%= link_to image_tag('Edit.png'), edit_client_path(client) %></td>
-        <td><%= link_to image_tag('Delete.png'), client_path(client), method: :delete %></td>
-        <td><%= link_to 'Add a task', new_task_path(client) %></td>
-      </tr>
-    <% end %>
+  <% @clients.each do |client| %>
+    <tr>
+      <td><%= client.last_name %></td>
+      <td><%= client.name %></td>
+      <td class="address"><%= client.address %></td>
+      <td><%= client.postcode %></td>
+      <td><%= client.phone %></td>
+      <td class="icon"><%= link_to image_tag('Edit.png'), edit_client_path(client) %></td>
+      <td class="icon"><%= link_to image_tag('Delete.png'), client_path(client), method: :delete %></td>
+      <td class="icon"><%= link_to image_tag('AddTask.png'), new_task_path(client) %></td>
+    </tr>
+  <% end %>
   
   </table>
 
