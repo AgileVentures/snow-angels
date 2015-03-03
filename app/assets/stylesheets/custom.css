@@ -199,7 +199,7 @@ nav ul li a {
 }
 
 .form input {
-  width: 500px; 
+  width: 500px;
   padding-top: 1%;
 }
 
@@ -242,11 +242,16 @@ td {
   width: 500px;
 }
 
+.availability {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .available {
   margin: 2em;
   border: none;
   padding: 10px;
-  line-height: 14px;
+  line-height: 20px;
   width: 50%;
   text-align: center;
 }
@@ -255,10 +260,18 @@ td {
   margin: 2em;
   border: none;
   padding: 10px;
-  line-height: 14px;
+  line-height: 20px;
   width: 50%;
   text-align: center;
 }
 
+.availability-header {
+  padding: 30px;
+}
 
+.pending-archive {
+  padding: 30px;
+  text-align: center;
+  line-height: 20px;
+}
 
