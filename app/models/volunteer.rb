@@ -10,7 +10,9 @@ class Volunteer < ActiveRecord::Base
   has_many :texts, dependent: :destroy
 
   scope :available, -> { where(availability: true) }
-  scope :order_by_dbs, -> { order(dbs: :desc).take(3) }
+  scope :order_by_dbs, -> { order(dbs: :desc) }
+  scope :ordered_by_last_name, -> { order(:last_name) }
+  scope :first_three_dbs, -> { order_by_dbs.take 3 }
 
   def self.search(query)
     where('name like ?', "%#{query}%")

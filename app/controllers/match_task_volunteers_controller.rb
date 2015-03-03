@@ -4,7 +4,7 @@ before_action :authenticate_admin!
 
   def match
     @task = Task.find(params[:id])
-    @volunteers = Volunteer.available.order_by_dbs
+    @volunteers = Volunteer.available.first_three_dbs
 
     if @volunteers.any?
       @volunteers.each do |volunteer|
