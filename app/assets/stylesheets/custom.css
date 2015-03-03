@@ -242,5 +242,23 @@ td {
   width: 500px;
 }
 
+.available {
+  margin: 2em;
+  border: none;
+  padding: 10px;
+  line-height: 14px;
+  width: 50%;
+  text-align: center;
+}
+
+.unavailable {
+  margin: 2em;
+  border: none;
+  padding: 10px;
+  line-height: 14px;
+  width: 50%;
+  text-align: center;
+}
+
 
 

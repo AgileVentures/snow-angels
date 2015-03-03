@@ -1,47 +1,55 @@
 <% if @today_texts.any? %>
 
-  <h4> Pending </h4>
+  <h2> Pending </h2>
   <% @today_texts.each do |text| %>
     <% if text.volunteer.availability.nil? %>
       <p>
-        <%= text.volunteer.name %> <%= text.volunteer.last_name %> |<%= text.number %> | <%= text.body %>
+        <%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %>
         <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
         <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
       </p>
     <% end %>
   <% end %>
 
-  <h4> Available </h4>
-  <% @today_texts.each do |text| %>
-    <% if text.volunteer.availability %>
-      <p>
-        <%= text.volunteer.name %> <%= text.volunteer.last_name %> | <%= text.number %> | <%= text.body %>
-        <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
-      </p>
-    <% end %>
-  <% end %>
+<table>
+  <tr>
+    <td class="available">
+      <h2> Available </h2>
+      <% @today_texts.each do |text| %>
+        <% if text.volunteer.availability %>
+          <p>
+            <%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %>
+            <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
+          </p>
+        <% end %>
+      <% end %>
+    </td>
 
-  <h4> Not Available </h4>
-  <% @today_texts.each do |text| %>
-    <% if text.volunteer.availability == false %>
-      <p>
-        <%= text.volunteer.name %> <%= text.volunteer.last_name %> | <%= text.number %> | <%= text.body %>
-        <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
-      </p>
-    <% end %>
-  <% end %>
+    <td class="unavailable">
+      <h2> Not Available </h2>
+      <% @today_texts.each do |text| %>
+        <% if text.volunteer.availability == false %>
+          <p>
+            <%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %>
+            <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
+          </p>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+</table>
     
 <% end %>
 
 
 <% if @old_texts.any? %>
 
-  <h4> Archive </h4>
+  <h2> Archive </h2>
   <% @old_texts.each do |text| %>
     <% if text.volunteer.nil? %>
       <p><%= text.number %> | <%= text.body %></p> 
     <% else %>
-      <p><%= text.volunteer.name %> <%= text.volunteer.last_name %> | <%= text.number %> | <%= text.body %></p>
+      <p><%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %></p>
     <% end %>
   <% end %>
 <% end %>
