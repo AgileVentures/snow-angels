@@ -17,7 +17,7 @@ def add_volunteer(first_name, last_name, email, address, post_code, phone, avail
     address: address,
     post_code: post_code,
     mobile_number: phone,
-    availability: true,
+    availability: availability,
     shopping: true,
     dbs: true
   )
