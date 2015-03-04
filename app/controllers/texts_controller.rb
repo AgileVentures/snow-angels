@@ -22,7 +22,10 @@ class TextsController < ApplicationController
   end
 
   def snow_text
-    Text.text_all_volunteers(params[:custom_body])
+    volunteers = Volunteer.all
+    volunteer = volunteers.each do |volunteer|
+      Text.send_text(volunteer, params[:custom_body])
+    end
     flash[:notice] = "Angels have been notified"
     redirect_to pages_path
   end
