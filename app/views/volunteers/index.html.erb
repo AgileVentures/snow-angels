@@ -32,14 +32,20 @@
         <td><%= volunteer.post_code %></td>
         <td><%= volunteer.mobile_number %></td>
         <td><%= volunteer.email %></td>
-        <td><%= volunteer.shopping %></td>
-        <td><%= volunteer.prescription_collection %></td>
-        <td><%= volunteer.snow_clearance %></td>
-        <td><%= volunteer.grit_spreading %></td>
-        <td><%= volunteer.dog_walking %></td>
+
+        <td><%= tick_or_cross volunteer.shopping %></td>
+        <td><%= tick_or_cross volunteer.prescription_collection %></td>
+        <td><%= tick_or_cross volunteer.snow_clearance %> </td>
+        <td><%= tick_or_cross volunteer.grit_spreading %></td>
+        <td><%= tick_or_cross volunteer.dog_walking %></td>
+
         <td class="icon"><%= link_to image_tag('Edit.png'), edit_volunteer_path(volunteer) %></td>
         <td class="icon"><%= link_to image_tag('Delete.png'), volunteer_path(volunteer), method: :delete %></td>
       </tr>
     <% end %>
     </table>
   <% end %>
+
+
+
+
