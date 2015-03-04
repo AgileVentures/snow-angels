@@ -44,6 +44,10 @@ p {
     color: white;
 }
 
+#snowflake {
+  margin: 10px;
+}
+
 .login_logout_btn {
   float: right;
   display: block;
