@@ -22,6 +22,7 @@ header {
 
 .container {
   padding-top: 1em;
+  padding-bottom: 4em;
   display: block;
   width: 90%;
   margin: 0 auto;
@@ -42,7 +43,9 @@ header {
   height: 142px; 
 }
 .site-footer {
-  background: orange;
+  background-color: #1d2935;
+  border-top: 4px solid #2980b9;
+
 }
 
 p {
