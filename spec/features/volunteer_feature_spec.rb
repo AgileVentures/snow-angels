@@ -99,4 +99,30 @@ feature "Volunteer" do
 
   end
 
+  context "Available and unavailable" do
+
+    before do 
+      admin_sign_in
+    end
+
+    it "An admin should be able to set up a volunteer available" do
+      vol1 = add_volunteer('Josh', 'Test', 'one@test.com', 'XYZ', 'EC1 2DR', '+447791234567', nil)
+      build_text(vol1, 'Yes I can help today')
+      visit texts_path
+      click_link 'Available'
+      expect(page.find('.available')).to have_link('Josh')
+      expect(vol1.reload.availability).to be true
+    end
+
+    it "An admin should be able to set up a volunteer unavailable" do
+      vol1 = add_volunteer('Josh', 'Test', 'one@test.com', 'XYZ', 'EC1 2DR', '+447791234567', nil)
+      build_text(vol1, 'Sorry I cannot help today')
+      visit texts_path
+      click_link 'Not Available'
+      expect(page.find('.unavailable')).to have_link('Josh')
+      expect(vol1.reload.availability).to be false
+    end
+
+  end
+
 end
