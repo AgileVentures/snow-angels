@@ -4,10 +4,25 @@
 }
 
 .right-task {
-  width: 60%;
+  margin-left: 5%;
+  width: 55%;
   float: left;
 }
 
 .full-width {
   width: 100%;
+}
+
+.btns {
+  float: right;
+  margin-top: -8em;
+}
+
+.red-btn {
+  background: none;
+  border: 0;
+  background-color: #c0392b;
+  padding: 0.7em;
+  border-radius: 5px;
+  color: white;
 }

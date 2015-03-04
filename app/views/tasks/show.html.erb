@@ -1,10 +1,10 @@
 <h1>Task Summary</h1>
 
 <section class='left-task'>
-  <p>Client name: <span id="client-name"><%= @task.client.name %></span> <%= @task.client.last_name %></p>
-  <p>Client phone number: <%= @task.client.phone %></p>
-  <p>Task type: <%= @task.task_type %></p>
-  <p>Description: <%= @task.description %></p>
+
+  <h2 class='center'>Task</h2>
+  <p>&nbsp;</p>
+  <%= render 'partials/show_task', task: @task %>
 
   <%= render 'partials/hidden_fields', task: @task, match_one: @match_one, match_two: @match_two %>
 
@@ -14,7 +14,13 @@
 
 
 <section class='right-task'>
-<p>HELLO!</p>
+  <h2 class='center'>Volunteers</h2>
+  <p class='center'><em>Ordered by Availability, DBS Check, and Proximity</em></p>
+  <ul>
+    <% @volunteers.each do |volunteer| %>
+      <%= render 'partials/show_volunteer', volunteer: volunteer %>
+    <% end %>
+  </ul>
 </section>
 
 <script>

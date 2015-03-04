@@ -21,7 +21,8 @@ header {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
+  left: 0;
   bottom: 0;
   margin-top: 2em;
   width: 100%;
@@ -151,23 +152,6 @@ nav ul li a {
 .volunteers {
   float: right;
   width: 40%;
-}
-
-.volunteer-box {
-  background-color: #bdc3c7;
-  margin-bottom: 1em;
-  padding: 1em;
-  height: 10em;
-}
-
-.volunteer-box-left {
-  float: left;
-  width: 30%;
-}
-
-.volunteer-box-right {
-  float: right;
-  width: 30%;
 }
 
 #multi-markers {
