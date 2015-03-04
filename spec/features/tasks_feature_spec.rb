@@ -5,7 +5,7 @@ feature 'tasks' do
     before do
       admin_sign_in
       add_volunteer('Josh', 'Test', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', 'true')
-      add_volunteer('Step', 'Test', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', 'true')
+      add_volunteer('Steph', 'Test', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', 'true')
       add_volunteer('Bibiana', 'Test', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', 'true')
     end
 
@@ -17,6 +17,9 @@ feature 'tasks' do
       select 'Shopping', from: 'Task type'
       click_button 'Create Task'
       expect(page).to have_content 'Task successfully added'
+      expect(page).to have_content 'Tom Smith'
+      expect(page).to have_content 'Shopping'
+      expect(page).to have_content '07450991234'
     end
 
   end
