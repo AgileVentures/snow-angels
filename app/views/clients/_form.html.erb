@@ -1,0 +1,10 @@
+<section class="form">
+  <%= form_for @client do |f| %>
+    <p><%= f.text_field :name, placeholder: 'First name' %></p>
+    <p><%= f.text_field :last_name, placeholder: 'Last name' %></p>
+    <p><%= f.text_field :address, placeholder: 'Address' %></p>
+    <p><%= f.text_field :postcode, placeholder: 'Postcode' %></p>
+    <p><%= f.text_field :phone, placeholder: 'Phone' %></p>
+    <%= f.submit %>
+  <% end %>
+</section>

@@ -3,12 +3,10 @@ class TextsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @texts = Text.all
-    @available = Volunteer.where(availability: true)
-    @unavailable = Volunteer.where(availability: false)
     time_now = Time.now
     @old_texts = Text.where("created_at < ?", time_now.beginning_of_day())
     @today_texts = Text.where("created_at >= ?", time_now.beginning_of_day())
+
   end
 
   def create
@@ -25,7 +23,10 @@ class TextsController < ApplicationController
   end
 
   def snow_text
-    Text.text_all_volunteers
+    volunteers = Volunteer.all
+    volunteer = volunteers.each do |volunteer|
+      Text.send_text(volunteer, params[:custom_body])
+    end
     flash[:notice] = "Angels have been notified"
     redirect_to pages_path
   end

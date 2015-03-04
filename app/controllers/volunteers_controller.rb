@@ -4,9 +4,9 @@ class VolunteersController < ApplicationController
 
   def index
     if params[:search]
-      @volunteer = Volunteer.search(params[:search]).order('last_name ASC')
+      @volunteer = Volunteer.search(params[:search]).ordered_by_last_name
     else
-      @volunteer = Volunteer.all.order('last_name ASC')
+      @volunteer = Volunteer.all.ordered_by_last_name
     end
   end
 
@@ -18,7 +18,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(volunteer_params)
     @volunteer.mobile_number = Volunteer.internationalize_phone_number(@volunteer.mobile_number)
     if @volunteer.save
-      redirect_to volunteer_path(@volunteer)
+      redirect_to pages_path
       flash[:notice] = "Thank you for your registration"
     else
       render 'new'
@@ -35,15 +35,18 @@ class VolunteersController < ApplicationController
 
   def update
     @volunteer = Volunteer.find(params[:id])
-    @volunteer.update(volunteer_params)
-    redirect_to volunteers_path
+    if @volunteer.update(volunteer_params)
+      redirect_to volunteers_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
     @volunteer = Volunteer.find(params[:id])
     @volunteer.destroy
     flash[:notice] = "The volunteer has been deleted"
-    redirect_to '/volunteers'
+    redirect_to volunteers_path
   end
 
   def available

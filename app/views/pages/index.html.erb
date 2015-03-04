@@ -1,51 +1,32 @@
 <% if admin_signed_in? %>
-
-  <%= link_to "SMS to all Volunteers", snow_path, class: 'snow_day_button' %>
-
-  <section class='left-container'>
-    <h4> Tasks </h4>
-    <ul>
-      <% if @tasks %>
-        <% @tasks.each do |task| %>
-          <% unless task.task_done %>
-            <li class='client-box'>
-              <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>| <%= task.client.phone %> | <%= task.client.address %> | <%= task.client.postcode %> <%= link_to "Match", match_path(task) %>
-
-              <% if @matches %>
-                <% @matches.each do |match| %>
-                  <% if match.task_id == task.id %>
-                    <% v = Volunteer.find(match.volunteer_id) %>
-                    <% if !v.nil? %>
-                      <%= v.name %>
-                      <%= form_tag volunteer_text_path(v) do %>
-                        <%= text_field_tag :custom_body %>
-                        <%= submit_tag "Send SMS" %>
-                      <% end %>
-                      <%= button_to "Volunteer choosen", match_one_volunteer_path(task, v) %>  
-                    <% end %>
-                  <% end %>
-                <% end %>
-              <% end %>
-
-            <%= form_for task do |f| %>
-              <%= f.label :called_client %>
-              <%= f.check_box :called_client %>
-              <%= f.label :task_done %>
-              <%= f.check_box :task_done %>
-              <%= f.submit "Update"%>
-            <% end %>
-            </li>
-
-          <% else %>
-            <li class='client-box-complete'>
-              <%= task.client.name %> | <%= task.client.last_name %> | <%= task.task_type %> | <%= task.description %>
-            </li>
-          <% end %>
-        <% end %>
-      <% end %>
-    </ul>
+  
+  <section class="sms_all_volunteers">
+    <%= form_tag snow_path do %>
+      <%= text_field_tag :custom_body, params[:custom_body], placeholder: 'SMS to all volunteers' %>
+      <%= submit_tag "Send text" %>
+    <% end %>
   </section>
 
+  <h2 class='center'>TASKS TO BE ASSIGNED</h2>
+  <ul>
+    <% @tasks_to_be_assigned.each do |task| %>
+      <%= render 'partials/tasks_to_be_assigned', task: task %>
+    <% end %>
+  </ul>
+
+  <h2 class='center'>ASSIGNED TASKS</h2>
+  <ul>
+    <% @assigned_tasks.each do |task| %>
+      <%= render 'partials/assigned_tasks', task: task %>
+    <% end %>
+  </ul>
+
+  <h2 class='center'>COMPLETED TASKS</h2>
+  <ul>
+    <% @completed_tasks.each do |task| %>
+      <%= render 'partials/completed_tasks', task: task %>
+    <% end %>
+  </ul>
 
 <% else %>
   <%= render 'partials/splash' %>
