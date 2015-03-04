@@ -1,20 +1,20 @@
 <% if @today_texts.any? %>
 
-  <h2> Pending </h2>
+  <h2 class="pending-archive"> Pending </h2>
   <% @today_texts.each do |text| %>
     <% if text.volunteer.availability.nil? %>
-      <p>
+      <p class="pending-archive-item">
         <%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %>
-        <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
+        <%= link_to "Available", available_volunteer_path(text.volunteer) %>
         <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
       </p>
     <% end %>
   <% end %>
 
-<table>
+<table class="availability">
   <tr>
     <td class="available">
-      <h2> Available </h2>
+      <h2 class="availability-header"> Available </h2>
       <% @today_texts.each do |text| %>
         <% if text.volunteer.availability %>
           <p>
@@ -26,30 +26,30 @@
     </td>
 
     <td class="unavailable">
-      <h2> Not Available </h2>
+      <h2 class="availability-header"> Not Available </h2>
       <% @today_texts.each do |text| %>
         <% if text.volunteer.availability == false %>
           <p>
             <%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %>
-            <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
+            <%= link_to "Available", available_volunteer_path(text.volunteer) %>
           </p>
         <% end %>
       <% end %>
     </td>
   </tr>
 </table>
-    
+
 <% end %>
 
 
 <% if @old_texts.any? %>
 
-  <h2> Archive </h2>
+  <h2 class="pending-archive"> Archive </h2>
   <% @old_texts.each do |text| %>
     <% if text.volunteer.nil? %>
-      <p><%= text.number %> | <%= text.body %></p> 
+      <p class="pending-archive-item"><%= text.number %> | <%= text.body %></p>
     <% else %>
-      <p><%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %></p>
+      <p class="pending-archive-item"><%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %></p>
     <% end %>
   <% end %>
 <% end %>
@@ -57,8 +57,8 @@
 
 
 <script type="text/javascript">
-  setInterval("refresh_page();",7000); 
-  
+  setInterval("refresh_page();",7000);
+
     function refresh_page(){
         window.location = location.href;
     }

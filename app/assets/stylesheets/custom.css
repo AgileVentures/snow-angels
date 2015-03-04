@@ -64,7 +64,13 @@ header {
 
 .left-container {
   float: left;
-  width: 100%;
+  width: 70%;
+}
+
+.left-container p {
+  line-height: 30px;
+  font-size: 1.25em;
+  margin-bottom: 1rem;
 }
 
 .right-container {
@@ -78,10 +84,12 @@ header {
   padding: 1em;
   border-radius: 10px;
   display: block;
-  width: 8em;
+  width: 15em;
   text-align: center;
   margin-top: 1em;
   margin-bottom: 1em;
+  text-decoration: none;
+  font-size: 1.5em;
 }
 
 .volunteer-self-register:hover {
@@ -140,7 +148,7 @@ nav ul li a {
 
 .volunteers {
   float: right;
-  width: 70%;
+  width: 40%;
 }
 
 .volunteer-box {
@@ -152,12 +160,16 @@ nav ul li a {
 
 .volunteer-box-left {
   float: left;
-  width: 70%;
+  width: 30%;
 }
 
 .volunteer-box-right {
   float: right;
   width: 30%;
+}
+
+#multi-markers {
+  width: 50%;
 }
 
 /* ----------------
@@ -174,7 +186,7 @@ nav ul li a {
 }
 
 .form input {
-  width: 500px; 
+  width: 500px;
   padding-top: 1%;
 }
 
@@ -217,11 +229,16 @@ td {
   width: 500px;
 }
 
+.availability {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .available {
   margin: 2em;
   border: none;
   padding: 10px;
-  line-height: 14px;
+  line-height: 20px;
   width: 50%;
   text-align: center;
 }
@@ -230,7 +247,7 @@ td {
   margin: 2em;
   border: none;
   padding: 10px;
-  line-height: 14px;
+  line-height: 20px;
   width: 50%;
   text-align: center;
 }
@@ -288,4 +305,19 @@ td {
 
 .true {
   color: black;
+}
+
+.availability-header {
+  padding: 30px;
+}
+
+.pending-archive {
+  padding: 30px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.pending-archive-item {
+  line-height: 20px;
+  text-align: center;
 }

@@ -10,6 +10,7 @@ before_action :authenticate_admin!
       @volunteers.each do |volunteer|
         MatchTaskVolunteer.create(volunteer_id: volunteer.id, task_id: @task.id)
       end
+      redirect_to task_path
     else
       no_match
     end

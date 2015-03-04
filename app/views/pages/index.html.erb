@@ -14,69 +14,6 @@
     <% end %>
   </ul>
 
-    <h4>Assigned Tasks</h4>
-      <section class='client-box'>
-
-        <% @tasks_to_be_assigned.each do |task| %>
-          <tr>
-            <%= form_for task do |f| %>
-              <%= link_to task.client.name, task_path(task) %>
-              <%= task.client.last_name %>
-              <%= task.task_type %>
-              <%= task.description %>
-              <%= task.client.phone %>
-              <%= task.client.address %>
-              <%= task.client.postcode %>
-              <%= link_to "Assign a volunteer", match_path(task) %>
-              
-              <%= f.label :called_client %>
-              <%= f.check_box :called_client %>
-              <%= f.label :task_done %>
-              <%= f.check_box :task_done %>
-              <%= f.submit "Update"%>
-            <% end %>
-          </tr>
-        <% end %>
-      </table>
-    </section>
-
-
-  </br>
-    <h4>Complete Tasks</h4>
-      <section class='client-box'>
-        <table>
-          <tr>
-            <th>name </th>
-            <th>Last name </th>
-            <th> Task category </th>
-            <th>Task Description </th>
-            <th>Address </th>
-            <th>Post code</th>
-            <th> Phone number </th>
-            <th> sadf </th>
-            <th> 1</th>
-          </tr>
-
-        <% @tasks_to_be_assigned.each do |task| %>
-          <tr>
-            <%= form_for task do |f| %>
-              <%= link_to task.client.name, task_path(task) %>
-              <%= task.client.last_name %>
-              <%= task.task_type %>
-              <%= task.description %>
-              <%= task.client.phone %>
-              <%= task.client.address %>
-              <%= task.client.postcode %>
-              
-              <%= f.label :task_done %>
-              <%= f.check_box :task_done %>
-            <% end %>
-          </tr>
-        <% end %>
-      </table>
-    </section>
-  </br>
-
 <% else %>
   <%= render 'partials/splash' %>
 <% end %>

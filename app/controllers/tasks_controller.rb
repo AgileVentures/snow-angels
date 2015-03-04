@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.client = client
     if @task.save
-      redirect_to pages_path
+      redirect_to match_path(@task)
       flash[:notice] = 'Task successfully added'
     else
       render 'new'
@@ -37,7 +37,8 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-      @match_one = Volunteer.find(MatchTaskVolunteer.first.volunteer_id)
+    @match_one = Volunteer.find(MatchTaskVolunteer.first.volunteer_id)
+    @match_two = Volunteer.find(MatchTaskVolunteer.second.volunteer_id)
   end
 
 
