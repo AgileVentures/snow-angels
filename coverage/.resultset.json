@@ -44,6 +44,8 @@
         null,
         1,
         null,
+        1,
+        null,
         null
       ],
       "/Users/joshbebbington/Desktop/final-projects/config/boot.rb": [
@@ -725,11 +727,11 @@
         null,
         null,
         1,
-        0,
-        null,
-        null,
         1,
+<<<<<<< HEAD
         1,
+=======
+>>>>>>> test
         null,
         null,
         1,
@@ -800,12 +802,20 @@
         1,
         null,
         null,
+<<<<<<< HEAD
+        1,
+=======
+>>>>>>> test
         1,
         1,
         1,
         1,
         null,
         null,
+<<<<<<< HEAD
+        null,
+=======
+>>>>>>> test
         null
       ],
       "/Users/joshbebbington/Desktop/final-projects/app/controllers/tasks_controller.rb": [
@@ -887,6 +897,7 @@
         1,
         1,
         1,
+<<<<<<< HEAD
         null,
         null
       ],
@@ -894,8 +905,19 @@
         1,
         null,
         1,
+=======
+        null,
+        null
+      ],
+      "/Users/joshbebbington/Desktop/final-projects/app/controllers/settings_controller.rb": [
+>>>>>>> test
         1,
         null,
+        1,
+        1,
+        null,
+        1,
+        1,
         null,
         1,
         1,
@@ -991,10 +1013,6 @@
         null,
         null,
         1,
-        0,
-        null,
-        null,
-        1,
         1,
         null,
         null,
@@ -1035,6 +1053,10 @@
         null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1425490984
+=======
+    "timestamp": 1425492576
+>>>>>>> test
   }
 }
