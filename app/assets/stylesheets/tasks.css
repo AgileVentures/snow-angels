@@ -1,0 +1,37 @@
+// Place all the styles related to the tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.client-box {
+  background-color: #ecf0f1;
+  list-style-type: none;
+  padding: 1em;
+  margin: 1em;
+}
+
+/*.top-client-box {
+  float: top;
+  height: 50%
+}
+
+.bottom-client-box {
+  float: bottom;
+  height: 50%;
+}*/
+
+.right-client-box {
+  float: right;
+  width: 30%;
+}
+
+.left-client-box {
+  float: left;
+  width: 70%;
+}
+
+.client-box-complete {
+  background-color: #8E9091;
+  list-style-type: none;
+  padding: 1em;
+  margin: 1em;
+}

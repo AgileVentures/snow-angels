@@ -1,17 +1,21 @@
+@import url('normalize.css');
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 header {
-  background-color: #27ae60;
+  background-color: #1d2935;
   width: 100%;
   padding: 1em;
-  border-bottom: 4px solid #2ecc71;
+  border-bottom: 4px solid #2980b9;
+  font-family: 'Andale Mono', 'Lucida Console';
 }
 
 #logo {
@@ -31,9 +35,9 @@ header {
   background-color: #2980b9;
   padding: 1em;
   border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
 }
-
-
 
 .snow_day_button {
   color: white;
@@ -60,7 +64,13 @@ header {
 
 .left-container {
   float: left;
-  width: 100%;
+  width: 70%;
+}
+
+.left-container p {
+  line-height: 30px;
+  font-size: 1.25em;
+  margin-bottom: 1rem;
 }
 
 .right-container {
@@ -74,10 +84,12 @@ header {
   padding: 1em;
   border-radius: 10px;
   display: block;
-  width: 8em;
+  width: 15em;
   text-align: center;
   margin-top: 1em;
   margin-bottom: 1em;
+  text-decoration: none;
+  font-size: 1.5em;
 }
 
 .volunteer-self-register:hover {
@@ -89,31 +101,6 @@ ul {
   list-style-type: none;
 }
 
-.client-box {
-  background-color: #ecf0f1;
-  list-style-type: none;
-  padding: 1em;
-  margin: 1em;
-}
-
-.client-box-complete {
-  background-color: #8E9091;
-  list-style-type: none;
-  padding: 1em;
-  margin: 1em;
-}
-
-.divider {
-  width: 500px;
-  text-align: center;
-  color: black;
-}
-
-.divider hr {
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-}
 
 .left {
   float: left;
@@ -161,22 +148,176 @@ nav ul li a {
 
 .volunteers {
   float: right;
-  width: 70%;
+  width: 40%;
 }
 
 .volunteer-box {
   background-color: #bdc3c7;
   margin-bottom: 1em;
   padding: 1em;
-  height: 8em;
+  height: 10em;
 }
 
 .volunteer-box-left {
   float: left;
-  width: 70%;
+  width: 30%;
 }
 
 .volunteer-box-right {
   float: right;
   width: 30%;
+}
+
+#multi-markers {
+  width: 50%;
+}
+
+/* ----------------
+      FORMS
+----------------*/
+
+.form {
+  margin-top: 1%;
+  margin-left: 35%;
+}
+
+.form p {
+  margin-bottom: 2%;
+}
+
+.form input {
+  width: 500px;
+  padding-top: 1%;
+}
+
+.form input[type="submit"]{
+  background-color: #2980b9;
+  border: none;
+  color: #fff;
+}
+
+.form-title {
+  margin-top: 2%;
+  text-align: center;
+}
+
+#search-form-client #search {
+  width: 250px;
+}
+
+/* ----------------
+      TABLE
+----------------*/
+
+#search-form-view {
+  margin-bottom: 40px;
+}
+
+td {
+  border: 1px solid #ecf0f1;
+  padding: 4px;
+  line-height: 14px;
+  text-align: center;
+  width: 300px;
+}
+
+.icon {
+  width: 100px;
+}
+
+.address {
+  width: 500px;
+}
+
+.availability {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.available {
+  margin: 2em;
+  border: none;
+  padding: 10px;
+  line-height: 20px;
+  width: 50%;
+  text-align: center;
+}
+
+.unavailable {
+  margin: 2em;
+  border: none;
+  padding: 10px;
+  line-height: 20px;
+  width: 50%;
+  text-align: center;
+}
+
+/* ----------------
+    DASHBOARD
+----------------*/
+
+.center {
+  text-align: center;
+}
+
+.task-box {
+  background-color: #fcfcfc;
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid #cad5d8;
+  border-radius: 3px;
+  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.client-request {
+  display: block;
+  font-size: 1.2em;
+  color: #2980b9;
+  margin-bottom: 0.4em;
+}
+
+.match-btn {
+  float: right;
+  background-color: #c0392b;
+  margin-top: -1.7em;
+  text-decoration: none;
+  padding: 0.7em;
+  border-radius: 5px;
+  color: white;
+}
+
+.match-btn:hover {
+  background-color: #b03021;
+}
+
+.status-bar {
+  margin-top: 1em;
+  text-align: justify;
+}
+
+.status {
+  font-size: 0.9em;
+  color: #c9c9c9;
+  max-width: 4em;
+}
+
+.true {
+  color: black;
+}
+
+.availability-header {
+  padding: 30px;
+}
+
+.pending-archive {
+  padding: 30px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.pending-archive-item {
+  line-height: 20px;
+  text-align: center;
 }

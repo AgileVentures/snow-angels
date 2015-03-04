@@ -19,6 +19,86 @@
 
 <div id="multi_markers" style='width: 800px; height: 400px;'></div>
 
+<section class='volunteers'>
+
+  <ul>
+    <li class='volunteer-box'>
+
+      <section class='volunteer-box-left'>
+        <p><label><strong>Name:   </strong></label>
+        <%= @match_one.name %><%= @match_one.last_name %></p>
+
+        <p><label><strong>Address: </strong></label>
+        <%= @match_one.address %></p>
+
+        <p><label><strong>Post code: </strong></label>
+        <%= @match_one.post_code %></p>
+        <p><label><strong>Mobile Number: </strong></label>
+        <%= @match_one.mobile_number %></p>
+        <p><label><strong>DBS Check: </strong></label>
+        <% if @match_one.dbs %>Yes <% else %>No<% end %></p>
+      </section>
+
+      <section class='volunteer-box-right'>
+        <%= form_tag volunteer_text_path(@match_one) do %>
+           <%= text_field_tag :custom_body %>
+          <p><%= submit_tag "Send text" %></p>
+        <% end %>
+
+        <h4>Texts received:</h4>
+        <ul>
+          <% @match_one.texts.reverse.each do |text| %>
+            <li><%= text.body %></li>
+          <% end %>
+        </ul>
+        <p> <%= button_to "Volunteer choosen", match_one_volunteer_path(@task, @match_one) %>
+      </section>
+
+    </li>
+  </ul>
+
+</section>
+
+<section class='volunteers'>
+
+  <ul>
+    <li class='volunteer-box'>
+
+      <section class='volunteer-box-left'>
+        <p><label><strong>Name:   </strong></label>
+        <%= @match_two.name %><%= @match_two.last_name %></p>
+
+        <p><label><strong>Address: </strong></label>
+        <%= @match_two.address %></p>
+
+        <p><label><strong>Post code: </strong></label>
+        <%= @match_two.post_code %></p>
+        <p><label><strong>Mobile Number: </strong></label>
+        <%= @match_two.mobile_number %></p>
+        <p><label><strong>DBS Check: </strong></label>
+        <% if @match_two.dbs %>Yes <% else %>No<% end %></p>
+      </section>
+
+      <section class='volunteer-box-right'>
+        <%= form_tag volunteer_text_path(@match_two) do %>
+           <%= text_field_tag :custom_body %>
+          <p><%= submit_tag "Send text" %></p>
+        <% end %>
+
+        <h4>Texts received:</h4>
+        <ul>
+          <% @match_two.texts.reverse.each do |text| %>
+            <li><%= text.body %></li>
+          <% end %>
+        </ul>
+        <p> <%= button_to "Volunteer choosen", match_one_volunteer_path(@task, @match_two) %>
+      </section>
+
+    </li>
+  </ul>
+
+</section>
+
 <script>
 var client_lat = document.getElementById('lat').value;
 var client_long = document.getElementById('long').value;
@@ -45,5 +125,3 @@ handler.bounds.extendWith(markers);
 handler.fitMapToBounds();
 });
 </script>
-
-

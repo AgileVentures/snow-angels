@@ -1,25 +1,19 @@
 class MatchTaskVolunteersController < ApplicationController
 
+before_action :authenticate_admin!
+
   def match
-    @text = Text.new
     @task = Task.find(params[:id])
-    @volunteers = order_by_dbs(available_volunteers)
+    @volunteers = Volunteer.available.first_three_dbs
 
     if @volunteers.any?
       @volunteers.each do |volunteer|
         MatchTaskVolunteer.create(volunteer_id: volunteer.id, task_id: @task.id)
       end
+      redirect_to task_path
     else
       no_match
     end
-  end
-
-  def available_volunteers
-    Volunteer.where(availability: true)
-  end
-
-  def order_by_dbs(volunteers)
-    volunteers.order(dbs: :desc).take(3)
   end
 
   def no_match
