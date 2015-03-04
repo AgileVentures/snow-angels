@@ -1,7 +1,19 @@
-<section class='status-bar'>
-  <% if task.volunteer_id != nil %>
-    <p class='status true'>VOLUNTEER ASSIGNED</p>
-  <% else %>
-    <p class='status'>VOLUNTEER ASSIGNED</p>
-  <% end %>
+<section>
+  <ul class='status-bar'>
+    <% if task.volunteer_id != nil %>
+      <li class='status true'>VOLUNTEER ASSIGNED</li>
+    <% else %>
+      <li class='status'>VOLUNTEER ASSIGNED</li>
+    <% end %>
+    <% if task.called_client %>
+      <li class='status true'>CLIENT CALLED</li>
+    <% else %>
+      <li class='status'>CLIENT CALLED</li>
+    <% end %>
+    <% if task.task_done %>
+      <li class='status true'>TASK COMPLETED</li>
+    <% else %>
+      <li class='status'>TASK COMPLETED</li>
+    <% end %>
+  </ul>
 </section>
