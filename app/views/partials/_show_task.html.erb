@@ -1,0 +1,7 @@
+<section class='task-box full-width'>
+  <p class='client-request'><strong><span id='client-name'><%= task.client.name %> <%= task.client.last_name %></span></strong> has requested <strong><%= task.task_type %></strong></p>
+  <p>Description: <%= task.description %></p>
+  <p><strong>Phone: </strong><%= task.client.phone %></p>
+  <p><strong>Address: </strong><%= task.client.address %></p>
+  <p><strong>Postcode: </strong><%= task.client.postcode %></p>
+</section>

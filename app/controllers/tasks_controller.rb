@@ -37,6 +37,8 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @match_one = Volunteer.find(MatchTaskVolunteer.first.volunteer_id)
     @match_two = Volunteer.find(MatchTaskVolunteer.second.volunteer_id)
+    @match_three = Volunteer.find(MatchTaskVolunteer.third.volunteer_id)
+    @volunteers = [@match_one, @match_two, @match_three]
   end
 
 
