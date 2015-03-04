@@ -4,5 +4,8 @@ class Admin < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def self.search(query)
+        where('name like ?', "%#{query}%")
+  end
 
 end

@@ -36,7 +36,6 @@ class ClientsController < ApplicationController
     if @client.update(client_params)
       redirect_to pages_path
     else
-      flash[:notice] = "Invalid Post Code"
       render 'edit'
     end
   end
