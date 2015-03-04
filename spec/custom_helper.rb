@@ -1,7 +1,7 @@
 def add_client(first_name, last_name, address, postcode, phone)
   visit '/pages'
   click_link 'Add client'
-  fill_in 'Name', with: first_name
+  fill_in 'First name', with: first_name
   fill_in 'Last name', with: last_name
   fill_in 'Address', with: address
   fill_in 'Postcode', with: postcode
