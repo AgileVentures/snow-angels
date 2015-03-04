@@ -1,0 +1,19 @@
+<li class='task-box full-width'>
+  <section class='vol-left'>
+    <span class='client-request'><strong><%= volunteer.name %> <%= volunteer.last_name %></strong></span>
+    <p><strong>Phone: </strong> <%= volunteer.mobile_number %></p>
+    <p><strong>Address: </strong> <%= volunteer.address %></p>
+    <p><strong>Postcode: </strong> <%= volunteer.post_code %></p>
+    <% if volunteer.dbs %>
+      <span class='status true'>THIS VOLUNTEER IS DBS CHECKED</span>
+    <% end %>
+  </section>
+
+  <section class='btns'>
+    <%= button_to "Assign Volunteer", match_one_volunteer_path(@task, volunteer), class: 'red-btn' %>
+    <%= form_tag volunteer_text_path(volunteer) do %>
+      <%= text_field_tag :custom_body %>
+      <p><%= submit_tag "Send text", class: 'red-btn' %></p>
+    <% end %>
+  </section>
+</li>

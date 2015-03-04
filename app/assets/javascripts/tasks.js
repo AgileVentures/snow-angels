@@ -1,29 +1,3 @@
-<h1>Task Summary</h1>
-
-<section class='left-task'>
-
-  <h2 class='center'>Task</h2>
-  <p>&nbsp;</p>
-  <%= render 'partials/show_task', task: @task %>
-
-  <%= render 'partials/hidden_fields', task: @task, match_one: @match_one, match_two: @match_two %>
-
-  <div id="multi_markers" style='width: 100%; height: 400px;'></div>
-
-</section>
-
-
-<section class='right-task'>
-  <h2 class='center'>Volunteers</h2>
-  <p class='center'><em>Ordered by Availability, DBS Check, and Proximity</em></p>
-  <ul>
-    <% @volunteers.each do |volunteer| %>
-      <%= render 'partials/show_volunteer', volunteer: volunteer %>
-    <% end %>
-  </ul>
-</section>
-
-<script>
 var client_lat = document.getElementById('lat').value;
 var client_long = document.getElementById('long').value;
 var client_name = document.getElementById('client-name').innerText;
@@ -48,5 +22,3 @@ var markers = handler.addMarkers([
 handler.bounds.extendWith(markers);
 handler.fitMapToBounds();
 });
-</script>
-

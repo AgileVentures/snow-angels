@@ -8,6 +8,8 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  height: 100%;
+
 }
 
 header {
@@ -16,6 +18,27 @@ header {
   padding: 1em;
   border-bottom: 4px solid #2980b9;
   font-family: 'Andale Mono', 'Lucida Console';
+}
+
+.container {
+  padding-top: 1em;
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+/*  min-height: 77em; */
+  margin-bottom: 0em;
+}
+
+.site-footer {
+  height: 3em;
+  margin-top: 2em;
+  width: 100%;
+  background-color: #1D293A;
+  border-top: 4px solid #2980b9;
+}
+
+p {
+  line-height: 2em;
 }
 
 #logo {
@@ -53,13 +76,6 @@ header {
 
 .snow_day_button:hover {
   font-weight: bold;
-}
-
-.container {
-  padding-top: 1em;
-  display: block;
-  width: 90%;
-  margin: 0 auto;
 }
 
 .left-container {
@@ -149,23 +165,6 @@ nav ul li a {
 .volunteers {
   float: right;
   width: 40%;
-}
-
-.volunteer-box {
-  background-color: #bdc3c7;
-  margin-bottom: 1em;
-  padding: 1em;
-  height: 10em;
-}
-
-.volunteer-box-left {
-  float: left;
-  width: 30%;
-}
-
-.volunteer-box-right {
-  float: right;
-  width: 30%;
 }
 
 #multi-markers {
@@ -297,14 +296,32 @@ td {
   text-align: justify;
 }
 
+.status-bar li {
+  display: inline;
+  padding: 1em;
+  width: 2em;
+  
+}
+
 .status {
   font-size: 0.9em;
   color: #c9c9c9;
-  max-width: 4em;
 }
 
 .true {
   color: black;
+}
+
+.completed, .completed .client-request {
+  color: gray;
+}
+
+.completed .match-btn {
+  background-color: gray;
+}
+
+.completed .match-btn:hover {
+  background-color: #696969;
 }
 
 .availability-header {
@@ -321,3 +338,4 @@ td {
   line-height: 20px;
   text-align: center;
 }
+

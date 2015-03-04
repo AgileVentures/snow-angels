@@ -7,17 +7,22 @@ feature "client" do
     it "should be able display a form to add a client" do
       visit '/'
       click_link 'Add client'
-      expect(page).to have_content 'Name'
-      expect(page).to have_content 'Last name'
-      expect(page).to have_content 'Address'
-      expect(page).to have_content 'Postcode'
-      expect(page).to have_content 'Phone'
+      expect(page).to have_field 'First name'
+      expect(page).to have_field 'Last name'
+      expect(page).to have_field 'Address'
+      expect(page).to have_field 'Postcode'
+      expect(page).to have_field 'Phone'
     end
 
     it "should be able to create a client" do
       add_client('Tom', 'Smith', 'Makers', 'E1 2SF', '07450991234')
       expect(page).to have_content 'Client successfully added'
       expect(current_path).to eq '/clients'
+    end
+
+    it 'should display an invalid post code' do
+      add_client('Tom', 'Smith', 'Makers', '', '07450991234')
+      expect(page).to have_content 'Postcode can\'t be blank'
     end
 
   end
@@ -63,7 +68,7 @@ feature "client" do
     it 'should be able to change the details' do
       click_link 'View client'
       click_link 'Edit'
-      fill_in 'Name', with: 'Thomas'
+      fill_in 'First name', with: 'Thomas'
       click_button 'Update Client'
       click_link 'View client'
       expect(page).to have_content 'Thomas'
