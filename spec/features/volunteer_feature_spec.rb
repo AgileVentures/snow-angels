@@ -31,6 +31,20 @@ feature "Volunteer" do
       add_volunteer('Josh', 'Test', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', nil)
       expect(current_path).to eq '/'
     end
+
+    it "should be able to add a +44 in the database before the mobile phone" do
+      click_link 'Add volunteer'
+      fill_in 'First name', with: 'Bob'
+      fill_in 'Last name', with: 'Jones'
+      fill_in 'Address', with: 'Makers'
+      fill_in 'Postcode', with: 'EC1 2DR'
+      fill_in 'Mobile number', with: '07791234567'
+      fill_in 'Email', with: 'test@test.com'
+      click_button 'Create Volunteer'
+      click_link 'View volunteers'
+      expect(page).to have_content '+447791234567'
+    end
+
   end
 
   context "view volunteer" do
