@@ -6,6 +6,7 @@ class TextsController < ApplicationController
     time_now = Time.now
     @old_texts = Text.where("created_at < ?", time_now.beginning_of_day())
     @today_texts = Text.where("created_at >= ?", time_now.beginning_of_day())
+
   end
 
   def create
