@@ -229,6 +229,10 @@ td {
   width: 300px;
 }
 
+.preferences {
+  max-width: 1px;
+}
+
 .icon {
   width: 100px;
 }
@@ -309,7 +313,7 @@ td {
   display: inline;
   padding: 1em;
   width: 2em;
-  
+
 }
 
 .status {
