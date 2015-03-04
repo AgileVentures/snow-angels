@@ -21,9 +21,8 @@ feature "client" do
     end
 
     it 'should display an invalid post code' do
-      add_client('Tom', 'Smith', 'Makers', 'E1', '07450991234')
-      click_link 'Add client'
-      expect(page).to have_content 'Postcode invalid postcode'
+      add_client('Tom', 'Smith', 'Makers', '', '07450991234')
+      expect(page).to have_content 'Postcode can\'t be blank'
     end
 
   end

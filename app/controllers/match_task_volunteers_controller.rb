@@ -5,7 +5,6 @@ before_action :authenticate_admin!
   def match
     @task = Task.find(params[:id])
     @volunteers = Volunteer.available.first_three_dbs
-
     if @volunteers.any?
       @volunteers.each do |volunteer|
         MatchTaskVolunteer.create(volunteer_id: volunteer.id, task_id: @task.id)
