@@ -3,7 +3,7 @@
     <strong><%= task.client.name %> <%= task.client.last_name %></strong> has requested <strong><%= task.task_type %></strong> 
   </span>
   <em><%= task.description %></em>
-  <%= link_to "Assign a volunteer", match_path(task), class: 'match-btn' %>
+  <%= link_to "Assign a volunteer", task_path(task), class: 'match-btn' %>
   <%= render 'partials/status_bar', task: task %>
 
 </li>   
