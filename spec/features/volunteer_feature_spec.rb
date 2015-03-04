@@ -110,7 +110,6 @@ feature "Volunteer" do
       build_text(vol1, 'Yes I can help today')
       visit texts_path
       click_link 'Available'
-      save_and_open_page
       expect(page.find('.available')).to have_link('Josh')
       expect(vol1.reload.availability).to be true
     end
