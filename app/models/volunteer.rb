@@ -12,6 +12,7 @@ class Volunteer < ActiveRecord::Base
   scope :available, -> { where(availability: true) }
   scope :order_by_dbs, -> { order(dbs: :desc) }
   scope :ordered_by_last_name, -> { order(:last_name) }
+  scope :ordered_by_created_at, -> { order(created_at: :desc) }
   scope :first_three_dbs, -> { order_by_dbs.take 3 }
   scope :todays_texts, ->(id) {Volunteer.find(id).texts.where('created_at >= ?', Time.now.beginning_of_day())}
 

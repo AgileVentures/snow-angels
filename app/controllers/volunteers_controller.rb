@@ -6,7 +6,7 @@ class VolunteersController < ApplicationController
     if params[:search]
       @volunteer = Volunteer.search(params[:search]).ordered_by_last_name
     else
-      @volunteer = Volunteer.all.ordered_by_last_name
+      @volunteer = Volunteer.all.ordered_by_created_at
     end
   end
 
