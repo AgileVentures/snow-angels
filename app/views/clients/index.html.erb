@@ -26,10 +26,10 @@
       <td><%= client.phone %></td>
       <td class="icon"><%= link_to image_tag('Edit.png'), edit_client_path(client) %></td>
       <td class="icon"><%= link_to image_tag('Delete.png'), client_path(client), method: :delete %></td>
-      <td class="icon"><%= link_to image_tag('AddTask.png'), new_task_path(client), {id: 'icon_add_task'} %></td>
+      <td class="icon" id="icon_add_task"><%= link_to image_tag('AddTask.png'), new_task_path(client), {id: 'icon_add_task'} %></td>
     </tr>
   <% end %>
-  
+
   </table>
 
 <% end %>

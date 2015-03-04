@@ -11,14 +11,15 @@ end
 
 def add_volunteer(first_name, last_name, email, address, post_code, phone, availability)
   Volunteer.create(
-    name: first_name, 
+    name: first_name,
     last_name: last_name,
     email: email,
     address: address,
     post_code: post_code,
     mobile_number: phone,
-    availability: nil,
-    shopping: true
+    availability: true,
+    shopping: true,
+    dbs: true
   )
 end
 
@@ -33,7 +34,7 @@ end
 
 def admin_sign_up
   Admin.create(email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
-end 
+end
 
 def build_text(volunteer, body)
   Text.create(number: '+447791234567', body: body, volunteer_id: volunteer.id)
