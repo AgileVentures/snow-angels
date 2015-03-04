@@ -49,7 +49,7 @@ feature "Volunteer" do
 
   context "view volunteer" do
 
-    before do 
+    before do
       admin_sign_in
       add_volunteer('Josh', 'Test', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', nil)
       add_volunteer('Bibiana', 'Test', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', nil)
@@ -78,7 +78,7 @@ feature "Volunteer" do
 
   context "edit and delete volunteer" do
 
-    before do 
+    before do
       admin_sign_in
       add_volunteer('Josh', 'Test', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', nil)
       click_link 'View volunteer'
@@ -101,7 +101,7 @@ feature "Volunteer" do
 
   context "Available and unavailable" do
 
-    before do 
+    before do
       admin_sign_in
     end
 
@@ -110,6 +110,7 @@ feature "Volunteer" do
       build_text(vol1, 'Yes I can help today')
       visit texts_path
       click_link 'Available'
+      save_and_open_page
       expect(page.find('.available')).to have_link('Josh')
       expect(vol1.reload.availability).to be true
     end

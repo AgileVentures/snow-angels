@@ -7,6 +7,7 @@ feature 'maps' do
       admin_sign_in
       add_volunteer('Bob', 'Smith', 'email@test.com', '123 Street', 'SW1', '07555555555', true)
       add_volunteer('Tom', 'Smith', 'email@test.com', '123 Street', 'SW1', '07555555555', true)
+      add_volunteer('Fred', 'Smith', 'email@test.com', '123 Street', 'SW1', '07555555555', true)
       add_client('John', 'Smith', '456 Road', 'E1 6LT', '01123456789')
     end
 
