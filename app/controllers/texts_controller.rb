@@ -22,7 +22,7 @@ class TextsController < ApplicationController
   end
 
   def snow_text
-    Text.text_all_volunteers
+    Text.text_all_volunteers(params[:custom_body])
     flash[:notice] = "Angels have been notified"
     redirect_to pages_path
   end
