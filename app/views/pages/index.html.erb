@@ -1,16 +1,23 @@
 <% if admin_signed_in? %>
 
-  <h3 class='center'>TASKS TO BE ASSIGNED</h3>
+  <h2 class='center'>TASKS TO BE ASSIGNED</h2>
   <ul>
     <% @tasks_to_be_assigned.each do |task| %>
       <%= render 'partials/tasks_to_be_assigned', task: task %>
     <% end %>
   </ul>
 
-  <h3 class='center'>ASSIGNED TASKS</h3>
+  <h2 class='center'>ASSIGNED TASKS</h2>
   <ul>
     <% @assigned_tasks.each do |task| %>
       <%= render 'partials/assigned_tasks', task: task %>
+    <% end %>
+  </ul>
+
+  <h2 class='center'>COMPLETED TASKS</h2>
+  <ul>
+    <% @completed_tasks.each do |task| %>
+      <%= render 'partials/completed_tasks', task: task %>
     <% end %>
   </ul>
 

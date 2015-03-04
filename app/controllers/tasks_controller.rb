@@ -29,9 +29,7 @@ class TasksController < ApplicationController
   end
 
   def match_one_volunteer
-    @task = Task.find(params[:id])
-    @task.volunteer_id = Volunteer.find(params[:volunteer]).id
-    @task.save
+    Task.set_volunteer_availability(params[:id], params[:volunteer])
     redirect_to pages_path
   end
 
