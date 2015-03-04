@@ -3,17 +3,17 @@
     <% if task.volunteer_id != nil %>
       <li class='status true'>VOLUNTEER ASSIGNED</li>
     <% else %>
-      <li class='status'>VOLUNTEER ASSIGNED</li>
+      <li class='status'>VOLUNTEER ASSIGNED </li>
     <% end %>
     <% if task.called_client %>
-      <li class='status true'>CLIENT CALLED</li>
+      <li class='status true'>CLIENT CALLED <i class="fa fa-check"></i> </li>
     <% else %>
-      <li class='status'>CLIENT CALLED</li>
+      <li class='status'>CLIENT CALLED </li>
     <% end %>
     <% if task.task_done %>
-      <li class='status true'>TASK COMPLETED</li>
+      <li class='status true'>TASK COMPLETED <i class="fa fa-check"></i> </li>
     <% else %>
-      <li class='status'>TASK COMPLETED</li>
+      <li class='status'>TASK COMPLETED </li>
     <% end %>
   </ul>
 </section>

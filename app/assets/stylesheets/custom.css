@@ -269,6 +269,10 @@ td {
   margin-bottom: 0.4em;
 }
 
+.central-section {
+  width: 100%;
+  padding: 0.7em;}
+
 .match-btn {
   float: right;
   background-color: #c0392b;
