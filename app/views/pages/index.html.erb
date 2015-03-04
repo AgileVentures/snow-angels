@@ -1,4 +1,11 @@
 <% if admin_signed_in? %>
+  
+  <section class="sms_all_volunteers">
+    <%= form_tag snow_path do %>
+      <%= text_field_tag :custom_body, params[:custom_body], placeholder: 'SMS to all volunteers' %>
+      <%= submit_tag "Send text" %>
+    <% end %>
+  </section>
 
   <h2 class='center'>TASKS TO BE ASSIGNED</h2>
   <ul>
