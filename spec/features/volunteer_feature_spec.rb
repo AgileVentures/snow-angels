@@ -32,6 +32,13 @@ feature "Volunteer" do
       expect(current_path).to eq '/'
     end
 
+    it "should render the create template again if the volunteer is not created" do
+      click_link 'Add volunteer'
+      fill_in 'Mobile number', with: '12345678900'
+      click_button 'Create Volunteer'
+      expect(current_path).to eq '/volunteers'
+    end
+
     it "should be able to add a +44 in the database before the mobile phone" do
       click_link 'Add volunteer'
       fill_in 'First name', with: 'Bob'
@@ -81,7 +88,7 @@ feature "Volunteer" do
     before do
       admin_sign_in
       add_volunteer('Josh', 'Test', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', nil)
-      click_link 'View volunteer'
+      click_link 'View volunteers'
     end
 
     it "An admin should be able to edit volunteers details" do
@@ -89,6 +96,13 @@ feature "Volunteer" do
       fill_in 'Address', with: '3a New Street'
       click_button 'Update Volunteer'
       expect(page).to have_content '3a New Street'
+    end
+
+    it "should render the edit template again if the volunteer is not updated" do
+      click_link 'Edit'
+      fill_in 'First name', with: ''
+      click_button 'Update Volunteer'
+      expect(page).to have_content '1 error prohibited this volunteer from being saved'
     end
 
     it "An admin should be able to delete volunteers details" do
@@ -110,7 +124,6 @@ feature "Volunteer" do
       build_text(vol1, 'Yes I can help today')
       visit texts_path
       click_link 'Available'
-      save_and_open_page
       expect(page.find('.available')).to have_link('Josh')
       expect(vol1.reload.availability).to be true
     end
