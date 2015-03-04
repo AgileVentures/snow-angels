@@ -1,0 +1,9 @@
+<li class='task-box'>
+  <span class='client-request'>
+    <strong><%= task.volunteer %></strong> is performing a task for <strong><%= task.client.name %> <%= task.client.last_name %></strong> 
+  </span>
+  <strong><%= task.task_type %></strong>
+  <em><%= task.description %></em>
+  <%= link_to "View this task", match_path(task), class: 'match-btn' %>
+  <%= render 'partials/status_bar', task: task %>
+</li>   

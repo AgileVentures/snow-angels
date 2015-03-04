@@ -11,7 +11,7 @@ body {
 }
 
 header {
-  background-color: #000;
+  background-color: #1d2935;
   width: 100%;
   padding: 1em;
   border-bottom: 4px solid #2980b9;
@@ -235,3 +235,57 @@ td {
   text-align: center;
 }
 
+/* ----------------
+    DASHBOARD
+----------------*/
+
+.center {
+  text-align: center;
+}
+
+.task-box {
+  background-color: #fcfcfc;
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid #cad5d8;
+  border-radius: 3px;
+  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.client-request {
+  display: block;
+  font-size: 1.2em;
+  color: #2980b9;
+  margin-bottom: 0.4em;
+}
+
+.match-btn {
+  float: right;
+  background-color: #c0392b;
+  margin-top: -1.7em;
+  text-decoration: none;
+  padding: 0.7em;
+  border-radius: 5px;
+  color: white;
+}
+
+.match-btn:hover {
+  background-color: #b03021;
+}
+
+.status-bar {
+  margin-top: 1em;
+  text-align: justify;
+}
+
+.status {
+  font-size: 0.9em;
+  color: #c9c9c9;
+  max-width: 4em;
+}
+
+.true {
+  color: black;
+}

@@ -17,4 +17,8 @@ class Task < ActiveRecord::Base
     location[0].longitude
   end
 
+  def volunteer
+    Volunteer.find(self.volunteer_id).name
+  end
+
 end
