@@ -4,7 +4,7 @@
   <% @today_texts.each do |text| %>
     <% if text.volunteer.availability.nil? %>
       <p>
-        <%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %>
+        <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
         <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
         <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
       </p>
@@ -18,7 +18,7 @@
       <% @today_texts.each do |text| %>
         <% if text.volunteer.availability %>
           <p>
-            <%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %>
+            <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
             <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
           </p>
         <% end %>
@@ -30,7 +30,7 @@
       <% @today_texts.each do |text| %>
         <% if text.volunteer.availability == false %>
           <p>
-            <%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %>
+            <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
             <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
           </p>
         <% end %>
