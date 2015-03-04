@@ -297,14 +297,32 @@ td {
   text-align: justify;
 }
 
+.status-bar li {
+  display: inline;
+  padding: 1em;
+  width: 2em;
+  
+}
+
 .status {
   font-size: 0.9em;
   color: #c9c9c9;
-  max-width: 4em;
 }
 
 .true {
   color: black;
+}
+
+.completed, .completed .client-request {
+  color: gray;
+}
+
+.completed .match-btn {
+  background-color: gray;
+}
+
+.completed .match-btn:hover {
+  background-color: #696969;
 }
 
 .availability-header {
@@ -321,3 +339,4 @@ td {
   line-height: 20px;
   text-align: center;
 }
+
