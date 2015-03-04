@@ -1,0 +1,28 @@
+<h1>View Admin</h1>
+
+<% if @admin.any? %>
+  <table>
+    <tr>
+      <th>Last name</th>
+      <th>First name</th>
+      <th>Address</th>
+      <th>Postcode</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  <% @admin.each do |admin| %>
+    <tr>
+      <td><%= admin.first_name %></td>
+      <td><%= admin.last_name %></td>
+      <td><%= admin.address %></td>
+      <td><%= admin.post_code %></td>
+      <td><%= admin.mobile %></td>
+      <td><%= admin.email %></td>
+      <td class="icon"><%= link_to image_tag('Edit.png'), edit_admin_registration_path(admin) %></td>
+      <td class="icon"><%= link_to image_tag('Delete.png'), admin_path(admin), method: :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>

@@ -30,8 +30,8 @@ Rails.application.routes.draw do
   get 'settings/emails/list' => 'settings#email', as: 'email_list_settings'
   get 'match/:id' => 'match_task_volunteers#match', as: 'match'
   post 'match_one_volunteer/:id/:volunteer' => 'tasks#match_one_volunteer', as: 'match_one_volunteer'
-
-
+  # get 'admins' => 'admins#index'
+  resources :admins
 
 
   # The priority is based upon order of creation: first created -> highest priority.
