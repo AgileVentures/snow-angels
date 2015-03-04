@@ -1,23 +1,3 @@
-<h1>Task Summary</h1>
-
-<section class='left-task'>
-  <p>Client name: <span id="client-name"><%= @task.client.name %></span> <%= @task.client.last_name %></p>
-  <p>Client phone number: <%= @task.client.phone %></p>
-  <p>Task type: <%= @task.task_type %></p>
-  <p>Description: <%= @task.description %></p>
-
-  <%= render 'partials/hidden_fields', task: @task, match_one: @match_one, match_two: @match_two %>
-
-  <div id="multi_markers" style='width: 100%; height: 400px;'></div>
-
-</section>
-
-
-<section class='right-task'>
-<p>HELLO!</p>
-</section>
-
-<script>
 var client_lat = document.getElementById('lat').value;
 var client_long = document.getElementById('long').value;
 var client_name = document.getElementById('client-name').innerText;
@@ -42,5 +22,3 @@ var markers = handler.addMarkers([
 handler.bounds.extendWith(markers);
 handler.fitMapToBounds();
 });
-</script>
-
