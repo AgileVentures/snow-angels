@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://ACe94c38cd7e944a52ee540da470657124:a3bab6b3920e3403b562c898fa3ce671@api.twilio.com/2010-04-01/Accounts/ACe94c38cd7e944a52ee540da470657124/Messages.json
+    body:
+      encoding: US-ASCII
+      string: Body=It%27s+awful+weather%21+Are+you+available+to+help+today%3F+Snow+Angels&To=%2B447450267998&From=%2B441963602029
+    headers:
+      Accept:
+      - application/json
+      Accept-Charset:
+      - utf-8
+      User-Agent:
+      - twilio-ruby/3.15.1 (ruby/x86_64-darwin14.0 2.1.3-p242)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 05 Mar 2015 17:28:20 GMT
+      X-Powered-By:
+      - AT-5000
+      X-Shenanigans:
+      - none
+      Content-Length:
+      - '799'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"sid": "SM793ae4180cd94193b5ffcd85c0ace8ca", "date_created": "Thu,
+        05 Mar 2015 17:28:19 +0000", "date_updated": "Thu, 05 Mar 2015 17:28:19 +0000",
+        "date_sent": null, "account_sid": "ACe94c38cd7e944a52ee540da470657124", "to":
+        "+447450267998", "from": "+441963602029", "body": "It''s awful weather! Are
+        you available to help today? Snow Angels", "status": "queued", "num_segments":
+        "1", "num_media": "0", "direction": "outbound-api", "api_version": "2010-04-01",
+        "price": null, "price_unit": "USD", "error_code": null, "error_message": null,
+        "uri": "/2010-04-01/Accounts/ACe94c38cd7e944a52ee540da470657124/Messages/SM793ae4180cd94193b5ffcd85c0ace8ca.json",
+        "subresource_uris": {"media": "/2010-04-01/Accounts/ACe94c38cd7e944a52ee540da470657124/Messages/SM793ae4180cd94193b5ffcd85c0ace8ca/Media.json"}}'
+    http_version: 
+  recorded_at: Thu, 05 Mar 2015 17:28:19 GMT
+recorded_with: VCR 2.9.3
