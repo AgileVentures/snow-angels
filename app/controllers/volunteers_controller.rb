@@ -24,11 +24,7 @@ class VolunteersController < ApplicationController
       render 'new'
     end
   end
-
-  def show
-    @volunteer = Volunteer.find(params[:id])
-  end
-
+  
   def edit
     @volunteer = Volunteer.find(params[:id])
   end

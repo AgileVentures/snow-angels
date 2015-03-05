@@ -16,27 +16,18 @@
 <body>
 
   <header>
-    <span id='logo'><%= link_to "Horsell Snow Angels", pages_path %> </span>
-    <% if !admin_signed_in? %>
-      <%= link_to "Sign in", new_admin_session_path, class: 'login_logout_btn' %>
-    <% else %>
-      <%= link_to "Sign out", destroy_admin_session_path, method: :delete, class: "login_logout_btn" %>
-     <% end %>
+    <%= render 'layouts/header' %>
   </header>
 
   <% if admin_signed_in? %>
-
     <%= render 'partials/nav' %>
-
   <% end %>
 
-  <section class='container'>
+  <section class='page-wrap container'>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </section>
-
-  <%= render 'layouts/footer' %>
 
 </body>
 </html>

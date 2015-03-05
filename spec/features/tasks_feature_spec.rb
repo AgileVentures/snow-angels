@@ -38,4 +38,20 @@ feature 'tasks' do
 
   end
 
+  context 'Asign a task' do
+
+    scenario 'When a volunteer is choosen, his availability changes to false' do
+      admin_sign_in
+      volunteer_one = add_volunteer('Josh', 'Testone', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', 'true')
+      volunteer_two = add_volunteer('Steph', 'Testtwo', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', 'true')
+      volunteer_three = add_volunteer('Bibiana', 'Testthree', 'one@test.com', '123 Fake Street', 'EC1 2DR', '+447791234567', 'true')
+      add_client('Tom', 'Smith', 'Makers', 'E1 2SF', '07450991234')
+      create_task
+      click_button 'Testone'
+      expect(volunteer_one.reload.availability).to be false
+      expect(current_path).to eq pages_path
+    end
+
+  end
+
 end
