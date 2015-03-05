@@ -904,6 +904,8 @@
       "/Users/joshbebbington/Desktop/final-projects/app/models/text.rb": [
         1,
         1,
+        6,
+        6,
         null,
         1,
         0,
@@ -926,7 +928,6 @@
         5,
         5,
         5,
-        null,
         null,
         null,
         1,
@@ -1029,7 +1030,6 @@
         null
       ]
     },
-
-    "timestamp": 1425556864
+    "timestamp": 1425577551
   }
 }
