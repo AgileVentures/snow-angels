@@ -3,10 +3,9 @@ class TextsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    time_now = Time.now
-    @old_texts = Text.where("created_at < ?", time_now.beginning_of_day())
-    @today_texts = Text.where("created_at >= ?", time_now.beginning_of_day())
-
+    @old_texts = Text.old_texts
+    @todays_texts = Text.todays_texts
+    @volunteers = Volunteer.all
   end
 
   def create

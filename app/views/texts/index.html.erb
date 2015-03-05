@@ -1,59 +1,44 @@
-<% if @today_texts.any? %>
-
-  <h2 class="pending-archive"> Pending </h2>
-  <% @today_texts.each do |text| %>
-    <% if text.volunteer.availability.nil? %>
-      <p>
-        <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
-        <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
-        <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
-      </p>
+<section class='col' id='pending'>
+  <ul class='texts'>
+    <%= @todays_texts.each do |text| %>
+      <% if text.volunteer.availability.nil? %>
+        <li><%= text.inspect %></li>
+      <% end %>
     <% end %>
-  <% end %>
+  </ul>
+</section>
 
-<table class="availability">
-  <tr>
-    <td class="available">
-      <h2 class="availability-header"> Available </h2>
-      <% @today_texts.each do |text| %>
-        <% if text.volunteer.availability %>
-          <p>
-            <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
-            <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
-          </p>
+<section class='col' id='available'>
+  <ul class='texts'>
+    <% @volunteers.each do |volunteer| %>
+      <% if volunteer.availability == true %>
+        <% volunteer.texts.each do |text| %>
+          <%= text.body %>
         <% end %>
       <% end %>
-    </td>
+    <% end %>
+  </ul>
+</section>
 
-    <td class="unavailable">
-      <h2 class="availability-header"> Not Available </h2>
-      <% @today_texts.each do |text| %>
-        <% if text.volunteer.availability == false %>
-          <p>
-            <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
-            <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
-          </p>
+<section class='col' id='unavailable'>
+  <ul class='texts'>
+    <% @volunteers.each do |volunteer| %>
+      <% if volunteer.availability == false %>
+        <% volunteer.texts.each do |text| %>
+          <%= text.body %>
         <% end %>
       <% end %>
-    </td>
-  </tr>
-</table>
-
-<% end %>
-
-
-<% if @old_texts.any? %>
-
-  <h2 class="pending-archive"> Archive </h2>
-  <% @old_texts.each do |text| %>
-    <% if text.volunteer.nil? %>
-      <p class="pending-archive-item"><%= text.number %> | <%= text.body %></p>
-    <% else %>
-      <p class="pending-archive-item"><%= text.volunteer.name %> <%= text.volunteer.last_name %> - <%= text.body %></p>
     <% end %>
-  <% end %>
-<% end %>
+  </ul>
+</section>
 
+<section class='col' id='archive'>
+  <ul class='texts'>
+    <%= @old_texts.each do |text| %>
+      <li><%= text.inspect %></li>
+    <% end %>
+  </ul>
+</section>
 
 
 <script type="text/javascript">
@@ -63,4 +48,3 @@
         window.location = location.href;
     }
 </script>
-
