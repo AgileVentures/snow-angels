@@ -10,12 +10,12 @@ class Task < ActiveRecord::Base
 
   def geocoder_lat(post_code)
     location = Geocoder.search(post_code)
-    location[0].latitude
+    location[0].latitude unless location.empty?
   end
 
   def geocoder_long(post_code)
     location = Geocoder.search(post_code)
-    location[0].longitude
+    location[0].longitude unless location.empty?
   end
 
   def volunteer

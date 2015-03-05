@@ -33,6 +33,10 @@ Rails.application.routes.draw do
   # get 'admins' => 'admins#index'
   resources :admins
 
+  put 'client_called/:id' => 'tasks#client_called', as: 'client_called'
+
+  put 'task_completed/:id' => 'tasks#task_completed', as: 'task_completed'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
