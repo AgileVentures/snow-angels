@@ -10,7 +10,7 @@
   </section>
 
   <section class='btns'>
-    <%= button_to "Assign Volunteer", match_one_volunteer_path(@task, volunteer), class: 'red-btn' %>
+    <%= button_to "Assign Volunteer", match_one_volunteer_path(@task, volunteer), class: 'red-btn', id: volunteer.last_name %>
     <%= form_tag volunteer_text_path(volunteer), :id => volunteer.name do %>
       <%= text_field_tag :custom_body %>
       <p><%= submit_tag "Send text", class: 'red-btn' %></p>
