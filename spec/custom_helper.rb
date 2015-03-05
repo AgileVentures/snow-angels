@@ -39,3 +39,11 @@ end
 def build_text(volunteer, body)
   Text.create(number: '+447791234567', body: body, volunteer_id: volunteer.id)
 end
+
+def create_task
+ visit '/'
+ click_link 'View client'
+ click_on 'icon_add_task'
+ select 'Shopping', from: 'Task type'
+ click_button 'Create Task'
+end
