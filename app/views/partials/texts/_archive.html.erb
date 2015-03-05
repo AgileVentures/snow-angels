@@ -1,0 +1,12 @@
+<section class='col' id='archive'>
+  <ul class='texts'>
+    <h3>ARCHIVED</h3>
+    <% if old_texts %>
+      <%= old_texts.each do |text| %>
+        <li class='box full-width'>
+          <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</section>
