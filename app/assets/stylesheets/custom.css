@@ -335,3 +335,16 @@ td {
   text-align: center;
 }
 
+.sms_all_volunteers #custom_body {
+  width: 20%;
+  padding: 3px;
+}
+
+.sms_all_volunteers input[type="submit"]{
+  background-color: #2980b9;
+  border: none;
+  color: #fff;
+  padding: 4px;
+  margin-top: 10px;
+}
+
