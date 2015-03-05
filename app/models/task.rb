@@ -31,4 +31,22 @@ class Task < ActiveRecord::Base
     @volunteer.save
   end
 
+  def self.set_match_one
+    unless MatchTaskVolunteer.first == nil
+      Volunteer.find(MatchTaskVolunteer.first.volunteer_id)
+    end
+  end
+
+  def self.set_match_two
+    unless MatchTaskVolunteer.second == nil
+      Volunteer.find(MatchTaskVolunteer.second.volunteer_id)
+    end
+  end
+
+  def self.set_match_three
+    unless MatchTaskVolunteer.third == nil
+      Volunteer.find(MatchTaskVolunteer.third.volunteer_id)
+    end
+  end
+
 end

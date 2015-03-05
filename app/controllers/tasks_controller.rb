@@ -35,15 +35,9 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    unless MatchTaskVolunteer.first == nil
-      @match_one = Volunteer.find(MatchTaskVolunteer.first.volunteer_id)
-    end
-    unless MatchTaskVolunteer.second == nil
-    @match_two = Volunteer.find(MatchTaskVolunteer.second.volunteer_id)
-    end
-    unless MatchTaskVolunteer.third == nil
-    @match_three = Volunteer.find(MatchTaskVolunteer.third.volunteer_id)
-    end
+    @match_one = Task.set_match_one
+    @match_two = Task.set_match_two
+    @match_three = Task.set_match_three
     @volunteers = [@match_one, @match_two, @match_three]
   end
 
