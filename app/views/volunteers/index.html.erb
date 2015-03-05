@@ -8,8 +8,8 @@
   <% if @volunteer.any? %>
     <table>
       <tr>
-        <th>Last name</th>
         <th>First name</th>
+        <th>Last name</th>
         <th>DBS Checked</th>
         <th>Address</th>
         <th>Postcode</th>
@@ -25,9 +25,9 @@
       </tr>
     <% @volunteer.each do |volunteer| %>
       <tr>
-        <td><%= volunteer.last_name %></td>
         <td><%= volunteer.name %></td>
-        <td><%= volunteer.dbs %></td>
+        <td><%= volunteer.last_name %></td>
+        <td><%= tick_or_cross volunteer.dbs %></td>
         <td class="address"><%= volunteer.address %></td>
         <td><%= volunteer.post_code %></td>
         <td><%= volunteer.mobile_number %></td>
