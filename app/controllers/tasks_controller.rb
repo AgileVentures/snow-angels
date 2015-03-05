@@ -35,12 +35,37 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    @match_one = Volunteer.find(MatchTaskVolunteer.first.volunteer_id)
+    unless MatchTaskVolunteer.first == nil
+      @match_one = Volunteer.find(MatchTaskVolunteer.first.volunteer_id)
+    end
+    unless MatchTaskVolunteer.second == nil
     @match_two = Volunteer.find(MatchTaskVolunteer.second.volunteer_id)
+    end
+    unless MatchTaskVolunteer.third == nil
     @match_three = Volunteer.find(MatchTaskVolunteer.third.volunteer_id)
+    end
     @volunteers = [@match_one, @match_two, @match_three]
   end
 
+  def client_called
+    @task = Task.find(params[:id])
+    if @task.volunteer_id != nil
+      @task.update(called_client: true)
+      redirect_to pages_path
+    else
+      redirect_to pages_path
+    end
+  end
+
+  def task_completed
+    @task = Task.find(params[:id])
+    if @task.volunteer_id != nil
+      @task.update(task_done: true)
+      redirect_to pages_path
+    else
+      redirect_to pages_path
+    end
+  end
 
   def task_params
     params.require(:task).permit(:volunteer_text_confirmed, :called_client, :task_done,

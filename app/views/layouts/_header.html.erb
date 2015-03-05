@@ -1,4 +1,9 @@
-<span id='snowflake'><%= image_tag 'snowflake40.png' %></span><span id='logo'><%= link_to "Horsell Snow Angels", pages_path %> </span>
+<span id='snowflake'>
+  <%= image_tag 'snowflake50.png' %>
+</span>
+<span id='logo'>
+  <%= link_to "Horsell Snow Angels", pages_path %> </span>
+
 <% if !admin_signed_in? %>
   <%= link_to "Sign in", new_admin_session_path, class: 'login_logout_btn' %>
 <% else %>

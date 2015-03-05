@@ -277,6 +277,10 @@ td {
   margin-bottom: 0.4em;
 }
 
+.central-section {
+  width: 100%;
+  padding: 0.7em;}
+
 .match-btn {
   float: right;
   background-color: #c0392b;
@@ -337,5 +341,18 @@ td {
 .pending-archive-item {
   line-height: 20px;
   text-align: center;
+}
+
+.sms_all_volunteers #custom_body {
+  width: 20%;
+  padding: 3px;
+}
+
+.sms_all_volunteers input[type="submit"]{
+  background-color: #2980b9;
+  border: none;
+  color: #fff;
+  padding: 4px;
+  margin-top: 10px;
 }
 

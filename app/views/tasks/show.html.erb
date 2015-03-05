@@ -6,7 +6,7 @@
   <p>&nbsp;</p>
   <%= render 'partials/show_task', task: @task %>
 
-  <%= render 'partials/hidden_fields', task: @task, match_one: @match_one, match_two: @match_two %>
+  <%= render 'partials/hidden_fields', task: @task, match_one: @match_one, match_two: @match_two, match_three: @match_three %>
 
   <div id="multi_markers" style='width: 100%; height: 400px;'></div>
 
@@ -33,6 +33,9 @@ var v_name_one = document.getElementById('v-name-one').value;
 var v_lat_two = document.getElementById('v-lat-two').value;
 var v_long_two = document.getElementById('v-long-two').value;
 var v_name_two = document.getElementById('v-name-two').value;
+var v_lat_three = document.getElementById('v-lat-three').value;
+var v_long_three = document.getElementById('v-long-three').value;
+var v_name_three = document.getElementById('v-name-three').value;
 
 var handler = Gmaps.build('Google');
 handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
@@ -43,7 +46,8 @@ var markers = handler.addMarkers([
           "height": 36 },
   infowindow: client_name },
 { lat: v_lat_one, lng: v_long_one, infowindow: v_name_one },
-{ lat: v_lat_two, lng: v_long_two, infowindow: v_name_two }
+{ lat: v_lat_two, lng: v_long_two, infowindow: v_name_two },
+{ lat: v_lat_three, lng: v_long_three, infowindow: v_name_three }
 ]);
 handler.bounds.extendWith(markers);
 handler.fitMapToBounds();

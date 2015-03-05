@@ -1,8 +1,17 @@
 <input type="hidden" id="lat" value=<%= task.geocoder_lat(task.client.postcode) %>>
 <input type="hidden" id="long" value=<%= task.geocoder_long(task.client.postcode) %>>
+<% if match_one %>
 <input type="hidden" id="v-lat-one" value=<%= task.geocoder_lat(match_one.post_code) %>>
 <input type="hidden" id="v-long-one" value=<%= task.geocoder_long(match_one.post_code) %>>
 <input type="hidden" id="v-name-one" value=<%= match_one.name %>>
+<% end %>
+<% if match_two %>
 <input type="hidden" id="v-lat-two" value=<%= task.geocoder_lat(match_two.post_code) %>>
 <input type="hidden" id="v-long-two" value=<%= task.geocoder_long(match_two.post_code) %>>
 <input type="hidden" id="v-name-two" value=<%= match_two.name %>>
+<% end %>
+<% if match_three %>
+<input type="hidden" id="v-lat-three" value=<%= task.geocoder_lat(match_three.post_code) %>>
+<input type="hidden" id="v-long-three" value=<%= task.geocoder_long(match_three.post_code) %>>
+<input type="hidden" id="v-name-three" value=<%= match_three.name %>>
+<% end %>

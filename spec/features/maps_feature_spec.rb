@@ -12,11 +12,13 @@ feature 'maps' do
     end
 
     scenario 'has a map displayed' do
-      click_on 'icon_add_task'
-      select 'Shopping', from: 'Task type'
-      fill_in 'Description', with: 'Bread'
-      click_button 'Create Task'
-      expect(page).to have_css('#multi_markers', :visible => true)
+      VCR.use_cassette "display map" do
+        click_on 'icon_add_task'
+        select 'Shopping', from: 'Task type'
+        fill_in 'Description', with: 'Bread'
+        click_button 'Create Task'
+        expect(page).to have_css('#multi_markers', :visible => true)
+      end
     end
   end
 end
