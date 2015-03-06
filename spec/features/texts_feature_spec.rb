@@ -15,7 +15,7 @@ feature 'Text Management' do
   end
 
   context 'Sending texts to volunteers' do
-    scenario 'Should be able to send a text to all volunteers' do
+    xscenario 'Should be able to send a text to all volunteers' do
       VCR.use_cassette "send texts" do
         add_volunteer('Josh', 'Test', 'one@test.com', 'XYZ', 'EC1 2DR', '+447450267998', nil)
         visit pages_path
@@ -26,7 +26,7 @@ feature 'Text Management' do
       end
     end
 
-    scenario 'Should be able to send a text to a match volunteer' do
+    xscenario 'Should be able to send a text to a match volunteer' do
       VCR.use_cassette "send an individual text" do
         add_volunteer('Josh', 'Test', 'one@test.com', 'XYZ', 'EC1 2DR', '+447450267998', true)
         add_volunteer('Steph', 'Test', 'one@test.com', 'XYZ', 'EC1 2DR', '+447450267997', true)

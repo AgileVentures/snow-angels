@@ -1,19 +1,20 @@
 class TasksController < ApplicationController
 
   before_action :authenticate_admin!
+  before_action only: [:new, :create] { @client = find_client(params) }
+  before_action only: [:update, :show, :client_called, :task_completed] { @task = find_task(params) }
+
   def index
     @tasks = Task.all
   end
 
   def new
-    @client = Client.find(params[:id])
     @task = Task.new
   end
 
   def create
-    client = Client.find(params[:id])
     @task = Task.new(task_params)
-    @task.client = client
+    @task.client = @client
     if @task.save
       redirect_to match_path(@task)
       flash[:notice] = 'Task successfully added'
@@ -23,7 +24,6 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(params[:id])
     @task.update(task_params)
     redirect_to pages_path
   end
@@ -34,7 +34,6 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
     @match_one = Task.set_match_one
     @match_two = Task.set_match_two
     @match_three = Task.set_match_three
@@ -42,7 +41,6 @@ class TasksController < ApplicationController
   end
 
   def client_called
-    @task = Task.find(params[:id])
     if @task.volunteer_id != nil
       @task.update(called_client: true)
       redirect_to pages_path
@@ -52,7 +50,6 @@ class TasksController < ApplicationController
   end
 
   def task_completed
-    @task = Task.find(params[:id])
     if @task.volunteer_id != nil
       @task.update(task_done: true)
       redirect_to pages_path
@@ -61,9 +58,19 @@ class TasksController < ApplicationController
     end
   end
 
+  private
+
   def task_params
-    params.require(:task).permit(:volunteer_text_confirmed, :called_client, :task_done,
-                                 :task_type, :description)
+    params.require(:task).permit(:volunteer_text_confirmed, :called_client,
+                                 :task_done, :task_type, :description)
+  end
+
+  def find_client(params)
+    Client.find(params[:id])
+  end
+
+  def find_task(params)
+    Task.find(params[:id])
   end
 
 end

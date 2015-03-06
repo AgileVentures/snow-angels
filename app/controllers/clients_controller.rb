@@ -1,6 +1,8 @@
 class ClientsController < ApplicationController
 
   before_action :authenticate_admin!
+  before_action only: [:edit, :update, :destroy] { @client = find_client(params) }
+
   def index
     if params[:search]
       @clients = Client.search(params[:search]).ordered_by_last_name
@@ -24,11 +26,9 @@ class ClientsController < ApplicationController
   end
 
   def edit
-    @client = Client.find(params[:id])
   end
 
   def update
-    @client = Client.find(params[:id])
     if @client.update(client_params)
       redirect_to pages_path
     else
@@ -37,7 +37,6 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-    @client = Client.find(params[:id])
     @client.destroy
     flash[:notice] = 'Client deleted successfully'
     redirect_to pages_path
@@ -47,6 +46,10 @@ class ClientsController < ApplicationController
 
   def client_params
     params.require(:client).permit(:name, :last_name, :address, :postcode, :phone)
+  end
+
+  def find_client(params)
+    Client.find(params[:id])
   end
 
 end
