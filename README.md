@@ -52,6 +52,7 @@ Our task for our final project at Makers Academy was to automate the process for
   - Then you will be in vi in control mode
   - To switch to insert mode, press i
   - `@midnight cd PROGRAM_PATH && bin/rails runner "ResetVolunteerAvailability.reset"`
+    - To find the path of the program, do `$pwd` 
   - Press Esc to go back to control mode
   - `:wq`
   - To set up an email to receive notifications if the job fails or produces any output: `MAILTO=Computer_username`
