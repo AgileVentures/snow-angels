@@ -1,0 +1,14 @@
+<section class='col' id='pending'>
+  <h3>PENDING</h3>
+  <ul class='texts'>
+    <% todays_texts.each do |text| %>
+      <% if text.volunteer.availability.nil? %>
+        <li class='box full-width'>
+          <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
+        <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
+        <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+</section>

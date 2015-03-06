@@ -2,59 +2,14 @@
 <p class='center'><em>Use this page to triage and manage the availability of volunteers on a snow day</em></p>
 
 <% if @todays_texts.any? %>
-  <section class='col' id='pending'>
-    <h3>PENDING</h3>
-    <ul class='texts'>
-      <% @todays_texts.each do |text| %>
-        <% if text.volunteer.availability.nil? %>
-          <li class='box full-width'>
-            <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
-          <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
-          <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
-        </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </section>
+  <%= render 'partials/texts/pending', todays_texts: @todays_texts %>
 
-  <section class='col' id='available'>
-    <h3>AVAILABLE</h3>
-    <ul class='texts available'>
-      <% @todays_texts.each do |text| %>
-        <% if text.volunteer.availability %>
-          <li class='box full-width'>
-            <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
-            <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </section>
+  <%= render 'partials/texts/available', todays_texts: @todays_texts %>
 
-  <section class='col' id='unavailable'>
-    <h3>UNAVAILABLE</h3>
-    <ul class='texts'>
-      <% @todays_texts.each do |text| %>
-        <% if text.volunteer.availability == false %>
-          <li class='box full-width unavailable'>
-            <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
-            <%= link_to "Available", available_volunteer_path(text.volunteer) %> 
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </section>
-
+  <%= render 'partials/texts/unavailable', todays_texts: @todays_texts %>
 <% end %>
 
-  <section class='col' id='archive'>
-    <ul class='texts'>
-      <h3>ARCHIVED</h3>
-      <%= @old_texts.each do |text| %>
-        <li><%= text.inspect %></li>
-      <% end %>
-    </ul>
-  </section>
+<%= render 'partials/texts/archive', old_texts: @old_texts %>
 
 
 <script type="text/javascript">

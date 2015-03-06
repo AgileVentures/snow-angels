@@ -1,0 +1,13 @@
+<section class='col' id='available'>
+  <h3>AVAILABLE</h3>
+  <ul class='texts available'>
+    <% @todays_texts.each do |text| %>
+      <% if text.volunteer.availability %>
+        <li class='box full-width'>
+          <%= link_to text.volunteer.name, volunteers_path %> <%= text.volunteer.last_name %> - <%= text.body %>
+          <%= link_to "Not Available", unavailable_volunteer_path(text.volunteer) %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</section>

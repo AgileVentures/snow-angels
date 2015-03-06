@@ -1,6 +1,7 @@
 class VolunteersController < ApplicationController
 
   before_action :authenticate_admin!, except: [:new, :create]
+  before_action except: [:index, :new, :create] { @volunteer = find_volunteer(params) }
 
   def index
     if params[:search]
@@ -26,11 +27,9 @@ class VolunteersController < ApplicationController
   end
   
   def edit
-    @volunteer = Volunteer.find(params[:id])
   end
 
   def update
-    @volunteer = Volunteer.find(params[:id])
     if @volunteer.update(volunteer_params)
       redirect_to volunteers_path
     else
@@ -39,20 +38,17 @@ class VolunteersController < ApplicationController
   end
 
   def destroy
-    @volunteer = Volunteer.find(params[:id])
     @volunteer.destroy
     flash[:notice] = "The volunteer has been deleted"
     redirect_to volunteers_path
   end
 
   def available
-    @volunteer = Volunteer.find(params[:id])
     @volunteer.update(availability: true)
     redirect_to texts_path
   end
 
   def unavailable
-    @volunteer = Volunteer.find(params[:id])
     @volunteer.update(availability: false)
     redirect_to texts_path
   end
@@ -61,6 +57,10 @@ class VolunteersController < ApplicationController
 
   def volunteer_params
     params.require(:volunteer).permit(:name, :last_name, :address, :post_code, :mobile_number, :email, :shopping, :prescription_collection, :snow_clearance, :grit_spreading, :dog_walking, :dbs)
+  end
+
+  def find_volunteer(params)
+    Volunteer.find(params[:id])
   end
 
 end
