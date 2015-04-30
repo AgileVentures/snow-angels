@@ -4,7 +4,7 @@ feature 'Text Management' do
 
   context 'Receiving texts from volunteers' do
     scenario 'Should list all received texts' do
-      VCR.use_cassette "receive texts", :match_requests_on => [:method, :host] do
+      VCR.use_cassette "receive texts" do
         vol = add_volunteer('Josh', 'Test', 'one@test.com', 'XYZ', 'EC1 2DR', '+447791234567', nil)
         build_text(vol, 'Yes I can help today')
         visit texts_path
@@ -16,7 +16,7 @@ feature 'Text Management' do
 
   context 'Sending texts to volunteers' do
     scenario 'Should be able to send a text to all volunteers' do
-      VCR.use_cassette "send texts", :match_requests_on => [:method, :host] do
+      VCR.use_cassette "send texts" do
         add_volunteer('Josh', 'Test', 'one@test.com', 'XYZ', 'EC1 2DR', '+447450267998', nil)
         visit pages_path
         fill_in 'custom_body', with: "It's awful weather! Are you available to help today? Snow Angels"
@@ -27,7 +27,7 @@ feature 'Text Management' do
     end
 
     scenario 'Should be able to send a text to a match volunteer' do
-      VCR.use_cassette "send an individual text", :match_requests_on => [:method, :host] do
+      VCR.use_cassette "send an individual text" do
         add_volunteer('Josh', 'Test', 'one@test.com', 'XYZ', 'EC1 2DR', '+447450267998', true)
         add_volunteer('Steph', 'Test', 'one@test.com', 'XYZ', 'EC1 2DR', '+447450267997', true)
         add_volunteer('Bibiana', 'Test', 'one@test.com', 'XYZ', 'EC1 2DR', '+447450267996', true)
