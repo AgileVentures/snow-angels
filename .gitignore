@@ -13,3 +13,4 @@
 /tmp
 .DS_Store
 /spec/fixtures/vcr_cassettes/*
+.env

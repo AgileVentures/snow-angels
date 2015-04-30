@@ -52,6 +52,8 @@ group :development, :test do
 
   gem 'webmock'
 
+  gem 'dotenv-rails'
+
 end
 
 group :test do
